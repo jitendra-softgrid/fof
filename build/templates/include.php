@@ -2,7 +2,7 @@
 /**
  *  @package     FrameworkOnFramework
  *  @subpackage  include
- *  @copyright   Copyright (C) 2010-2015 Nicholas K. Dionysopoulos
+ *  @copyright   Copyright (C) 2010-2017 Nicholas K. Dionysopoulos
  *  @license     GNU General Public License version 2, or later
  *
  *  Initializes F0F
