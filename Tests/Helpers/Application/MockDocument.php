@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -30,16 +30,12 @@ class MockDocument
 		);
 
 		// Create the mock.
-		$mockObject = $test->getMock(
-			'\JDocument',
-			$methods,
-			// Constructor arguments.
-			array(),
-			// Mock class name.
-			'',
-			// Call original constructor.
-			false
-		);
+		$mockObject = $test->getMockBuilder('\JDocument')
+			->setMethods($methods)
+			->setConstructorArgs(array())
+			->setMockClassName('')
+			->disableOriginalConstructor()
+			->getMock();
 
 		// Mock selected methods.
 		$test->assignMockReturns(

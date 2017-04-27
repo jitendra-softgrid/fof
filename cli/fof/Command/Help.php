@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2015 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -19,6 +19,7 @@ class Help extends Command
 		$this->out("fof init: Initialize a component");
         $this->out("fof setdevserver: Set the dev server location");
         $this->out("fof help: Show this help");
+        $this->out("fof language: Generates the language files for the component");
         $this->out("fof generate --name <viewName> --controller [--frontend]: Generate the controller for the <viewName> view");
         $this->out("fof generate --name <viewName> --model [--frontend]: Generate the model for the <viewName> view");
         $this->out("fof generate --name <viewName> --view [--frontend]: Generate the view for the <viewName> view");

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -1103,6 +1103,7 @@ class Controller
 		// If it's a &notation return the callback result
 		if (substr($area, 0, 1) == '&')
 		{
+			$oldAreas[] = $area;
 			$method = substr($area, 1);
 
 			// Method not found? Assume true.
@@ -1111,7 +1112,9 @@ class Controller
 				return true;
 			}
 
-			return $this->$method();
+			$area = $this->$method();
+
+			return $this->getACLRuleFor($area, $oldAreas);
 		}
 
 		// If it's not an @notation return the raw string
@@ -1126,7 +1129,12 @@ class Controller
 		// If the referenced task has no ACL map, return true
 		if (!isset($this->taskPrivileges[$index]))
 		{
-			return true;
+			$index = strtolower($index);
+
+			if (!isset($this->taskPrivileges[$index]))
+			{
+				return true;
+			}
 		}
 
 		// Get the new ACL area

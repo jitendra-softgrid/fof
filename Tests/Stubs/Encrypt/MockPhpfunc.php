@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -19,6 +19,8 @@ class MockPhpfunc extends Phpfunc
 	protected $mcrypt_algorithms = null;
 
 	protected $hash_algorithms = null;
+
+	protected $openssl_algorithms = null;
 
 	public function __construct()
 	{
@@ -38,6 +40,11 @@ class MockPhpfunc extends Phpfunc
 	public function setMcryptAlgorithms($algos)
 	{
 		$this->mcrypt_algorithms = $algos;
+	}
+
+	public function setOpenSSLAlgorithms($algos)
+	{
+		$this->openssl_algorithms = $algos;
 	}
 
 	public function setHashAlgorithms($algos)
@@ -80,6 +87,20 @@ class MockPhpfunc extends Phpfunc
 
 		// for testing
 		return $this->mcrypt_algorithms;
+	}
+
+	public function openssl_get_cipher_methods()
+	{
+		// for parent coverage
+		$result = $this->__call('openssl_get_cipher_methods', array());
+
+		if (is_null($this->openssl_algorithms))
+		{
+			return $result;
+		}
+
+		// for testing
+		return $this->openssl_algorithms;
 	}
 
 	public function hash_algos()

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -118,7 +118,10 @@ class Dispatcher
 		$this->container->platform->loadTranslations($this->container->componentName);
 
 		// Perform transparent authentication
-		$this->transparentAuthenticationLogin();
+		if ($this->container->platform->getUser()->guest)
+		{
+			$this->transparentAuthenticationLogin();
+		}
 
 		// Get the event names (different for CLI)
 		$onBeforeEventName = 'onBeforeDispatch';

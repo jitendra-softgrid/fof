@@ -5,10 +5,8 @@
 .idea/
 
 /build/bin
-/build/build.properties
 /build/buildlang
 /build/phingext
-/build/templates/release*
 /build/tools
 
 /cli/fof.phar
@@ -23,10 +21,6 @@
 
 /release/*.zip
 
-/strapper/version.txt
-/strapper/files_strapper.xml
-/strapper/akeeba_strapper/version.php
-
 /Tests/environments/
 /Tests/coverage
 /Tests/config.php
@@ -34,7 +28,4 @@
 
 /vendor/*
 
-
-DESCRIPTION.html
-RELEASENOTES.html
 Tests/coverage

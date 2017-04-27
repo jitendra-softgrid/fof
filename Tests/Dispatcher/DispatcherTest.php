@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -154,8 +154,10 @@ class DispatcherTest extends FOFTestCase
         $platform = $container->platform;
         $platform::$isCli = $test['mock']['isCli'];
 
-        $dispatcher = $this->getMock('FOF30\Tests\Stubs\Dispatcher\DispatcherStub',
-            array('transparentAuthenticationLogin', 'transparentAuthenticationLogout'), array($container, array(), $methods));
+        $dispatcher = $this->getMockBuilder('FOF30\Tests\Stubs\Dispatcher\DispatcherStub')
+            ->setMethods(array('transparentAuthenticationLogin', 'transparentAuthenticationLogout'))
+            ->setConstructorArgs(array($container, array(), $methods))
+            ->getMock();
 
         $dispatcher->dispatch();
 

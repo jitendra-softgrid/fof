@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -239,6 +239,37 @@ class BasicFactoryDataprovider
             array(
                 'case' => 'Toolbar not found, fall back to the default one',
                 'name' => '\Fakeapp\Site\Toolbar\Toolbar',
+                'result' => true
+            )
+        );
+
+        return $data;
+    }
+
+    public static function getTestFormClass()
+    {
+        $data[] = array(
+            array(
+                'mock' => array(
+                    'create' => true
+                )
+            ),
+            array(
+                'case' => 'Toolbar found',
+                'name' => '\Fakeapp\Site\Form\Form',
+                'result' => true
+            )
+        );
+
+        $data[] = array(
+            array(
+                'mock' => array(
+                    'create' => 'FOF30\Factory\Exception\FormNotFound'
+                )
+            ),
+            array(
+                'case' => 'Form not found, fall back to the default one',
+                'name' => '\Fakeapp\Site\Form\Form',
                 'result' => true
             )
         );

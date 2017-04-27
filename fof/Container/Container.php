@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -602,6 +602,11 @@ class Container extends ContainerBase
 		     !($this['input'] instanceof \FOF30\Input\Input) ||
 		     !($this['input'] instanceof \JInput))
 		) {
+			if (empty($this['input']))
+			{
+				$this['input'] = array();
+			}
+
 			// This swap is necessary to prevent infinite recursion
 			$this['rawInputData'] = array_merge($this['input']);
 			unset($this['input']);

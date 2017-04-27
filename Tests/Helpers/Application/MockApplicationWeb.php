@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -160,16 +160,11 @@ class MockApplicationWeb extends MockApplicationBase
 		$methods = self::getMethods();
 
 		// Create the mock.
-		$mockObject = $test->getMock(
-			'\JApplicationWeb',
-			$methods,
-			// Constructor arguments.
-			array(),
-			// Mock class name.
-			'',
-			// Call original constructor.
-			true
-		);
+		$mockObject = $test->getMockBuilder('\JApplicationWeb')
+			->setMethods($methods)
+			->setConstructorArgs(array())
+			->setMockClassName('')
+			->getMock();
 
 		$mockObject = self::addBehaviours($test, $mockObject, $options);
 

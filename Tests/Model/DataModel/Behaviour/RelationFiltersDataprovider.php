@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -66,13 +66,13 @@ WHERE `reltbl`.`fakeapp_parent_id` = `#__fakeapp_parents`.`fakeapp_parent_id`) <
                 'value'    => array(1,3)
             ),
             array(
-                'case'  => 'Parent with less than 1 and more than 3 child',
+                'case'  => 'Parent with less than 1 OR more than 3 children',
                 'query' => "SELECT *
 FROM test
 WHERE (((
 SELECT COUNT(*)
 FROM `#__fakeapp_children` AS `reltbl`
-WHERE `reltbl`.`fakeapp_parent_id` = `#__fakeapp_parents`.`fakeapp_parent_id`) < 1) AND ((
+WHERE `reltbl`.`fakeapp_parent_id` = `#__fakeapp_parents`.`fakeapp_parent_id`) < 1) OR ((
 SELECT COUNT(*)
 FROM `#__fakeapp_children` AS `reltbl`
 WHERE `reltbl`.`fakeapp_parent_id` = `#__fakeapp_parents`.`fakeapp_parent_id`) > 3))"
@@ -88,7 +88,7 @@ WHERE `reltbl`.`fakeapp_parent_id` = `#__fakeapp_parents`.`fakeapp_parent_id`) >
                 )
             ),
             array(
-                'case'  => 'Parent with less than 1 and more than 3 child',
+                'case'  => 'Parent with value 2, interval 2 children',
                 'query' => "SELECT *
 FROM test
 WHERE (((

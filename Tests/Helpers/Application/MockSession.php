@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -29,7 +29,7 @@ class MockSession
 	 *
 	 * @since   11.3
 	 */
-	public function getOption($name, $default = null)
+	public static function getOption($name, $default = null)
 	{
 		return isset(self::$options[$name]) ? self::$options[$name] : $default;
 	}
@@ -79,16 +79,12 @@ class MockSession
 		);
 
 		// Create the mock.
-		$mockObject = $test->getMock(
-			'\JSession',
-			$methods,
-			// Constructor arguments.
-			array(),
-			// Mock class name.
-			'',
-			// Call original constructor.
-			false
-		);
+		$mockObject = $test->getMockBuilder('\JSession')
+			->setMethods($methods)
+			->setConstructorArgs(array())
+			->setMockClassName('')
+			->disableOriginalConstructor()
+			->getMock();
 
 		// Mock selected methods.
 		$test->assignMockReturns(

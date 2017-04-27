@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -84,7 +84,7 @@ class AbstractFilterTest extends DatabaseTest
         $result = $filter->getSearchMethods();
         $result = array_values($result);
 
-        $check = array('exact', 'partial', 'between', 'outside', 'interval', 'search');
+        $check = array('between', 'exact', 'partial', 'outside', 'interval', 'search', 'modulo', 'range');
 
         sort($result);
         sort($check);
@@ -103,7 +103,11 @@ class AbstractFilterTest extends DatabaseTest
         $msg = 'AbstractFilter::exact %s - Case: '.$check['case'];
 
         $field  = (object)array('name' => 'test', 'type' => 'varchar');
-        $filter = $this->getMock('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub', array('isEmpty', 'getFieldName', 'search'), array(\JFactory::getDbo(), $field));
+
+        $filter = $this->getMockBuilder('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub')
+            ->setMethods(array('isEmpty', 'getFieldName', 'search'))
+            ->setConstructorArgs(array(\JFactory::getDbo(), $field))
+            ->getMock();
 
         $filter->method('isEmpty')->willReturn($test['mock']['isEmpty']);
         $filter->expects($check['name'] ? $this->once() : $this->never())->method('getFieldName')->willReturn('`test`');
@@ -125,7 +129,11 @@ class AbstractFilterTest extends DatabaseTest
         $msg = 'AbstractFilter::search %s - Case: '.$check['case'];
 
         $field  = (object)array('name' => 'test', 'type' => 'varchar');
-        $filter = $this->getMock('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub', array('isEmpty', 'getFieldName'), array(\JFactory::getDbo(), $field));
+
+        $filter = $this->getMockBuilder('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub')
+            ->setMethods(array('isEmpty', 'getFieldName'))
+            ->setConstructorArgs(array(\JFactory::getDbo(), $field))
+            ->getMock();
 
         $filter->method('isEmpty')->willReturn($test['mock']['isEmpty']);
         $filter->method('getFieldName')->willReturn('`test`');

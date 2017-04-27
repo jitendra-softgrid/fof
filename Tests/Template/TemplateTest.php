@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -193,6 +193,10 @@ class TemplateTest extends FOFTestCase
 	public function testParsePath($path, $localfile, $expect, $message)
 	{
 		$fullurl = static::$container->template->parsePath($path, $localfile);
+
+		$expect = realpath($expect);
+		$fullurl = realpath($fullurl);
+
 		$this->assertEquals(
 			$expect,
 			$fullurl,

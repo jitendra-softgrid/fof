@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2015 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -73,7 +73,7 @@ abstract class Command
             $app = JFactory::getApplication();
 
 			$app->out("What's your component name? (" . $default_name . ")");
-			$name = $app->in();
+			$name = $this->in();
 		}
 
 		if (!$name)
@@ -113,7 +113,7 @@ abstract class Command
 
 			if (!$path || !JFolder::exists($path))
             {
-				$this->out('The path does not exists');
+				$this->out('The path does not exist');
 				$this->setDevServer();
 			}
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -9,6 +9,7 @@ namespace FOF30\Model;
 
 use FOF30\Container\Container;
 use FOF30\Controller\Exception\LockedRecord;
+use FOF30\Date\Date;
 use FOF30\Event\Dispatcher;
 use FOF30\Event\Observer;
 use FOF30\Form\Form;
@@ -677,6 +678,7 @@ class DataModel extends Model implements \JTableInterface
 		$info = (object)array(
 			'Default' => $default,
 			'Type' => $type,
+			'Null' => 'YES',
 		);
 
 		$this->knownFields[$fieldName] = $info;
@@ -1373,7 +1375,7 @@ class DataModel extends Model implements \JTableInterface
 
 			$value = $this->$fieldName;
 
-			if (($field->Null == 'NO') && empty($value) && !is_numeric($value) && !in_array($fieldName, $this->fieldsSkipChecks))
+			if (isset($field->Null) && ($field->Null == 'NO') && empty($value) && !is_numeric($value) && !in_array($fieldName, $this->fieldsSkipChecks))
 			{
 				if (!is_null($field->Default))
 				{
@@ -2562,7 +2564,7 @@ class DataModel extends Model implements \JTableInterface
 	/**
 	 * Adds a behaviour by its name. It will search the following classes, in this order:
 	 * \component_namespace\Model\modelName\Behaviour\behaviourName
-	 * \component_namespace\Model\DataModel\Behaviour\behaviourName
+	 * \component_namespace\Model\Behaviour\behaviourName
 	 * \FOF30\Model\DataModel\Behaviour\behaviourName
 	 * where:
 	 * component_namespace  is the namespace of the component as defined in the container
@@ -2766,7 +2768,7 @@ class DataModel extends Model implements \JTableInterface
 		}
 
 		$db = $this->getDbo();
-		$date = new \JDate();
+		$date = new Date();
 
 		// Update the created_on / modified_on
 		if ($this->hasField('modified_on'))
@@ -2817,7 +2819,7 @@ class DataModel extends Model implements \JTableInterface
 
 		if ($this->hasField('locked_on'))
 		{
-			$date             = new \JDate();
+			$date             = new Date();
 			$locked_on        = $this->getFieldAlias('locked_on');
 			$this->$locked_on = $date->toSql(false, $db);
 		}

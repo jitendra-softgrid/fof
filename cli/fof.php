@@ -3,7 +3,7 @@
 /**
  * @package     FOF
  * @author 		Daniele Rosario (daniele@weble.it)
- * @copyright   2010-2015 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  *
  *
@@ -112,9 +112,9 @@ else
 
 			// Get Path to the dev site
 			fwrite(STDOUT, "What's the dev site location? [$default_path]\n");
-			$path = rtrim(fread(STDIN, 8192), "\n");
+			$path = trim(fgets(STDIN));
 
-	        if (empty($path))
+            if (empty($path))
 	        {
 		        $path = $default_path;
 	        }
@@ -122,7 +122,7 @@ else
 			if (!$path || !is_dir($path))
             {
 				$path = false;
-				fwrite(STDOUT, "The path does not exists\n");
+				fwrite(STDOUT, "The path does not exist\n");
 			}
 
 			// Check if it's joomla

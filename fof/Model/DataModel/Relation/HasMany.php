@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FOF
- * @copyright   2010-2016 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @copyright   2010-2017 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 2 or later
  */
 
@@ -98,7 +98,7 @@ class HasMany extends Relation
 			// Lazy loaded relation; get the single local key
 			$localKey = $this->parentModel->getFieldValue($this->localKey, null);
 
-			if (is_null($localKey))
+			if (is_null($localKey) || ($localKey === ''))
 			{
 				return false;
 			}
