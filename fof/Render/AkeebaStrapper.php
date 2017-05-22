@@ -12,6 +12,7 @@ use FOF30\Form\FieldInterface;
 use FOF30\Form\Form;
 use FOF30\Form\Header\Ordering as HeaderOrdering;
 use FOF30\Form\Field\Ordering as FieldOrdering;
+use FOF30\Layout\LayoutHelper;
 use FOF30\Model\DataModel;
 use FOF30\Toolbar\Toolbar;
 use FOF30\View\View;
@@ -735,6 +736,13 @@ JS;
 
 		if ($show_header)
 		{
+			// Render the search tools, if necessary
+			if (isset($view->filterForm) && is_object($view->filterForm) && ($view->filterForm instanceof \JForm))
+			{
+				$html .= LayoutHelper::render($this->container, 'joomla.searchtools.default', ['view' => $view]);
+			}
+
+			// Render the legacy XML form header
 			$html .= "\t" . '<div id="filter-bar" class="btn-toolbar">' . "\n";
 			$html .= "$filter_html\n";
 

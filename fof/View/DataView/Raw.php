@@ -8,6 +8,7 @@
 namespace FOF30\View\DataView;
 
 use FOF30\Container\Container;
+use FOF30\Form\Form;
 use FOF30\Model\DataModel;
 use FOF30\Model\DataModel\Collection;
 use FOF30\View\View;
@@ -45,6 +46,28 @@ class Raw extends View implements DataViewInterface
 	protected $additionalPermissions = array();
 
 	/**
+	 * The filter form. Required by Joomla's Search Tools. Also see $filterFormName.
+	 *
+	 * @var  Form
+	 */
+	public $filterForm = null;
+
+	/**
+	 * The name for the filter form used by Joomla!'s Search Tools. If this is empty the name filter_LAYOUT.xml will be
+	 * used. For example, if the current layout is 'foobar' then FOF will look for filter_foobar.xml inside your view
+	 * template directory. Since the search form is an XML form view template you can always override it, just like any
+	 * other view template.
+	 *
+	 * Heads up! You will need to load Search Tools in your view template manually. For PHP templates this means:
+	 * echo FOF30\Layout\LayoutHelper::render($this->container, 'joomla.searchtools.default', ['view' => $this])
+	 * For Blade templates you can simply do
+	 * @jlayout('joomla.searchtools.default', ['view' => $this])
+	 *
+	 * @var string
+	 */
+	protected $filterFormName = '';
+
+	/**
 	 * Overrides the constructor to apply Joomla! ACL permissions
 	 *
 	 * @param   Container  $container  The container we belong to
@@ -55,6 +78,8 @@ class Raw extends View implements DataViewInterface
 		parent::__construct($container, $config);
 
 		$this->permissions = $this->getPermissions(null, $this->additionalPermissions);
+
+		$this->filterForm = $this->getFilterForm();
 	}
 
 	/**
@@ -346,4 +371,55 @@ class Raw extends View implements DataViewInterface
 
 		$this->item = $model->findOrFail();
 	}
-} 
+
+	/**
+	 * Get the filter form, used by Search Tools
+	 *
+	 * @param   array   $data     data
+	 * @param   boolean $loadData load current data
+	 *
+	 * @return  Form|null  The JForm object or null on error
+	 */
+	public function getFilterForm($data = [], $loadData = true)
+	{
+		$form = null;
+
+		// Try to locate the filter form automatically using the layout.
+		if (empty($this->filterFormName))
+		{
+			$this->filterFormName = 'filter_' . $this->layout;
+		}
+
+		if (!empty($this->filterFormName))
+		{
+			$context = $this->container->componentName . '.' . $this->getName() . '.';
+
+			// Get the form.
+			$form = $this->container->factory->form($context . 'filter',
+				$this->filterFormName, $this->name, [
+					'control'   => '',
+					'load_data' => $loadData,
+				]);
+
+			// Allows data and form manipulation before preprocessing the form
+			$this->triggerEvent('onBeforePreprocessFilterForm', array(&$form, &$data));
+
+			// Allow for additional modification of the form, and events to be triggered.
+			// We pass the data because plugins may require it.
+			// Import the appropriate plugin group.
+			$this->container->platform->importPlugin('content');
+
+			// Trigger the form preparation event.
+			$this->container->platform->runPlugins('onContentPrepareForm', array(&$form, &$data));
+
+			// Allows data and form manipulation After preprocessing the form
+			$this->triggerEvent('onBeforePreprocessFilterForm', array(&$form, &$data));
+
+			// Load the data into the form after the plugins have operated.
+			$form->bind($data);
+		}
+
+		return $form;
+	}
+
+}
