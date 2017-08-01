@@ -1,3 +1,22 @@
+FOF 3.1.2
+================================================================================
++ Added preventStateBleedover to the Controller to have it automatically prevent state bleedover when the same model is used as the default in more than one views. Default disabled. You need to enable it in affected views.
++ You can now pass a hash_view to the Model's constructor to modify the way the hash is generated when none is provided
++ You can now pass a custom state hash to the Model's constructor and/or set it with the setHash() method
+~ Fix the handling of chained IPs in X-Forwarded-For
+# DataModel: reset() should also clear WHERE clauses
+
+FOF 3.1.1
+================================================================================
++ Controller mixins
++ Model mixins
++ @plural() Blade statement to support JText::plural()
++ @jlayout() Blade statement to load and render JLayout view templates
++ ViewTemplate field passes $rowid to the view template
++ Published field takes into account ACL
++ Installation script classes for modules and plugins
+~ Working around Joomla's bug about forgotten files on update
+
 FOF 3.1.0
 ================================================================================
 ! Joomla! 3.7 has a broken System - Page Cache plugin which leads to white pages
@@ -160,7 +179,7 @@ FOF 3.0.1
 
 FOF 3.0.0
 ================================================================================
-+ CLI tool to quickly create FOF components – not included in the library ZIP package, look at https://github.com/akeeba/fof/tree/development/cli
++ CLI tool to quickly create FOF components ??? not included in the library ZIP package, look at https://github.com/akeeba/fof/tree/development/cli
 + Preliminary changes for PHP 7 compatibility
 + Improve performance of AccessLevel field in Browse views
 + Improve performance of Language field in Browse views
