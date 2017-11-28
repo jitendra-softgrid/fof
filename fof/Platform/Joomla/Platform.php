@@ -214,7 +214,7 @@ class Platform extends BasePlatform
 	public function getTemplateSuffixes()
 	{
 		$jversion = new \JVersion;
-		$versionParts = explode('.', $jversion->RELEASE);
+		$versionParts = explode('.', $jversion->getShortVersion());
 		$majorVersion = array_shift($versionParts);
 		$suffixes = array(
 			'.j' . str_replace('.', '', $jversion->getHelpVersion()),
@@ -808,7 +808,7 @@ class Platform extends BasePlatform
 			$userid = \JUserHelper::getUserId($response->username);
 			$user = $this->getUser($userid);
 
-			$session = \JFactory::getSession();
+			$session = $this->container->session;
 			$session->set('user', $user);
 
 			return true;
@@ -826,10 +826,20 @@ class Platform extends BasePlatform
 	{
 		\JLoader::import('joomla.user.authentication');
 		$app = \JFactory::getApplication();
+		$user = $this->getUser();
 		$options = array('remember' => false);
-		$parameters = array('username' => $this->getUser()->username);
+		$parameters = array(
+			'username' => $user->username,
+			'id' => $user->id
+		);
 
-		$ret = $app->triggerEvent('onLogoutUser', array($parameters, $options));
+		// Set clientid in the options array if it hasn't been set already and shared sessions are not enabled.
+		if (!$app->get('shared_session', '0'))
+		{
+			$options['clientid'] = $app->getClientId();
+		}
+
+		$ret = $app->triggerEvent('onUserLogout', array($parameters, $options));
 
 		return !in_array(false, $ret, true);
 	}
@@ -1033,7 +1043,7 @@ class Platform extends BasePlatform
 			return;
 		}
 
-		\JFactory::getSession()->set($name, $value, $namespace);
+		$this->container->session->set($name, $value, $namespace);
 	}
 
 	/**
@@ -1052,7 +1062,7 @@ class Platform extends BasePlatform
 			return self::$fakeSession->get("$namespace.$name", $default);
 		}
 
-		return \JFactory::getSession()->get($name, $default, $namespace);
+		return $this->container->session->get($name, $default, $namespace);
 	}
 
 	/**
@@ -1113,7 +1123,7 @@ class Platform extends BasePlatform
 			return \JSession::getFormToken($forceNew);
 		}
 
-		return \JFactory::getSession()->getToken($forceNew);
+		return $this->container->session->getToken($forceNew);
 	}
 
 	/**

@@ -315,6 +315,8 @@ class BasicFactory implements FactoryInterface
 	 * @return  Form|null  The loaded form or null if the form filename doesn't exist
 	 *
 	 * @throws  \RuntimeException If the form exists but cannot be loaded
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
     public function form($name, $source, $viewName, array $options = array(), $replace = true, $xpath = false)
 	{
@@ -378,7 +380,9 @@ class BasicFactory implements FactoryInterface
 	 * @param   View  $view   The view this view template finder will be attached to
 	 * @param   array $config Configuration variables for the object
 	 *
-	 * @return  mixed
+	 * @return  ViewTemplateFinder
+	 *
+     * @throws \Exception
 	 */
     public function viewFinder(View $view, array $config = array())
 	{
@@ -559,7 +563,7 @@ class BasicFactory implements FactoryInterface
 	 * @param   string  $viewClass  The fully qualified class name for the View
 	 * @param   array   $config     Optional MVC configuration values for the View object.
 	 *
-	 * @return  Model
+	 * @return  View
 	 *
 	 * @throws  \RuntimeException  If the $viewClass does not exist
 	 */

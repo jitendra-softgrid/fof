@@ -1,3 +1,43 @@
+FOF 3.1.4
+================================================================================
+! PHP 7.2 compatibility: replace "numeric" field with "number". You have to do this change in your forms manually.
++ Select helper for use with Akeeba Frontend Framework (currently internal to Akeeba Ltd)
+~ Deprecated DataModel::blacklistFilters for getting the filter list. Use getBlacklistFilters instead.
+~ Deprecated XML Forms and associated features (fields, automatic validation, scaffolding, ...). They will be removed in FOF 4.0. We recommend using Blade (or PHP) templates instead.
+~ Joomla! 4: Bump maximum Joomla! version suported by FOF and FOF-based extensions to 4.0.999
+~ Joomla! 4: Do not use JVersion constant access as class properties
+~ Joomla! 4: Component installation workarounds for Joomla! 3 (_createAdminMenus and _reallyPublishAdminMenuItems) will not run under Joomla! 4 as they'd break the installation.
+~ Joomla! 3 renderer: using methods to open and close the component HTML output wrapper elements instead of hardcoding the output in pre-/post-render methods.
+# [LOW] The default UCM content type information still referenced FOF 2
+# [LOW] The logoutUser platform method did not work
+
+FOF 3.1.3
+================================================================================
++ TimezoneWrangler helper class
++ Automatically refresh the #__extensions version number before fetching updates if it's inconsistent
+~ Change the way we catch and warn about Container serialization
+# [HIGH] Joomla! changed the way the Calendar field works, stripping the time by default (b/c break)
+# [LOW] Joomla! changed onchange to onChange for JHtml calendar, breaking the Date form filter field in Joomla! 3.6+
+
+FOF 3.1.2
+================================================================================
++ Added preventStateBleedover to the Controller to have it automatically prevent state bleedover when the same model is used as the default in more than one views. Default disabled. You need to enable it in affected views.
++ You can now pass a hash_view to the Model's constructor to modify the way the hash is generated when none is provided
++ You can now pass a custom state hash to the Model's constructor and/or set it with the setHash() method
+~ Fix the handling of chained IPs in X-Forwarded-For
+# DataModel: reset() should also clear WHERE clauses
+
+FOF 3.1.1
+================================================================================
++ Controller mixins
++ Model mixins
++ @plural() Blade statement to support JText::plural()
++ @jlayout() Blade statement to load and render JLayout view templates
++ ViewTemplate field passes $rowid to the view template
++ Published field takes into account ACL
++ Installation script classes for modules and plugins
+~ Working around Joomla's bug about forgotten files on update
+
 FOF 3.1.0
 ================================================================================
 ! Joomla! 3.7 has a broken System - Page Cache plugin which leads to white pages
@@ -160,7 +200,7 @@ FOF 3.0.1
 
 FOF 3.0.0
 ================================================================================
-+ CLI tool to quickly create FOF components – not included in the library ZIP package, look at https://github.com/akeeba/fof/tree/development/cli
++ CLI tool to quickly create FOF components ??? not included in the library ZIP package, look at https://github.com/akeeba/fof/tree/development/cli
 + Preliminary changes for PHP 7 compatibility
 + Improve performance of AccessLevel field in Browse views
 + Improve performance of Language field in Browse views

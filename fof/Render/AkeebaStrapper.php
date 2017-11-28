@@ -76,10 +76,9 @@ class AkeebaStrapper extends RenderBase implements RenderInterface
 
 
 		// Wrap output in various classes
-		$version = new \JVersion;
-		$versionParts = explode('.', $version->RELEASE);
-		$minorVersion = str_replace('.', '', $version->RELEASE);
-		$majorVersion = array_shift($versionParts);
+		$versionParts = explode('.', JVERSION);
+		$minorVersion = $versionParts[0] . $versionParts[1];
+		$majorVersion = $versionParts[0];
 
 		$classes = array();
 
@@ -161,6 +160,8 @@ class AkeebaStrapper extends RenderBase implements RenderInterface
 	 * @param   Form  &$form  The form we are rendering
 	 *
 	 * @return  void
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected function loadValidationScript(Form &$form)
 	{
@@ -527,6 +528,8 @@ JS;
 	 * @param   DataModel  $model  The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFormBrowse(Form &$form, DataModel $model)
 	{
@@ -918,6 +921,8 @@ JS;
 	 * @param   DataModel  $model  The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFormRead(Form &$form, DataModel $model)
 	{
@@ -933,6 +938,8 @@ JS;
 	 * @param   DataModel  $model  The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFormEdit(Form &$form, DataModel $model)
 	{
@@ -1038,6 +1045,8 @@ JS;
 	 * @param   string    $formType  The form type e.g. 'edit' or 'read'
 	 *
 	 * @return  string    The HTML rendering of the form
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFormRaw(Form &$form, DataModel $model, $formType = null)
 	{
@@ -1127,6 +1136,8 @@ JS;
 	 * @param   string     $innerHtml   Render inner tab if set
 	 *
 	 * @return  string    The HTML rendering of the fieldset
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFieldset(\stdClass &$fieldset, Form &$form, DataModel $model, $formType, $showHeader = true, &$innerHtml = null)
 	{
@@ -1339,6 +1350,8 @@ JS;
 	 * @param 	string		$title		The title of the label
 	 *
 	 * @return 	string		The rendered label
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function renderFieldsetLabel($field, Form &$form, $title)
 	{
@@ -1405,6 +1418,8 @@ JS;
 	 *                                   returned.
 	 *
 	 * @return  string    The HTML rendering of the form
+	 *
+	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderForm(Form &$form, DataModel $model, $formType = null, $raw = false)
 	{

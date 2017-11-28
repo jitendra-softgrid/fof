@@ -21,6 +21,8 @@ defined('_JEXEC') or die;
 /**
  * Form Field class for the FOF framework
  * Displays a view template loaded from an outside source
+ *
+ * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class ViewTemplate extends \JFormField implements FieldInterface
 {
@@ -172,6 +174,7 @@ class ViewTemplate extends \JFormField implements FieldInterface
 
 		return $viewObject->loadAnyTemplate($sourceTemplate, array(
 			'model'        => $isRepeatable ? $this->item : $this->form->getModel(),
+			'rowid'        => $isRepeatable ? $this->rowid : null,
 			'form'         => $this->form,
 			'formType'     => $this->form->getAttribute('type', 'edit'),
 			'fieldValue'   => $this->value,

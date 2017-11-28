@@ -9,6 +9,9 @@
 /build/phingext
 /build/tools
 
+# We can't include composer.lock since the testing framework dependencies vary by PHP version we are testing against
+composer.lock
+
 /cli/fof.phar
 
 /documentation/*.xml~
@@ -29,3 +32,7 @@
 /vendor/*
 
 Tests/coverage
+
+# Internal language symlinks
+/fof/language/en-GB
+/translations
