@@ -12,33 +12,6 @@ defined('_JEXEC') or die;
 abstract class StringHelper
 {
 	/**
-	 * Convert a string into a slug (alias), suitable for use in URLs. Please
-	 * note that transliteration support is rudimentary at this stage.
-	 *
-	 * @param   string  $value  A string to convert to slug
-	 *
-	 * @return  string  The slug
-	 *
-	 * @deprecated  3.0  Use \JApplicationHelper::stringURLSafe instead
-	 *
-	 * @codeCoverageIgnore
-	 */
-	public static function toSlug($value)
-	{
-		if (class_exists('\JLog'))
-		{
-			\JLog::add('FOF40\\Utils\\StringHelper::toSlug is deprecated. Use \\JApplicationHelper::stringURLSafe instead', \JLog::WARNING, 'deprecated');
-		}
-
-		if (!class_exists('\JApplicationHelper'))
-		{
-			\JLoader::import('cms.application.helper');
-		}
-
-		return \JApplicationHelper::stringURLSafe($value);
-	}
-
-	/**
 	 * Convert common northern European languages' letters into plain ASCII. This
 	 * is a rudimentary transliteration.
 	 *
