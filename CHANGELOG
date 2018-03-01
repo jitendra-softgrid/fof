@@ -21,6 +21,7 @@ Backwards compatibility notes
     * Numeric field (now it's called Number for PHP 7 compatibility).
 * The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer instead
 * Removed LESS support
+* Removed HAL (hypermedia) support from JSON output
 
 *** LEGEND ***
 ================================================================================
