@@ -9,6 +9,7 @@ namespace FOF40\Form;
 
 defined('_JEXEC') or die;
 
+use FOF40\Model\DataModel;
 use Joomla\CMS\Layout\FileLayout;
 use Joomla\String\Normalise;
 use Joomla\String\StringHelper;
@@ -19,7 +20,7 @@ use SimpleXMLElement;
  *
  * @since  4.0
  */
-abstract class FormField
+abstract class FormField implements FieldInterface
 {
 	/**
 	 * The description text for the form field. Usually used in tooltips.
@@ -78,6 +79,30 @@ abstract class FormField
 	 * @since  4.0
 	 */
 	protected $form;
+
+	/**
+	 * @var  string  Static field output
+	 */
+	protected $static;
+
+	/**
+	 * @var  string  Repeatable field output
+	 */
+	protected $repeatable;
+
+	/**
+	 * A monotonically increasing number, denoting the row number in a repeatable view
+	 *
+	 * @var  int
+	 */
+	public $rowid;
+
+	/**
+	 * The item being rendered in a repeatable form field
+	 *
+	 * @var  DataModel
+	 */
+	public $item;
 
 	/**
 	 * The form control prefix for field names from the JForm object attached to the form field.
@@ -308,7 +333,7 @@ abstract class FormField
 	protected static $generated_fieldname = '__field';
 
 	/**
-	 * Name of the layout being used to render the field
+	 * Name of the layout being used to render the edit field
 	 *
 	 * @var    string
 	 * @since  4.0
@@ -316,7 +341,23 @@ abstract class FormField
 	protected $layout;
 
 	/**
-	 * Layout to render the form field
+	 * Name of the layout being used to render the static (read view) field
+	 *
+	 * @var    string
+	 * @since  4.0
+	 */
+	protected $layoutStatic;
+
+	/**
+	 * Name of the layout being used to render the repeatable (browse view) field
+	 *
+	 * @var    string
+	 * @since  4.0
+	 */
+	protected $layoutRepeatable;
+
+	/**
+	 * Layout to render the edit form field
 	 *
 	 * @var  string
 	 */
@@ -419,9 +460,29 @@ abstract class FormField
 
 				return $this->label;
 
+			case 'static':
+				if (empty($this->static))
+				{
+					$this->static = $this->getStatic();
+				}
+
+				return $this->static;
+				break;
+
+			case 'repeatable':
+				if (empty($this->repeatable))
+				{
+					$this->repeatable = $this->getRepeatable();
+				}
+
+				return $this->repeatable;
+				break;
+
 			case 'title':
 				return $this->getTitle();
 		}
+
+		return null;
 	}
 
 	/**
@@ -474,8 +535,8 @@ abstract class FormField
 
 			case 'multiple':
 				// Allow for field classes to force the multiple values option.
-				$value = (string) $value;
-				$value = $value === '' && isset($this->forceMultiple) ? (string) $this->forceMultiple : $value;
+				$value       = (string) $value;
+				$value       = $value === '' && isset($this->forceMultiple) ? (string) $this->forceMultiple : $value;
 				$this->$name = ($value === 'true' || $value === $name || $value === '1');
 				break;
 
@@ -548,9 +609,9 @@ abstract class FormField
 	/**
 	 * Method to attach a Form object to the field.
 	 *
-	 * @param   SimpleXMLElement $element   The SimpleXMLElement object representing the `<field>` tag for the form field object.
-	 * @param   mixed             $value     The form field value to validate.
-	 * @param   string            $group     The field name group control value. This acts as as an array container for the field.
+	 * @param   SimpleXMLElement $element    The SimpleXMLElement object representing the `<field>` tag for the form field object.
+	 * @param   mixed            $value      The form field value to validate.
+	 * @param   string           $group      The field name group control value. This acts as as an array container for the field.
 	 *                                       For example if the field has name="foo" and the group value is set to "bar" then the
 	 *                                       full field name would end up being "bar[foo]".
 	 *
@@ -597,7 +658,9 @@ abstract class FormField
 		// Set the visibility.
 		$this->hidden = ($this->hidden || (string) $element['type'] == 'hidden');
 
-		$this->layout = !empty($this->element['layout']) ? (string) $this->element['layout'] : $this->layout;
+		$this->layout           = !empty($this->element['layout']) ? (string) $this->element['layout'] : $this->layout;
+		$this->layoutStatic     = !empty($this->element['layoutStatic']) ? (string) $this->element['layoutStatic'] : $this->layoutStatic;
+		$this->layoutRepeatable = !empty($this->element['layoutRepeatable']) ? (string) $this->element['layoutRepeatable'] : $this->layoutRepeatable;
 
 		// Add required to class list if field is required.
 		if ($this->required)
@@ -679,7 +742,7 @@ abstract class FormField
 	 *
 	 * @since   4.0
 	 */
-	protected function getInput()
+	public function getInput()
 	{
 		if (empty($this->layout))
 		{
@@ -687,6 +750,40 @@ abstract class FormField
 		}
 
 		return $this->getRenderer($this->layout)->render($this->getLayoutData());
+	}
+
+	/**
+	 * Method to get the field input markup.
+	 *
+	 * @return  string  The field input markup.
+	 *
+	 * @since   4.0
+	 */
+	public function getStatic()
+	{
+		if (empty($this->layoutStatic))
+		{
+			throw new \UnexpectedValueException(sprintf('%s has no static layout assigned.', $this->name));
+		}
+
+		return $this->getRenderer($this->layoutStatic)->render($this->getLayoutData());
+	}
+
+	/**
+	 * Method to get the field input markup.
+	 *
+	 * @return  string  The field input markup.
+	 *
+	 * @since   4.0
+	 */
+	public function getRepeatable()
+	{
+		if (empty($this->layoutRepeatable))
+		{
+			throw new \UnexpectedValueException(sprintf('%s has no repeatable layout assigned.', $this->name));
+		}
+
+		return $this->getRenderer($this->layoutRepeatable)->render($this->getLayoutData());
 	}
 
 	/**
@@ -945,6 +1042,14 @@ abstract class FormField
 		$alt = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname);
 
 		return [
+			// The field element itself
+			'element'        => $this->element,
+			// The form we are attached to
+			'form'           => $this->form,
+			// Row ID for repeatable elements
+			'rowid'          => $this->rowid,
+			// he item being rendered in a repeatable form field
+			'item'           => $this->item,
 			'autocomplete'   => $this->autocomplete,
 			'autofocus'      => $this->autofocus,
 			'class'          => $this->class,

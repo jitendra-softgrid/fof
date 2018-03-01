@@ -18,11 +18,11 @@ interface FieldInterface
 	 * Method to attach a JForm object to the field. Actually, we need a FOF Form object but there's no way to provide
 	 * that type hint without issuing a string standards notice in PHP :(
 	 *
-	 * @param   Form  $form  The JForm object to attach to the form field.
+	 * @param   Form  $form  The Form object to attach to the form field.
 	 *
 	 * @return  FieldInterface  The form field object so that the method can be used in a chain.
 	 */
-	public function setForm(\JForm $form);
+	public function setForm(Form $form);
 
 	/**
 	 * Method to attach a Form object to the field.
