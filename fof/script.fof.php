@@ -46,6 +46,22 @@ class lib_fof30InstallerScript
 	protected $libraryFolder = 'fof30';
 
 	/**
+	 * Obsolete files and folders to remove.
+	 *
+	 * @var   array
+	 */
+	protected $removeFiles = array(
+		'files'   => array(
+			// Use pathnames relative to your site's root, e.g.
+			// 'administrator/components/com_foobar/helpers/whatever.php'
+		),
+		'folders' => array(
+			// Use pathnames relative to your site's root, e.g.
+			// 'administrator/components/com_foobar/baz'
+		),
+	);
+
+	/**
 	 * Joomla! pre-flight event. This runs before Joomla! installs or updates the component. This is our last chance to
 	 * tell Joomla! if it should abort the installation.
 	 *
@@ -127,6 +143,9 @@ class lib_fof30InstallerScript
 	 */
 	public function postflight($type, JInstallerAdapterLibrary $parent)
 	{
+		// Remove obsolete files and folders
+		$this->removeFilesAndFolders($this->removeFiles);
+
 		if ($type == 'update')
 		{
 			$this->bugfixFilesNotCopiedOnUpdate($parent);
@@ -529,5 +548,45 @@ class lib_fof30InstallerScript
 		$target = JPATH_LIBRARIES . '/' . $this->libraryFolder;
 
 		$this->recursiveConditionalCopy($source, $target);
+	}
+
+	/**
+	 * Removes obsolete files and folders
+	 *
+	 * @param   array $removeList The files and directories to remove
+	 */
+	protected function removeFilesAndFolders($removeList)
+	{
+		// Remove files
+		if (isset($removeList['files']) && !empty($removeList['files']))
+		{
+			foreach ($removeList['files'] as $file)
+			{
+				$f = JPATH_ROOT . '/' . $file;
+
+				if (!is_file($f))
+				{
+					continue;
+				}
+
+				JFile::delete($f);
+			}
+		}
+
+		// Remove folders
+		if (isset($removeList['folders']) && !empty($removeList['folders']))
+		{
+			foreach ($removeList['folders'] as $folder)
+			{
+				$f = JPATH_ROOT . '/' . $folder;
+
+				if (!is_dir($f))
+				{
+					continue;
+				}
+
+				JFolder::delete($f);
+			}
+		}
 	}
 }
