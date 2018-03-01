@@ -12,29 +12,6 @@ defined('_JEXEC') or die;
 abstract class StringHelper
 {
 	/**
-	 * Convert common northern European languages' letters into plain ASCII. This
-	 * is a rudimentary transliteration.
-	 *
-	 * @param   string  $value  The value to convert to ASCII
-	 *
-	 * @return  string  The converted string
-	 *
-	 * @deprecated   3.0  Use JFactory::getLanguage()->transliterate instead
-	 *
-	 * @codeCoverageIgnore
-	 */
-	public static function toASCII($value)
-	{
-		if (class_exists('\JLog'))
-		{
-			\JLog::add('FOF40\\Utils\\StringHelper::toASCII is deprecated. Use JFactory::getLanguage()->transliterate instead', \JLog::WARNING, 'deprecated');
-		}
-
-		$lang = \JFactory::getLanguage();
-		return $lang->transliterate($value);
-	}
-
-	/**
 	 * Convert a string to a boolean.
 	 *
 	 * @param   string  $string  The string.
