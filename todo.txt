@@ -1,5 +1,4 @@
 Import
-    FormRule
     FormField
 
 Merge FormInterface into FormField
