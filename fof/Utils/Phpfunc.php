@@ -1,8 +1,8 @@
 <?php
 /**
  * @package     FOF
- * @copyright Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
- * @license     GNU GPL version 2 or later
+ * @copyright   Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @license     GNU GPL version 3 or later
  *
  * Based on the Seesion package of Aura for PHP – https://github.com/auraphp/Aura.Session
  */

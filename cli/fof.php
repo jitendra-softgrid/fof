@@ -3,8 +3,8 @@
 /**
  * @package     FOF
  * @author 		Daniele Rosario (daniele@weble.it)
- * @copyright Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
- * @license     GNU GPL version 2 or later
+ * @copyright   Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @license     GNU GPL version 3 or later
  *
  *
  *  This program is free software: you can redistribute it and/or modify
