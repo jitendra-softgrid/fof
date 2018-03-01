@@ -10,6 +10,7 @@ Backwards compatibility notes
 * FOF 4's forms are written against the markup provided by FEF. If you want to use XML forms you will need to provide
   your own layout overrides. Kindly note that FEF is NOT GPL and you can NOT distribute it with your extensions.
   Alternatively, do not use XML forms (recommended).
+* Minimum requirements changed to PHP 5.6, Joomla! 3.7.
 * The deprecated features have been removed
     * FOF40\Encrypt\AesAdapter\AdapterInterface::setEncryptionMode() no longer has the second parameter (strength).
     * Passing null to FOF40\Model\DataModel::blacklistFilters instead of using getBlacklistFilters
@@ -17,7 +18,8 @@ Backwards compatibility notes
     * FOF40\Utils\StringHelper::toASCII()
     * FOF40\View\View::loadHelper()
     * Support for legacy tokens (passed _token=SESSION_OR_FORM_TOKEN instead of SESSION_OR_FORM_TOKEN=1)
-* The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer isntead
+    * Numeric field (now it's called Number for PHP 7 compatibility).
+* The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer instead
 
 *** LEGEND ***
 ================================================================================
