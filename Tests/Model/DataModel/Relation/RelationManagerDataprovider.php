@@ -18,7 +18,7 @@ class RelationManagerDataprovider
             ),
             array(
                 'case'      => 'Unknown relation type',
-                'exception' => '\FOF30\Model\DataModel\Relation\Exception\RelationTypeNotFound',
+                'exception' => '\FOF40\Model\DataModel\Relation\Exception\RelationTypeNotFound',
                 'relation'  => ''
             )
         );
@@ -63,7 +63,7 @@ class RelationManagerDataprovider
             ),
             array(
                 'case' => 'Relation is not known',
-                'exception' => 'FOF30\Model\DataModel\Relation\Exception\RelationNotFound',
+                'exception' => 'FOF40\Model\DataModel\Relation\Exception\RelationNotFound',
                 'save' => false
             )
         );
@@ -128,7 +128,7 @@ class RelationManagerDataprovider
             ),
             array(
                 'case' => 'Method is not magic',
-                'exception' => 'FOF30\Model\DataModel\Relation\Exception\RelationTypeNotFound',
+                'exception' => 'FOF40\Model\DataModel\Relation\Exception\RelationTypeNotFound',
                 'get'  => false,
                 'add'  => false,
                 'name' => ''

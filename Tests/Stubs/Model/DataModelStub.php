@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\Model;
+namespace FOF40\Tests\Stubs\Model;
 
-use FOF30\Container\Container;
-use FOF30\Model\DataModel;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Container\Container;
+use FOF40\Model\DataModel;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 class DataModelStub extends DataModel
 {
@@ -52,7 +52,7 @@ class DataModelStub extends DataModel
             $this->methods[$method] = $function;
         }
 
-        /** @var \FOF30\Tests\Helpers\TestJoomlaPlatform $platform */
+        /** @var \FOF40\Tests\Helpers\TestJoomlaPlatform $platform */
         $platform = $container->platform;
 
         // Provide a default mock function for getUserStateFromRequest, since we are going to query the model state
@@ -61,12 +61,12 @@ class DataModelStub extends DataModel
         // variable to a string, ie 'do not mock'
         // This check will fail, but in the parent we are checking if the variable is a callable. Since it's not (it's a string)
         // we will fallback to the parent, original method
-        if($platform instanceof \FOF30\Tests\Helpers\TestJoomlaPlatform && !$platform::$getUserStateFromRequest)
+        if($platform instanceof \FOF40\Tests\Helpers\TestJoomlaPlatform && !$platform::$getUserStateFromRequest)
         {
             $platform::$getUserStateFromRequest = function($key, $request, $input, $default, $type, $setUserState) { return $default;};
         }
         // Do the same if we have a Closure object
-        elseif($platform instanceof \FOF30\Tests\Helpers\ClosureHelper)
+        elseif($platform instanceof \FOF40\Tests\Helpers\ClosureHelper)
         {
             $methods = ReflectionHelper::getValue($platform, 'mockedMethods');
 

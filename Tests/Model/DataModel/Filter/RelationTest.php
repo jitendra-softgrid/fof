@@ -5,23 +5,23 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Filter\Relation;
+namespace FOF40\Tests\DataModel\Filter\Relation;
 
-use FOF30\Model\DataModel\Filter\Relation;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Model\DataModel\Filter\Relation;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 /**
- * @covers      FOF30\Model\DataModel\Filter\Relation::<protected>
- * @covers      FOF30\Model\DataModel\Filter\Relation::<private>
- * @package     FOF30\Tests\DataModel\Filter\Relation
+ * @covers      FOF40\Model\DataModel\Filter\Relation::<protected>
+ * @covers      FOF40\Model\DataModel\Filter\Relation::<private>
+ * @package     FOF40\Tests\DataModel\Filter\Relation
  */
 class RelationTest extends DatabaseTest
 {
     /**
      * @group       RelationFilter
      * @group       RelationFilterConstruct
-     * @covers      FOF30\Model\DataModel\Filter\Relation::__construct
+     * @covers      FOF40\Model\DataModel\Filter\Relation::__construct
      */
     public function test__construct()
     {
@@ -38,7 +38,7 @@ class RelationTest extends DatabaseTest
     /**
      * @group       RelationFilter
      * @group       RelationFilterCallback
-     * @covers      FOF30\Model\DataModel\Filter\Relation::callback
+     * @covers      FOF40\Model\DataModel\Filter\Relation::callback
      */
     public function testCallback()
     {
@@ -63,7 +63,7 @@ WHERE bar = 1';
     /**
      * @group       RelationFilter
      * @group       RelationFilterGetFieldName
-     * @covers      FOF30\Model\DataModel\Filter\Relation::getFieldName
+     * @covers      FOF40\Model\DataModel\Filter\Relation::getFieldName
      */
     public function testGetFieldName()
     {

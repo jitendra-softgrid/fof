@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\Engine;
+namespace FOF40\View\Engine;
 
-use FOF30\View\View;
+use FOF40\View\View;
 
 defined('_JEXEC') or die;
 

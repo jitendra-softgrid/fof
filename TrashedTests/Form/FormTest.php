@@ -5,22 +5,22 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form;
+namespace FOF40\Tests\Form;
 
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
-use FOF30\Tests\Stubs\View\DataView\RawStub;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
+use FOF40\Tests\Stubs\View\DataView\RawStub;
 
 require_once 'FormDataprovider.php';
 
 /**
- * @covers      FOF30\Form\Form::<protected>
- * @covers      FOF30\Form\Form::<private>
- * @package     FOF30\Tests\Form
+ * @covers      FOF40\Form\Form::<protected>
+ * @covers      FOF40\Form\Form::<private>
+ * @package     FOF40\Tests\Form
  */
 class FormTest extends FOFTestCase
 {
@@ -46,7 +46,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           Form__construct
-     * @covers          FOF30\Form\Form::__construct
+     * @covers          FOF40\Form\Form::__construct
      */
     public function test__construct()
     {
@@ -58,7 +58,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetAttribute
-     * @covers          FOF30\Form\Form::getAttribute
+     * @covers          FOF40\Form\Form::getAttribute
      * @dataProvider    FormDataprovider::getTestGetAttribute
      */
     public function testGetAttribute($test, $check)
@@ -76,7 +76,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormLoadCSSFiles
-     * @covers          FOF30\Form\Form::loadCSSFiles
+     * @covers          FOF40\Form\Form::loadCSSFiles
      * @dataProvider    FormDataprovider::getTestLoadCSSFiles
      */
     public function testLoadCSSFiles($test, $check)
@@ -93,7 +93,7 @@ class FormTest extends FOFTestCase
             }
         ));
 
-        $form = $this->getMockBuilder('FOF30\Form\Form')
+        $form = $this->getMockBuilder('FOF40\Form\Form')
             ->setMethods(array('getAttribute', 'getView'))
             ->setConstructorArgs(array(static::$container, 'Foobar'))
             ->getMock();
@@ -117,7 +117,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormLoadJSFiles
-     * @covers          FOF30\Form\Form::loadJSFiles
+     * @covers          FOF40\Form\Form::loadJSFiles
      * @dataProvider    FormDataprovider::getTestLoadJSFiles
      */
     public function testLoadJSFiles($test, $check)
@@ -131,7 +131,7 @@ class FormTest extends FOFTestCase
             }
         ));
 
-        $form = $this->getMockBuilder('FOF30\Form\Form')
+        $form = $this->getMockBuilder('FOF40\Form\Form')
             ->setMethods(array('getAttribute', 'getView'))
             ->setConstructorArgs(array(static::$container, 'Foobar'))
             ->getMock();
@@ -155,7 +155,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetData
-     * @covers          FOF30\Form\Form::getData
+     * @covers          FOF40\Form\Form::getData
      */
     public function testGetData()
     {
@@ -173,7 +173,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormLoadFile
-     * @covers          FOF30\Form\Form::loadFile
+     * @covers          FOF40\Form\Form::loadFile
      * @dataProvider    FormDataprovider::getTestLoadFile
      */
     public function testLoadFile($test, $check)
@@ -190,7 +190,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormSetModel
-     * @covers          FOF30\Form\Form::setModel
+     * @covers          FOF40\Form\Form::setModel
      */
     public function testSetModel()
     {
@@ -210,7 +210,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetModel
-     * @covers          FOF30\Form\Form::getModel
+     * @covers          FOF40\Form\Form::getModel
      */
     public function testGetModel()
     {
@@ -230,7 +230,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormSetView
-     * @covers          FOF30\Form\Form::setView
+     * @covers          FOF40\Form\Form::setView
      */
     public function testSetView()
     {
@@ -248,7 +248,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetView
-     * @covers          FOF30\Form\Form::getView
+     * @covers          FOF40\Form\Form::getView
      */
     public function testGetView()
     {
@@ -266,7 +266,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetHeaderset
-     * @covers          FOF30\Form\Form::getHeaderset
+     * @covers          FOF40\Form\Form::getHeaderset
      * @dataProvider    FormDataprovider::getTestGetHeaderset
      */
     public function testGetHeaderset($test, $check)
@@ -284,7 +284,7 @@ class FormTest extends FOFTestCase
             $groups = $xml->xpath('//header');
         }
 
-        $form = $this->getMockBuilder('FOF30\Form\Form')
+        $form = $this->getMockBuilder('FOF40\Form\Form')
             ->setMethods(array('findHeadersByGroup', 'loadHeader'))
             ->setConstructorArgs(array(static::$container, 'Foobar'))
             ->getMock();
@@ -304,14 +304,14 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetHeader
-     * @covers          FOF30\Form\Form::getHeader
+     * @covers          FOF40\Form\Form::getHeader
      * @dataProvider    FormDataprovider::getTestGetHeader
      */
     public function testGetHeader($test, $check)
     {
         $msg = 'Form::getHeader %s - Case: '.$check['case'];
 
-        $form = $this->getMockBuilder('FOF30\Form\Form')
+        $form = $this->getMockBuilder('FOF40\Form\Form')
             ->setMethods(array('findHeader', 'loadHeader'))
             ->setConstructorArgs(array(static::$container, 'Foobar'))
             ->getMock();
@@ -332,7 +332,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormLoadClass
-     * @covers          FOF30\Form\Form::loadClass
+     * @covers          FOF40\Form\Form::loadClass
      * @dataProvider    FormDataprovider::getTestLoadClass
      */
     public function testLoadClass($test, $check)
@@ -351,7 +351,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormSetContainer
-     * @covers          FOF30\Form\Form::setContainer
+     * @covers          FOF40\Form\Form::setContainer
      */
     public function testSetContainer()
     {
@@ -366,7 +366,7 @@ class FormTest extends FOFTestCase
     /**
      * @group           Form
      * @group           FormGetContainer
-     * @covers          FOF30\Form\Form::getContainer
+     * @covers          FOF40\Form\Form::getContainer
      */
     public function testGetContainer()
     {

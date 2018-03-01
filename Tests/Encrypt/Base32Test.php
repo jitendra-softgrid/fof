@@ -5,17 +5,17 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Encrypt;
+namespace FOF40\Tests\Encrypt;
 
 
-use FOF30\Encrypt\Base32;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Encrypt\Base32;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 /**
- * @coversDefaultClass FOF30\Encrypt\Base32
+ * @coversDefaultClass FOF40\Encrypt\Base32
  *
- * @package FOF30\Tests\Encrypt
+ * @package FOF40\Tests\Encrypt
  */
 class Base32Test extends FOFTestCase
 {

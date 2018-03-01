@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-use FOF30\Tests\Helpers\VfsHelper;
+use FOF40\Tests\Helpers\VfsHelper;
 
 class ImageListDataprovider
 {

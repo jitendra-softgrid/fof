@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Helpers;
+namespace FOF40\Tests\Helpers;
 
 
-use FOF30\Tests\Helpers\Application\MockApplicationCms;
+use FOF40\Tests\Helpers\Application\MockApplicationCms;
 
 class FOFTestCase extends ApplicationTestCase
 {

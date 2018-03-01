@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Container\Exception;
+namespace FOF40\Container\Exception;
 
 use Exception;
 

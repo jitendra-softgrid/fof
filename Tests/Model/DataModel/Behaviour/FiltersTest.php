@@ -5,24 +5,24 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\Filters;
-use FOF30\Tests\Helpers\DatabaseTest;
+use FOF40\Model\DataModel\Behaviour\Filters;
+use FOF40\Tests\Helpers\DatabaseTest;
 
 require_once 'FiltersDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\Filters::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\Filters::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\Filters
+ * @covers      FOF40\Model\DataModel\Behaviour\Filters::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\Filters::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\Filters
  */
 class FiltersTest extends DatabaseTest
 {
     /**
      * @group           Behaviour
      * @group           FiltersOnAfterBuildQuery
-     * @covers          FOF30\Model\DataModel\Behaviour\Filters::onAfterBuildQuery
+     * @covers          FOF40\Model\DataModel\Behaviour\Filters::onAfterBuildQuery
      * @dataProvider    FiltersDataprovider::getTestOnAfterBuildQuery
      */
     public function testOnAfterBuildQuery($test, $check)
@@ -36,7 +36,7 @@ class FiltersTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('getState'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();

@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Generator\Command\Generate\Model;
+namespace FOF40\Generator\Command\Generate\Model;
 
-use FOF30\Generator\Command\Command;
-use FOF30\Factory\Scaffolding\Model\Builder as ModelBuilder;
-use FOF30\Container\Container;
+use FOF40\Generator\Command\Command;
+use FOF40\Factory\Scaffolding\Model\Builder as ModelBuilder;
+use FOF40\Container\Container;
 
 class Model extends Command
 {
@@ -20,7 +20,7 @@ class Model extends Command
         $view    = $this->getViewName($this->input);
 
         // Let's force the use of the Magic Factory
-        $container = Container::getInstance($this->component, array('factoryClass' => 'FOF30\\Factory\\MagicFactory'));
+        $container = Container::getInstance($this->component, array('factoryClass' => 'FOF40\\Factory\\MagicFactory'));
         $container->factory->setSaveScaffolding(true);
 
         $view = $container->inflector->pluralize($view);

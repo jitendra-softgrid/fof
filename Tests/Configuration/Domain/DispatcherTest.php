@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Configuration\Domain\Dispatcher;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Configuration\Domain\Dispatcher;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Domain\Dispatcher::<protected>
- * @covers  FOF30\Configuration\Domain\Dispatcher::<private>
+ * @covers  FOF40\Configuration\Domain\Dispatcher::<protected>
+ * @covers  FOF40\Configuration\Domain\Dispatcher::<private>
  */
 class DispatcherTest extends FOFTestCase
 {
@@ -36,7 +36,7 @@ class DispatcherTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Dispatcher::parseDomain
+	 * @covers  FOF40\Configuration\Domain\Dispatcher::parseDomain
 	 *
 	 * @return  void
 	 */
@@ -58,7 +58,7 @@ class DispatcherTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Dispatcher::get
+	 * @covers  FOF40\Configuration\Domain\Dispatcher::get
 	 *
 	 * @dataProvider getTestGet
 	 *

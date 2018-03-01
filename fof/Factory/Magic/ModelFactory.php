@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Magic;
+namespace FOF40\Factory\Magic;
 
-use FOF30\Model\DataModel;
-use FOF30\Factory\Exception\ModelNotFound;
-use FOF30\Model\TreeModel;
+use FOF40\Model\DataModel;
+use FOF40\Factory\Exception\ModelNotFound;
+use FOF40\Model\TreeModel;
 
 defined('_JEXEC') or die;
 
@@ -60,14 +60,14 @@ class ModelFactory extends BaseFactory
 
 		if (!class_exists($dataModelClassName, true))
 		{
-			$dataModelClassName = '\\FOF30\\Model\\DataModel';
+			$dataModelClassName = '\\FOF40\\Model\\DataModel';
 		}
 
 		$treeModelClassName = $this->container->getNamespacePrefix($this->getSection()) . 'Model\\DefaultTreeModel';
 
 		if (!class_exists($treeModelClassName, true))
 		{
-			$treeModelClassName = '\\FOF30\\Model\\TreeModel';
+			$treeModelClassName = '\\FOF40\\Model\\TreeModel';
 		}
 
 		try

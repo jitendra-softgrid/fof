@@ -5,25 +5,25 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\AbstracFilter;
+namespace FOF40\Tests\DataModel\AbstracFilter;
 
-use FOF30\Model\DataModel\Filter\AbstractFilter;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub;
+use FOF40\Model\DataModel\Filter\AbstractFilter;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModel\Filter\FilterStub;
 
 require_once 'AbstractFilterDataprovider.php';
 /**
- * @covers      FOF30\Model\DataModel\Filter\AbstractFilter::<protected>
- * @covers      FOF30\Model\DataModel\Filter\AbstractFilter::<private>
- * @package     FOF30\Tests\DataModel\Filter\AbstractFilter
+ * @covers      FOF40\Model\DataModel\Filter\AbstractFilter::<protected>
+ * @covers      FOF40\Model\DataModel\Filter\AbstractFilter::<private>
+ * @package     FOF40\Tests\DataModel\Filter\AbstractFilter
  */
 class AbstractFilterTest extends DatabaseTest
 {
     /**
      * @group       AbstractFilter
      * @group       AbstractFilterConstruct
-     * @covers      FOF30\Model\DataModel\Filter\AbstractFilter::__construct
+     * @covers      FOF40\Model\DataModel\Filter\AbstractFilter::__construct
      */
     public function test__construct()
     {
@@ -42,7 +42,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterConstruct
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::__construct
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::__construct
      * @dataProvider    AbstractFilterDataprovider::getTest__constructException
      */
     public function test__constructException($test)
@@ -57,7 +57,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterIsEmpty
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::isEmpty
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::isEmpty
      * @dataProvider    AbstractFilterDataprovider::getTestIsEmpty
      */
     public function testIsEmpty($test, $check)
@@ -75,7 +75,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterSearchMethods
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::getSearchMethods
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::getSearchMethods
      */
     public function testGetSearchMethod()
     {
@@ -95,7 +95,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterExact
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::exact
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::exact
      * @dataProvider    AbstractFilterDataprovider::getTestExact
      */
     public function testExact($test, $check)
@@ -104,7 +104,7 @@ class AbstractFilterTest extends DatabaseTest
 
         $field  = (object)array('name' => 'test', 'type' => 'varchar');
 
-        $filter = $this->getMockBuilder('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub')
+        $filter = $this->getMockBuilder('\FOF40\Tests\Stubs\Model\DataModel\Filter\FilterStub')
             ->setMethods(array('isEmpty', 'getFieldName', 'search'))
             ->setConstructorArgs(array(\JFactory::getDbo(), $field))
             ->getMock();
@@ -121,7 +121,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterSearch
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::search
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::search
      * @dataProvider    AbstractFilterDataprovider::getTestSearch
      */
     public function testSearch($test, $check)
@@ -130,7 +130,7 @@ class AbstractFilterTest extends DatabaseTest
 
         $field  = (object)array('name' => 'test', 'type' => 'varchar');
 
-        $filter = $this->getMockBuilder('\FOF30\Tests\Stubs\Model\DataModel\Filter\FilterStub')
+        $filter = $this->getMockBuilder('\FOF40\Tests\Stubs\Model\DataModel\Filter\FilterStub')
             ->setMethods(array('isEmpty', 'getFieldName'))
             ->setConstructorArgs(array(\JFactory::getDbo(), $field))
             ->getMock();
@@ -146,7 +146,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterGetFieldName
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::getFieldName
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::getFieldName
      */
     public function testGetFieldName()
     {
@@ -160,7 +160,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterGetField
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::getField
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::getField
      */
     public function testGetField()
     {
@@ -168,13 +168,13 @@ class AbstractFilterTest extends DatabaseTest
 
         $result = AbstractFilter::getField($field, array('dbo' => \JFactory::getDbo()));
 
-        $this->assertInstanceOf('\FOF30\Model\DataModel\Filter\AbstractFilter', $result, 'AbstractFilter::getField Failed to return the correct filter');
+        $this->assertInstanceOf('\FOF40\Model\DataModel\Filter\AbstractFilter', $result, 'AbstractFilter::getField Failed to return the correct filter');
     }
 
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterGetField
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::getField
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::getField
      * @dataProvider    AbstractFilterDataprovider::getTestGetFieldException
      */
     public function testGetFieldException($test)
@@ -187,7 +187,7 @@ class AbstractFilterTest extends DatabaseTest
     /**
      * @group           AbstractFilter
      * @group           AbstractFilterGetFieldType
-     * @covers          FOF30\Model\DataModel\Filter\AbstractFilter::getFieldType
+     * @covers          FOF40\Model\DataModel\Filter\AbstractFilter::getFieldType
      * @dataProvider    AbstractFilterDataprovider::getTestGetFieldType
      */
     public function testGetFieldType($test, $check)

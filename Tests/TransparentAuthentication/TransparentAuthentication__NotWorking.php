@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\TransparentAuthentication;
+namespace FOF40\Tests\TransparentAuthentication;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\TransparentAuthentication\TransparentAuthentication;
-use FOF30\Encrypt\Aes;
-use FOF30\Encrypt\Totp;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\TransparentAuthentication\TransparentAuthentication;
+use FOF40\Encrypt\Aes;
+use FOF40\Encrypt\Totp;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 /**
  * Class TransparentAuthenticationTest
  *
- * @package FOF30\Tests\TransparentAuthentication
+ * @package FOF40\Tests\TransparentAuthentication
  *
- * @coversDefaultClass \FOF30\TransparentAuthentication\TransparentAuthentication
+ * @coversDefaultClass \FOF40\TransparentAuthentication\TransparentAuthentication
  */
 class TransparentAuthenticationTest extends FOFTestCase
 {

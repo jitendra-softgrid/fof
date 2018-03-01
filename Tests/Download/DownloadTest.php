@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Download\Adapter;
+namespace FOF40\Tests\Download\Adapter;
 
-use FOF30\Download\Adapter\Curl;
-use FOF30\Download\Download;
-use FOF30\Tests\Helpers\Download\FakeCurl;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Timer\Timer;
+use FOF40\Download\Adapter\Curl;
+use FOF40\Download\Download;
+use FOF40\Tests\Helpers\Download\FakeCurl;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Timer\Timer;
 
 require_once __DIR__ . '/../Helpers/Download/FakeCurlImporter.php';
 require_once __DIR__ . '/DownloadDataprovider.php';
 
 /**
- * @covers  FOF30\Download\Download::<protected>
- * @covers  FOF30\Download\Download::<private>
+ * @covers  FOF40\Download\Download::<protected>
+ * @covers  FOF40\Download\Download::<private>
  */
 class DownloadTest extends FOFTestCase
 {
@@ -40,43 +40,43 @@ class DownloadTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers FOF30\Download\Download::__construct
-	 * @covers FOF30\Download\Download::getFiles
-	 * @covers FOF30\Download\Download::scanDirectory
+	 * @covers FOF40\Download\Download::__construct
+	 * @covers FOF40\Download\Download::getFiles
+	 * @covers FOF40\Download\Download::scanDirectory
 	 */
 	public function testConstructor()
 	{
 		$download = new Download(static::$container);
 
-		$this->assertInstanceOf('\\FOF30\\Download\\Download', $download, 'Download object must be an instance of FOF30\\Download\\Download');
+		$this->assertInstanceOf('\\FOF40\\Download\\Download', $download, 'Download object must be an instance of FOF40\\Download\\Download');
 	}
 
 	/**
-	 * @covers FOF30\Download\Download::setAdapter
+	 * @covers FOF40\Download\Download::setAdapter
 	 *
-	 * @dataProvider    FOF30\Tests\Download\DownloadDataprovider::getTestSetAdapter
+	 * @dataProvider    FOF40\Tests\Download\DownloadDataprovider::getTestSetAdapter
 	 */
 	public function testSetAdapter($className, $shouldChange = true)
 	{
 		$download = new Download(static::$container);
 		$download->setAdapter('curl');
-		$this->assertInstanceOf('\\FOF30\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Initially forced adapter should be cURL');
+		$this->assertInstanceOf('\\FOF40\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Initially forced adapter should be cURL');
 		$download->setAdapter($className);
 
 		if ($shouldChange)
 		{
-			$this->assertNotInstanceOf('\\FOF30\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Forced adapter should be NOT still be cURL');
+			$this->assertNotInstanceOf('\\FOF40\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Forced adapter should be NOT still be cURL');
 		}
 		else
 		{
-			$this->assertInstanceOf('\\FOF30\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Forced adapter should still be cURL');
+			$this->assertInstanceOf('\\FOF40\\Download\\Adapter\\Curl', ReflectionHelper::getValue($download, 'adapter'), 'Forced adapter should still be cURL');
 		}
 	}
 
 	/**
-	 * @covers FOF30\Download\Download::getAdapterName
+	 * @covers FOF40\Download\Download::getAdapterName
 	 *
-	 * @dataProvider    FOF30\Tests\Download\DownloadDataprovider::getTestGetAdapterName
+	 * @dataProvider    FOF40\Tests\Download\DownloadDataprovider::getTestGetAdapterName
 	 */
 	public function testGetAdapterName($className = null, $expected = null)
 	{
@@ -89,9 +89,9 @@ class DownloadTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Download\Download::getFromUrl
+	 * @covers  FOF40\Download\Download::getFromUrl
 	 *
-	 * @dataProvider    FOF30\Tests\Download\DownloadDataprovider::getTestGetFromUrl
+	 * @dataProvider    FOF40\Tests\Download\DownloadDataprovider::getTestGetFromUrl
 	 *
 	 * @param array $config
 	 * @param array $test
@@ -124,9 +124,9 @@ class DownloadTest extends FOFTestCase
 
 
 	/**
-	 * @covers  FOF30\Download\Download::importFromUrl
+	 * @covers  FOF40\Download\Download::importFromUrl
 	 *
-	 * @dataProvider    FOF30\Tests\Download\DownloadDataprovider::getTestImportFromUrl
+	 * @dataProvider    FOF40\Tests\Download\DownloadDataprovider::getTestImportFromUrl
 	 *
 	 * @param array $config
 	 * @param array $params

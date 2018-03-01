@@ -5,26 +5,26 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\Access;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\TestContainer;
+use FOF40\Model\DataModel\Behaviour\Access;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\TestContainer;
 
 require_once 'AccessDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\Access::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\Access::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\Access
+ * @covers      FOF40\Model\DataModel\Behaviour\Access::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\Access::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\Access
  */
 class AccessTest extends DatabaseTest
 {
     /**
      * @group           Behaviour
      * @group           AccessOnAfterBuildQuery
-     * @covers          FOF30\Model\DataModel\Behaviour\Access::onAfterBuildQuery
+     * @covers          FOF40\Model\DataModel\Behaviour\Access::onAfterBuildQuery
      * @dataProvider    AccessDataprovider::getTestOnAfterBuildQuery
      */
     public function testOnAfterBuildQuery($test, $check)
@@ -34,7 +34,7 @@ class AccessTest extends DatabaseTest
             'tableName'   => $test['table']
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('applyAccessFiltering'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -51,7 +51,7 @@ class AccessTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           AccessOnAfterLoad
-     * @covers          FOF30\Model\DataModel\Behaviour\Access::onAfterLoad
+     * @covers          FOF40\Model\DataModel\Behaviour\Access::onAfterLoad
      * @dataProvider    AccessDataprovider::getTestOnAfterLoad
      */
     public function testOnAfterLoad($test, $check)
@@ -69,7 +69,7 @@ class AccessTest extends DatabaseTest
             'tableName'   => $test['table']
         );
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('reset', 'getFieldValue'))
             ->setConstructorArgs(array($container, $config))
             ->getMock();

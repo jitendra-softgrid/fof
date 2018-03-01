@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Date;
+namespace FOF40\Date;
 
 use DateTime;
 use JDatabaseDriver;
@@ -13,7 +13,7 @@ use JDatabaseDriver;
 defined('_JEXEC') or die;
 
 /**
- * This decorator will get any DateTime descendant and turn it into a FOF30\Date\Date compatible class. If the methods
+ * This decorator will get any DateTime descendant and turn it into a FOF40\Date\Date compatible class. If the methods
  * specific to Date/JDate are available they will be used. Otherwise a new Date object will be spun from the information
  * in the decorated DateTime object and the results of a call to its method will be returned.
  */

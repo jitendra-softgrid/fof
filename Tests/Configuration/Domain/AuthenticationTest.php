@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Configuration\Domain\Authentication;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Configuration\Domain\Authentication;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Domain\Authentication::<protected>
- * @covers  FOF30\Configuration\Domain\Authentication::<private>
+ * @covers  FOF40\Configuration\Domain\Authentication::<protected>
+ * @covers  FOF40\Configuration\Domain\Authentication::<private>
  */
 class AuthenticationTest extends FOFTestCase
 {
     /**
      * @group       ConfigurationAuthentication
-     * @covers      FOF30\Configuration\Domain\Authentication::parseDomain
+     * @covers      FOF40\Configuration\Domain\Authentication::parseDomain
      */
     public function testParseDomain()
     {
@@ -40,7 +40,7 @@ class AuthenticationTest extends FOFTestCase
     }
 
     /**
-     * @covers  FOF30\Configuration\Domain\Authentication::get
+     * @covers  FOF40\Configuration\Domain\Authentication::get
      *
      * @dataProvider getTestGet
      *

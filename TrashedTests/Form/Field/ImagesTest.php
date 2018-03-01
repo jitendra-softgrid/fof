@@ -5,27 +5,27 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Images;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Form\Field\Images;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 use org\bovigo\vfs\vfsStream;
 
 require_once __DIR__ . '/ImagesDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Images::<private>
- * @covers  FOF30\Form\Field\Images::<protected>
+ * @covers  FOF40\Form\Field\Images::<private>
+ * @covers  FOF40\Form\Field\Images::<protected>
  */
 class ImagesTest extends FOFTestCase
 {
     /**
      * @group           Images
      * @group           ImagesGetFieldContents
-     * @covers          FOF30\Form\Field\Images::getFieldContents
+     * @covers          FOF40\Form\Field\Images::getFieldContents
      * @dataProvider    ImagesDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)

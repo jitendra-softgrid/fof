@@ -5,19 +5,19 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Published;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Published;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/PublishedDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Published::<private>
- * @covers  FOF30\Form\Field\Published::<protected>
+ * @covers  FOF40\Form\Field\Published::<private>
+ * @covers  FOF40\Form\Field\Published::<protected>
  */
 class PublishedTest extends FOFTestCase
 {
@@ -40,12 +40,12 @@ class PublishedTest extends FOFTestCase
 	/**
 	 * @group           Published
 	 * @group           Published__get
-	 * @covers          FOF30\Form\Field\Published::__get
+	 * @covers          FOF40\Form\Field\Published::__get
 	 * @dataProvider    PublishedDataprovider::getTest__get
 	 */
 	public function test__get($test, $check)
 	{
-		$field = $this->getMockBuilder('FOF30\Form\Field\Published')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+		$field = $this->getMockBuilder('FOF40\Form\Field\Published')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
 		$field->expects($this->exactly($check['static']))->method('getStatic');
 		$field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -61,14 +61,14 @@ class PublishedTest extends FOFTestCase
 	/**
 	 * @group           Published
 	 * @group           PublishedGetStatic
-	 * @covers          FOF30\Form\Field\Published::getStatic
+	 * @covers          FOF40\Form\Field\Published::getStatic
 	 * @dataProvider    PublishedDataprovider::getTestGetStatic
 	 */
 	public function testGetStatic($test, $check)
 	{
 		$msg = 'Published::getStatic %s - Case: ' . $check['case'];
 
-		$field = $this->getMockBuilder('FOF30\Form\Field\Published')->setMethods(array('getOptions'))->getMock();
+		$field = $this->getMockBuilder('FOF40\Form\Field\Published')->setMethods(array('getOptions'))->getMock();
 
 		$field->method('getOptions')->willReturn(array(
 			array('value' => 1, 'text' => 'Published'),
@@ -87,7 +87,7 @@ class PublishedTest extends FOFTestCase
 	/**
 	 * @group           Published
 	 * @group           PublishedGetRepeatable
-	 * @covers          FOF30\Form\Field\Published::getRepeatable
+	 * @covers          FOF40\Form\Field\Published::getRepeatable
 	 * @dataProvider    PublishedDataprovider::getTestGetRepeatable
 	 */
 	public function testGetRepeatable($test, $check)
@@ -125,11 +125,11 @@ class PublishedTest extends FOFTestCase
 	/**
 	 * @group           Published
 	 * @group           PublishedGetRepeatable
-	 * @covers          FOF30\Form\Field\Published::getRepeatable
+	 * @covers          FOF40\Form\Field\Published::getRepeatable
 	 */
 	public function testGetRepeatableException()
 	{
-		$this->setExpectedException('FOF30\Form\Exception\DataModelRequired');
+		$this->setExpectedException('FOF40\Form\Exception\DataModelRequired');
 
 		$field = new Published();
 

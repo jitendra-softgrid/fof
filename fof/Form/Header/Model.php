@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form\Header;
+namespace FOF40\Form\Header;
 
-use FOF30\Container\Container;
-use FOF30\Model\DataModel;
+use FOF40\Container\Container;
+use FOF40\Model\DataModel;
 use JHtml;
 use JText;
 

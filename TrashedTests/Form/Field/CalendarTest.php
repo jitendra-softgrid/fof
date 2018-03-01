@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Calendar;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Form\Field\Calendar;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 
 require_once __DIR__ . '/CalendarDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Calendar::<private>
- * @covers  FOF30\Form\Field\Calendar::<protected>
+ * @covers  FOF40\Form\Field\Calendar::<private>
+ * @covers  FOF40\Form\Field\Calendar::<protected>
  */
 class CalendarTest extends FOFTestCase
 {
@@ -41,12 +41,12 @@ class CalendarTest extends FOFTestCase
     /**
      * @group           Calendar
      * @group           Calendar__get
-     * @covers          FOF30\Form\Field\Calendar::__get
+     * @covers          FOF40\Form\Field\Calendar::__get
      * @dataProvider    CalendarDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Calendar')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Calendar')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
 
@@ -61,11 +61,11 @@ class CalendarTest extends FOFTestCase
     /**
      * @group           Calendar
      * @group           CalendarGetStatic
-     * @covers          FOF30\Form\Field\Calendar::getStatic
+     * @covers          FOF40\Form\Field\Calendar::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Calendar')->setMethods(array('getCalendar'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Calendar')->setMethods(array('getCalendar'))->getMock();
         $field->expects($this->once())->method('getCalendar')->with($this->equalTo('static'));
 
         $field->getStatic();
@@ -74,11 +74,11 @@ class CalendarTest extends FOFTestCase
     /**
      * @group           Calendar
      * @group           CalendarGetRepeatable
-     * @covers          FOF30\Form\Field\Calendar::getRepeatable
+     * @covers          FOF40\Form\Field\Calendar::getRepeatable
      */
     public function testGetRepeatable()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Calendar')->setMethods(array('getCalendar'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Calendar')->setMethods(array('getCalendar'))->getMock();
         $field->expects($this->once())->method('getCalendar')->with($this->equalTo('repeatable'));
 
         $field->getRepeatable();
@@ -87,7 +87,7 @@ class CalendarTest extends FOFTestCase
     /**
      * @group           Calendar
      * @group           CalendarGetCalendar
-     * @covers          FOF30\Form\Field\Calendar::getCalendar
+     * @covers          FOF40\Form\Field\Calendar::getCalendar
      * @dataProvider    CalendarDataprovider::getTestGetCalendar
      */
     public function testGetCalendar($test, $check)

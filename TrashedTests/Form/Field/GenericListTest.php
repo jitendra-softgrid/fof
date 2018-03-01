@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\GenericList;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\GenericList;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/GenericListDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\GenericList::<private>
- * @covers  FOF30\Form\Field\GenericList::<protected>
+ * @covers  FOF40\Form\Field\GenericList::<private>
+ * @covers  FOF40\Form\Field\GenericList::<protected>
  */
 class GenericListTest extends DatabaseTest
 {
@@ -40,12 +40,12 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericList__get
-     * @covers          FOF30\Form\Field\GenericList::__get
+     * @covers          FOF40\Form\Field\GenericList::__get
      * @dataProvider    GenericListDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GenericList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GenericList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -61,7 +61,7 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericListGetStatic
-     * @covers          FOF30\Form\Field\GenericList::getStatic
+     * @covers          FOF40\Form\Field\GenericList::getStatic
      * @dataProvider    GenericListDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
@@ -73,7 +73,7 @@ class GenericListTest extends DatabaseTest
             array('value' => 'foo', 'text' => 'Foobar')
         );
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\GenericList')->setMethods(array('getInput', 'getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GenericList')->setMethods(array('getInput', 'getOptions'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['options']))->method('getOptions')->willReturn($options);
@@ -100,7 +100,7 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericListGetRepeatable
-     * @covers          FOF30\Form\Field\GenericList::getRepeatable
+     * @covers          FOF40\Form\Field\GenericList::getRepeatable
      * @dataProvider    GenericListDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
@@ -112,7 +112,7 @@ class GenericListTest extends DatabaseTest
             array('value' => 'foo', 'text' => 'Foobar')
         );
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\GenericList')->setMethods(array('getInput', 'getOptions', 'parseFieldTags'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GenericList')->setMethods(array('getInput', 'getOptions', 'parseFieldTags'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['options']))->method('getOptions')->willReturn($options);
@@ -158,7 +158,7 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericListGetOptionName
-     * @covers          FOF30\Form\Field\GenericList::getOptionName
+     * @covers          FOF40\Form\Field\GenericList::getOptionName
      * @dataProvider    GenericListDataprovider::getTestGetOptionName
      */
     public function testGetOptionName($test, $check)
@@ -173,7 +173,7 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericListGetOptions
-     * @covers          FOF30\Form\Field\GenericList::getOptions
+     * @covers          FOF40\Form\Field\GenericList::getOptions
      * @dataProvider    GenericListDataprovider::getTestGetOptions
      */
     public function testGetOptions($test, $check)
@@ -223,7 +223,7 @@ class GenericListTest extends DatabaseTest
     /**
      * @group           GenericList
      * @group           GenericListParseFieldTags
-     * @covers          FOF30\Form\Field\GenericList::parseFieldTags
+     * @covers          FOF40\Form\Field\GenericList::parseFieldTags
      * @dataProvider    GenericListDataprovider::getTestParseFieldTags
      */
     public function testParseFieldTags($test, $check)

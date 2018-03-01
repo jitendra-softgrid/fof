@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Render;
+namespace FOF40\Render;
 
-use FOF30\Container\Container;
-use FOF30\Form\Form;
+use FOF40\Container\Container;
+use FOF40\Form\Form;
 use JHtml;
 use JText;
 
@@ -22,7 +22,7 @@ defined('_JEXEC') or die;
  * custom_css           Comma-separated list of custom CSS files to load _after_ the main FEF CSS file, e.g.
  *                      media://com_foo/css/bar.min.css,media://com_foo/css/baz.min.css
  *
- * @package FOF30\Render
+ * @package FOF40\Render
  */
 class FEF extends Joomla3
 {

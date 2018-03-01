@@ -10,26 +10,26 @@ defined('_JEXEC') or die();
 // Do not declare the class if it's already defined. We have to put this check otherwise while updating
 // multiple components at once will result in a fatal error since the class lib_fof30InstallerScript
 // is already declared
-if (class_exists('lib_fof30InstallerScript', false))
+if (class_exists('lib_fof40InstallerScript', false))
 {
 	return;
 }
 
-class lib_fof30InstallerScript
+class lib_fof40InstallerScript
 {
 	/**
 	 * The minimum PHP version required to install this extension
 	 *
 	 * @var   string
 	 */
-	protected $minimumPHPVersion = '5.4.0';
+	protected $minimumPHPVersion = '5.6.0';
 
 	/**
 	 * The minimum Joomla! version required to install this extension
 	 *
 	 * @var   string
 	 */
-	protected $minimumJoomlaVersion = '3.3.0';
+	protected $minimumJoomlaVersion = '3.7.0';
 
 	/**
 	 * The maximum Joomla! version this extension can be installed on
@@ -43,7 +43,7 @@ class lib_fof30InstallerScript
 	 *
 	 * @var   string
 	 */
-	protected $libraryFolder = 'fof30';
+	protected $libraryFolder = 'fof40';
 
 	/**
 	 * Obsolete files and folders to remove.
@@ -173,7 +173,7 @@ class lib_fof30InstallerScript
 
 		try
 		{
-			$dbInstaller = new FOF30\Database\Installer($db, $sqlSource);
+			$dbInstaller = new FOF40\Database\Installer($db, $sqlSource);
 			$dbInstaller->updateSchema();
 		}
 		catch (\Exception $e)
@@ -188,7 +188,7 @@ class lib_fof30InstallerScript
 		$dbInstaller->nukeCache();
 
 		// Clear the FOF cache
-		$fakeController = \FOF30\Container\Container::getInstance('com_FOOBAR');
+		$fakeController = \FOF40\Container\Container::getInstance('com_FOOBAR');
 		$fakeController->platform->clearCache();
 	}
 
@@ -202,7 +202,7 @@ class lib_fof30InstallerScript
 	public function uninstall(JInstallerAdapterLibrary $parent)
 	{
 		// Check dependencies on FOF
-		$dependencyCount = count($this->getDependencies('fof30'));
+		$dependencyCount = count($this->getDependencies('fof40'));
 
 		if ($dependencyCount)
 		{
@@ -229,7 +229,7 @@ class lib_fof30InstallerScript
 
 		$source = $grandpa->getPath('source');
 
-		$target = JPATH_LIBRARIES . '/fof30';
+		$target = JPATH_LIBRARIES . '/fof40';
 
 		// If FOF is not really installed (someone removed the directory instead of uninstalling?) I have to install it.
 		if (!JFolder::exists($target))
@@ -271,14 +271,14 @@ class lib_fof30InstallerScript
 	}
 
 	/**
-	 * Loads FOF 3.0 if it's not already loaded
+	 * Loads FOF 4.0 if it's not already loaded
 	 */
 	protected function loadFOF30()
 	{
 		// Load FOF if not already loaded
 		if (!defined('FOF30_INCLUDED'))
 		{
-			$filePath = JPATH_LIBRARIES . '/fof30/include.php';
+			$filePath = JPATH_LIBRARIES . '/fof40/include.php';
 
 			if (!defined('FOF30_INCLUDED') && file_exists($filePath))
 			{

@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Platform;
+namespace FOF40\Tests\Platform;
 
 
 class PlatformJoomlaProvider
@@ -459,7 +459,7 @@ class PlatformJoomlaProvider
 					'time'           => 'now',
 					'offset'         => 'GMT',
 					'locale'         => true,
-					'intended_class' => 'FOF30\Date\DateDecorator',
+					'intended_class' => 'FOF40\Date\DateDecorator',
 				],
 			],
 			[
@@ -468,7 +468,7 @@ class PlatformJoomlaProvider
 					'time'           => 'now',
 					'offset'         => 'GMT',
 					'locale'         => false,
-					'intended_class' => 'FOF30\Date\Date',
+					'intended_class' => 'FOF40\Date\Date',
 				],
 			],
 		];

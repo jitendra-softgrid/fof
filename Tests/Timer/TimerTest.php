@@ -5,18 +5,18 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Timer;
+namespace FOF40\Tests\Timer;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\Timer\FakeTimer;
-use FOF30\Timer\Timer;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\Timer\FakeTimer;
+use FOF40\Timer\Timer;
 
 require_once __DIR__ . '/../Helpers/Timer/FakeTimerImporter.php';
 
 /**
- * @covers  FOF30\Timer\Timer::<protected>
- * @covers  FOF30\Timer\Timer::<private>
+ * @covers  FOF40\Timer\Timer::<protected>
+ * @covers  FOF40\Timer\Timer::<private>
  */
 class TimerTest extends FOFTestCase
 {
@@ -37,7 +37,7 @@ class TimerTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Timer\Timer::__construct
+	 * @covers  FOF40\Timer\Timer::__construct
 	 */
 	public function testConstructor()
 	{
@@ -45,13 +45,13 @@ class TimerTest extends FOFTestCase
 
 		$timer = new Timer(8, 33);
 
-		$this->assertInstanceOf('FOF30\\Timer\\Timer', $timer, 'Timer must be an instance of FOF\'s Timer class');
+		$this->assertInstanceOf('FOF40\\Timer\\Timer', $timer, 'Timer must be an instance of FOF\'s Timer class');
 		$this->assertEquals(123456, ReflectionHelper::getValue($timer, 'start_time'), 'The start time must be fetched from microtime');
 		$this->assertEquals(2.64, ReflectionHelper::getValue($timer, 'max_exec_time'), 'The max exec time must use the provided max exec time and bias', 0.001);
 	}
 
 	/**
-	 * @covers  FOF30\Timer\Timer::__wakeup
+	 * @covers  FOF40\Timer\Timer::__wakeup
 	 */
 	public function testWakeup()
 	{
@@ -66,7 +66,7 @@ class TimerTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Timer\Timer::resetTime
+	 * @covers  FOF40\Timer\Timer::resetTime
 	 */
 	public function testResetTime()
 	{
@@ -80,7 +80,7 @@ class TimerTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Timer\Timer::getRunningTime
+	 * @covers  FOF40\Timer\Timer::getRunningTime
 	 */
 	public function testGetRunningTime()
 	{
@@ -105,7 +105,7 @@ class TimerTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Timer\Timer::getTimeLeft
+	 * @covers  FOF40\Timer\Timer::getTimeLeft
 	 */
 	public function testGetTimeLeft()
 	{

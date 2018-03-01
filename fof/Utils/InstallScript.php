@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
 defined('_JEXEC') or die;
 
-use FOF30\Utils\InstallScript\Component;
+use FOF40\Utils\InstallScript\Component;
 
 // Make sure the new class can be loaded
-if (!class_exists('FOF30\\Utils\\InstallScript\\Component', true))
+if (!class_exists('FOF40\\Utils\\InstallScript\\Component', true))
 {
 	require_once __DIR__ . '/InstallScript/Component.php';
 }
@@ -20,8 +20,8 @@ if (!class_exists('FOF30\\Utils\\InstallScript\\Component', true))
 /**
  * A helper class which you can use to create component installation scripts.
  *
- * This is the old location of the installation script class, maintained for backwards compatiblity with FOF 3.0. Please
- * use the new class FOF30\Utils\InstallScript\Component instead.
+ * This is the old location of the installation script class, maintained for backwards compatiblity with FOF 4.0. Please
+ * use the new class FOF40\Utils\InstallScript\Component instead.
  */
 class InstallScript extends Component
 {

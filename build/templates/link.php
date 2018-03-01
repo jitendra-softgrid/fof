@@ -1,9 +1,9 @@
 <?php
-$hardlink_files = array();
+$hardlink_files = [];
 
-$symlink_files = array();
+$symlink_files = [];
 
-$symlink_folders = array(
-	'../translations/fof'            => 'translations',
-	'translations/library/fof/en-GB' => 'fof/language/en-GB',
-);
+$symlink_folders = [
+	'../translations/fof'             => 'translations',
+	'translations/library/fof4/en-GB' => 'fof/language/en-GB',
+];

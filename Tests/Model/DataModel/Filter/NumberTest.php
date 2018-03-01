@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Number;
+namespace FOF40\Tests\DataModel\Number;
 
-use FOF30\Model\DataModel\Filter\Number;
-use FOF30\Tests\Helpers\DatabaseTest;
+use FOF40\Model\DataModel\Filter\Number;
+use FOF40\Tests\Helpers\DatabaseTest;
 
 require_once 'NumberDataprovider.php';
 /**
- * @covers      FOF30\Model\DataModel\Filter\Number::<protected>
- * @covers      FOF30\Model\DataModel\Filter\Number::<private>
- * @package     FOF30\Tests\DataModel\Filter\Number
+ * @covers      FOF40\Model\DataModel\Filter\Number::<protected>
+ * @covers      FOF40\Model\DataModel\Filter\Number::<private>
+ * @package     FOF40\Tests\DataModel\Filter\Number
  */
 class NumberTest extends DatabaseTest
 {
     /**
      * @group       NumberFilter
      * @group       NumberFilterPartial
-     * @covers      FOF30\Model\DataModel\Filter\Number::partial
+     * @covers      FOF40\Model\DataModel\Filter\Number::partial
      */
     public function testPartial()
     {
         $field  = (object)array('name' => 'test', 'type' => 'int (10)');
 
-        $filter = $this->getMockBuilder('FOF30\Model\DataModel\Filter\Number')
+        $filter = $this->getMockBuilder('FOF40\Model\DataModel\Filter\Number')
             ->setMethods(array('exact'))
             ->setConstructorArgs(array(\JFactory::getDbo(), $field))
             ->getMock();
@@ -41,7 +41,7 @@ class NumberTest extends DatabaseTest
     /**
      * @group           NumberFilter
      * @group           NumberFilterEquals
-     * @covers          FOF30\Model\DataModel\Filter\Number::search
+     * @covers          FOF40\Model\DataModel\Filter\Number::search
      * @dataProvider    NumberDataprovider::getTestSearch
      */
     public function testSearch($test, $check)
@@ -57,7 +57,7 @@ class NumberTest extends DatabaseTest
     /**
      * @group           NumberFilter
      * @group           NumberFilterBetween
-     * @covers          FOF30\Model\DataModel\Filter\Number::between
+     * @covers          FOF40\Model\DataModel\Filter\Number::between
      * @dataProvider    NumberDataprovider::getTestBetween
      */
     public function testBetween($test, $check)
@@ -73,7 +73,7 @@ class NumberTest extends DatabaseTest
     /**
      * @group           NumberFilter
      * @group           NumberFilterOutside
-     * @covers          FOF30\Model\DataModel\Filter\Number::outside
+     * @covers          FOF40\Model\DataModel\Filter\Number::outside
      * @dataProvider    NumberDataprovider::getTestOutside
      */
     public function testOutside($test, $check)
@@ -89,7 +89,7 @@ class NumberTest extends DatabaseTest
     /**
      * @group           NumberFilter
      * @group           NumberFilterInterval
-     * @covers          FOF30\Model\DataModel\Filter\Number::interval
+     * @covers          FOF40\Model\DataModel\Filter\Number::interval
      * @dataProvider    NumberDataprovider::getTestInterval
      */
     public function testInterval($test, $check)

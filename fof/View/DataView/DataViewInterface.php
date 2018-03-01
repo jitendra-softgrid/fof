@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\DataView;
+namespace FOF40\View\DataView;
 
-use FOF30\Container\Container;
+use FOF40\Container\Container;
 
 defined('_JEXEC') or die;
 

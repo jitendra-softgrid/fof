@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Configuration\Domain\Models;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Configuration\Domain\Models;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Domain\Models::<protected>
- * @covers  FOF30\Configuration\Domain\Models::<private>
+ * @covers  FOF40\Configuration\Domain\Models::<protected>
+ * @covers  FOF40\Configuration\Domain\Models::<private>
  */
 class ModelsTest extends FOFTestCase
 {
@@ -36,7 +36,7 @@ class ModelsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Models::parseDomain
+	 * @covers  FOF40\Configuration\Domain\Models::parseDomain
 	 *
 	 * @return  void
 	 */
@@ -61,8 +61,8 @@ class ModelsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Models::get
-	 * @covers  FOF30\Configuration\Domain\Models::getField
+	 * @covers  FOF40\Configuration\Domain\Models::get
+	 * @covers  FOF40\Configuration\Domain\Models::getField
 	 *
 	 * @dataProvider getTestGetField
 	 *
@@ -91,8 +91,8 @@ class ModelsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Models::get
-	 * @covers  FOF30\Configuration\Domain\Models::getTablealias
+	 * @covers  FOF40\Configuration\Domain\Models::get
+	 * @covers  FOF40\Configuration\Domain\Models::getTablealias
 	 *
 	 * @dataProvider getTestGetTablealias
 	 *
@@ -118,8 +118,8 @@ class ModelsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Models::get
-	 * @covers  FOF30\Configuration\Domain\Models::getBehaviors
+	 * @covers  FOF40\Configuration\Domain\Models::get
+	 * @covers  FOF40\Configuration\Domain\Models::getBehaviors
 	 *
 	 * @dataProvider getTestGetBehaviors
 	 *
@@ -153,8 +153,8 @@ class ModelsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Models::get
-	 * @covers  FOF30\Configuration\Domain\Models::getRelations
+	 * @covers  FOF40\Configuration\Domain\Models::get
+	 * @covers  FOF40\Configuration\Domain\Models::getRelations
 	 *
 	 * @return  void
 	 */

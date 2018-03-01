@@ -5,25 +5,25 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
-use FOF30\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
+use FOF40\Tests\Helpers\DatabaseTest;
 
 require_once 'MagicMethodsDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel::<protected>
- * @covers      FOF30\Model\DataModel::<private>
- * @package     FOF30\Tests\DataModel
+ * @covers      FOF40\Model\DataModel::<protected>
+ * @covers      FOF40\Model\DataModel::<private>
+ * @package     FOF40\Tests\DataModel
  */
 class DataModelMagicMethodsTest extends DatabaseTest
 {
     /**
      * @group           DataModel
      * @group           DataModelConstruct
-     * @covers          FOF30\Model\DataModel::__construct
+     * @covers          FOF40\Model\DataModel::__construct
      * @dataProvider    MagicMethodsDataprovider::getTest__construct
      */
     public function test__construct($test, $check)
@@ -45,7 +45,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
         );
 
         // Setup the class but do not instantiate it, so we to mock the methods
-        $model = $this->getMockBuilder('FOF30\\Model\\DataModel')
+        $model = $this->getMockBuilder('FOF40\\Model\\DataModel')
             ->setMethods(array('getName', 'addBehaviour', 'getState'))
             ->setConstructorArgs(array())
             ->setMockClassName('')
@@ -106,11 +106,11 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelConstruct
-     * @covers          FOF30\Model\DataModel::__construct
+     * @covers          FOF40\Model\DataModel::__construct
      */
     public function test__constructException()
     {
-        $this->setExpectedException('FOF30\Model\DataModel\Exception\NoTableColumns');
+        $this->setExpectedException('FOF40\Model\DataModel\Exception\NoTableColumns');
 
         $config = array(
             'idFieldName' => 'id',
@@ -123,7 +123,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelCall
-     * @covers          FOF30\Model\DataModel::__call
+     * @covers          FOF40\Model\DataModel::__call
      * @dataProvider    MagicMethodsDataprovider::getTest__call
      */
     public function test__call($test, $check)
@@ -137,7 +137,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
 
         $model  = new DataModelStub(static::$container, $config);
 
-        $relation = $this->getMockBuilder('FOF30\\Model\\DataModel\\RelationManager')
+        $relation = $this->getMockBuilder('FOF40\\Model\\DataModel\\RelationManager')
             ->setMethods(array('isMagicMethod', '__call'))
             ->setConstructorArgs(array($model))
             ->getMock();
@@ -166,7 +166,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
 
         if(is_object($result))
         {
-            $this->assertInstanceOf('\\FOF30\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
+            $this->assertInstanceOf('\\FOF40\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
         }
         else
         {
@@ -180,7 +180,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModel__isset
-     * @covers          FOF30\Model\DataModel::__isset
+     * @covers          FOF40\Model\DataModel::__isset
      * @dataProvider    MagicMethodsDataprovider::getTest__isset
      */
     public function test__isset($test, $check)
@@ -192,7 +192,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('getFieldValue'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -200,7 +200,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
         $model->expects($check['getField'] ? $this->once() : $this->never())->method('getFieldValue')->with($check['getField'])
             ->willReturn($test['mock']['getField']);
 
-        $relation = $this->getMockBuilder('FOF30\\Model\\DataModel\\RelationManager')
+        $relation = $this->getMockBuilder('FOF40\\Model\\DataModel\\RelationManager')
             ->setMethods(array('isMagicProperty', '__get'))
             ->setConstructorArgs(array($model))
             ->getMock();
@@ -223,7 +223,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModel__get
-     * @covers          FOF30\Model\DataModel::__get
+     * @covers          FOF40\Model\DataModel::__get
      * @dataProvider    MagicMethodsDataprovider::getTest__get
      */
     public function test__get($test, $check)
@@ -235,7 +235,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('getFieldValue', 'getState'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -246,7 +246,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
         $model->expects($check['getState'] ? $this->once() : $this->never())->method('getState')->with($check['getState'])
             ->willReturn($test['mock']['getState']);
 
-        $relation = $this->getMockBuilder('FOF30\\Model\\DataModel\\RelationManager')
+        $relation = $this->getMockBuilder('FOF40\\Model\\DataModel\\RelationManager')
             ->setMethods(array('isMagicProperty', '__get'))
             ->setConstructorArgs(array($model))
             ->getMock();
@@ -269,7 +269,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModel__get
-     * @covers          FOF30\Model\DataModel::__get
+     * @covers          FOF40\Model\DataModel::__get
      */
     public function test__getInput()
     {
@@ -290,7 +290,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModel__set
-     * @covers          FOF30\Model\DataModel::__set
+     * @covers          FOF40\Model\DataModel::__set
      * @dataProvider    MagicMethodsDataprovider::getTest__set
      */
     public function test__set($test, $check)
@@ -302,7 +302,7 @@ class DataModelMagicMethodsTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('setFieldValue', 'setState', '__call'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();

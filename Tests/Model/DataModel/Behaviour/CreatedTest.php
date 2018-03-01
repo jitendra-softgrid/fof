@@ -4,25 +4,25 @@
  * @copyright   Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 3 or later
  */
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\Created;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Model\DataModel\Behaviour\Created;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once 'CreatedDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\Created::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\Created::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\Created
+ * @covers      FOF40\Model\DataModel\Behaviour\Created::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\Created::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\Created
  */
 class CreatedTest extends DatabaseTest
 {
     /**
      * @group           Behaviour
      * @group           CreatedOnBeforeCheck
-     * @covers          FOF30\Model\DataModel\Behaviour\Created::onBeforeCheck
+     * @covers          FOF40\Model\DataModel\Behaviour\Created::onBeforeCheck
      */
     public function testOnBeforeCheck()
     {
@@ -34,7 +34,7 @@ class CreatedTest extends DatabaseTest
         $platform = static::$container->platform;
         $platform::$user = (object)array('id' => 99);
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('addSkipCheckField'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -53,7 +53,7 @@ class CreatedTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           CreatedOnBeforeCreate
-     * @covers          FOF30\Model\DataModel\Behaviour\Created::onBeforeCreate
+     * @covers          FOF40\Model\DataModel\Behaviour\Created::onBeforeCreate
      * @dataProvider    CreatedDataprovider::getTestOnBeforeCreate
      */
     public function testOnBeforeCreate($test, $check)

@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Generator\Command;
+namespace FOF40\Generator\Command;
 
 use JFactory;
 use JFile;

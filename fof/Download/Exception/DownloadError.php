@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Download\Exception;
+namespace FOF40\Download\Exception;
 
 defined('_JEXEC') or die;
 

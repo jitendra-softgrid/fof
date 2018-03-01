@@ -1,6 +1,6 @@
 <?php
 
-namespace FOF30\Generator\Command\Language\NodeVisitor;
+namespace FOF40\Generator\Command\Language\NodeVisitor;
 
 use PhpParser\Node;
 use PhpParser\NodeTraverser;

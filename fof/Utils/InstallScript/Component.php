@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils\InstallScript;
+namespace FOF40\Utils\InstallScript;
 
-use FOF30\Database\Installer;
+use FOF40\Database\Installer;
 use Exception;
 use JFactory;
 use JFile;
@@ -23,7 +23,7 @@ JLoader::import('joomla.installer.installer');
 JLoader::import('joomla.utilities.date');
 
 // In case FOF's autoloader is not present yet, e.g. new installation
-if (!class_exists('FOF30\\Utils\\InstallScript\\BaseInstaller', true))
+if (!class_exists('FOF40\\Utils\\InstallScript\\BaseInstaller', true))
 {
 	require_once __DIR__ . '/BaseInstaller.php';
 }
@@ -31,7 +31,7 @@ if (!class_exists('FOF30\\Utils\\InstallScript\\BaseInstaller', true))
 /**
  * A helper class which you can use to create component installation scripts.
  *
- * Example usage: class Com_ExampleInstallerScript extends FOF30\Utils\InstallScript\Component
+ * Example usage: class Com_ExampleInstallerScript extends FOF40\Utils\InstallScript\Component
  *
  * This namespace contains more classes for creating installation scripts for other kinds of Joomla! extensions as well.
  * Do keep in mind that only components, modules and plugins could have post-installation scripts before Joomla! 3.3.
@@ -217,8 +217,8 @@ class Component extends BaseInstaller
 	 */
 	public function postflight($type, $parent)
 	{
-		// Add ourselves to the list of extensions depending on FOF30
-		$this->addDependency('fof30', $this->componentName);
+		// Add ourselves to the list of extensions depending on FOF40
+		$this->addDependency('fof40', $this->componentName);
 
 		// Install or update database
 		$dbInstaller = new Installer(JFactory::getDbo(),
@@ -329,8 +329,8 @@ class Component extends BaseInstaller
 		// Uninstall post-installation messages on Joomla! 3.2 and later
 		$this->uninstallPostInstallationMessages();
 
-		// Remove ourselves from the list of extensions depending on FOF30
-		$this->removeDependency('fof30', $this->componentName);
+		// Remove ourselves from the list of extensions depending on FOF40
+		$this->removeDependency('fof40', $this->componentName);
 
 		// Show the post-uninstallation page
 		$this->renderPostUninstallation($parent);

@@ -5,24 +5,24 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Factory;
+namespace FOF40\Tests\Factory;
 
-use FOF30\Factory\MagicFactory;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\TestContainer;
+use FOF40\Factory\MagicFactory;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\TestContainer;
 
 require_once 'MagicFactoryDataprovider.php';
 
 /**
- * @covers      FOF30\Factory\MagicFactory::<protected>
- * @covers      FOF30\Factory\MagicFactory::<private>
- * @package     FOF30\Tests\Factory
+ * @covers      FOF40\Factory\MagicFactory::<protected>
+ * @covers      FOF40\Factory\MagicFactory::<private>
+ * @package     FOF40\Tests\Factory
  */
 class MagicFactoryTest extends FOFTestCase
 {
     /**
      * @group           MagicFactory
-     * @covers          FOF30\Factory\MagicFactory::controller
+     * @covers          FOF40\Factory\MagicFactory::controller
      * @dataProvider    MagicFactoryDataprovider::getTestController
      */
     public function testController($test, $check)
@@ -38,7 +38,7 @@ class MagicFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicFactory
-     * @covers          FOF30\Factory\MagicFactory::model
+     * @covers          FOF40\Factory\MagicFactory::model
      * @dataProvider    MagicFactoryDataprovider::getTestModel
      */
     public function testModel($test, $check)
@@ -54,7 +54,7 @@ class MagicFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicFactory
-     * @covers          FOF30\Factory\MagicFactory::view
+     * @covers          FOF40\Factory\MagicFactory::view
      * @dataProvider    MagicFactoryDataprovider::getTestView
      */
     public function testView($test, $check)
@@ -74,7 +74,7 @@ class MagicFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicFactory
-     * @covers          FOF30\Factory\MagicFactory::dispatcher
+     * @covers          FOF40\Factory\MagicFactory::dispatcher
      * @dataProvider    MagicFactoryDataprovider::getTestDispatcher
      */
     public function testDispatcher($test, $check)
@@ -107,7 +107,7 @@ class MagicFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicFactory
-     * @covers          FOF30\Factory\MagicFactory::transparentAuthentication
+     * @covers          FOF40\Factory\MagicFactory::transparentAuthentication
      * @dataProvider    MagicFactoryDataprovider::getTestTransparentAuthentication
      */
     public function testTransparentAuthentication($test, $check)

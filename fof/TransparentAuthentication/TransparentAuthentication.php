@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\TransparentAuthentication;
+namespace FOF40\TransparentAuthentication;
 
-use FOF30\Container\Container;
-use FOF30\Encrypt\Aes;
-use FOF30\Encrypt\Totp;
+use FOF40\Container\Container;
+use FOF40\Encrypt\Aes;
+use FOF40\Encrypt\Totp;
 
 defined('_JEXEC') or die;
 
@@ -70,7 +70,7 @@ class TransparentAuthentication
 	 * class): timeStep, totpKey, cryptoKey, basicAuthUsername, queryParam, queryParamUsername, queryParamPassword,
 	 * logoutOnExit. See the property descriptions for more information.
 	 *
-	 * @param \FOF30\Container\Container $container
+	 * @param \FOF40\Container\Container $container
 	 * @param array                      $config
 	 */
 	function __construct(Container $container, array $config = array())

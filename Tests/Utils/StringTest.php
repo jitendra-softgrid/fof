@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Utils;
+namespace FOF40\Tests\Utils;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Utils\StringHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Utils\StringHelper;
 
 /**
- * @covers  FOF30\Utils\StringHelper::<protected>
- * @covers  FOF30\Utils\StringHelper::<private>
+ * @covers  FOF40\Utils\StringHelper::<protected>
+ * @covers  FOF40\Utils\StringHelper::<private>
  */
 class StringTest extends FOFTestCase
 {
 	/**
-	 * @covers       FOF30\Utils\StringHelper::toBool
+	 * @covers       FOF40\Utils\StringHelper::toBool
 	 *
-	 * @dataProvider FOF30\Tests\Utils\StringProvider::getTestToBool
+	 * @dataProvider FOF40\Tests\Utils\StringProvider::getTestToBool
 	 *
 	 * @param string $value
 	 * @param bool   $expected

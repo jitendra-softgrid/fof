@@ -28,7 +28,7 @@ class BasicFactoryDataprovider
                 'view' => 'foobars',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ControllerNotFound',
+                        'FOF40\Factory\Exception\ControllerNotFound',
                         true
                     )
                 )
@@ -45,14 +45,14 @@ class BasicFactoryDataprovider
                 'view' => 'foobars',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ControllerNotFound',
-                        'FOF30\Factory\Exception\ControllerNotFound'
+                        'FOF40\Factory\Exception\ControllerNotFound',
+                        'FOF40\Factory\Exception\ControllerNotFound'
                     )
                 )
             ),
             array(
                 'case' => 'Controller is not found',
-                'exception' => 'FOF30\Factory\Exception\ControllerNotFound',
+                'exception' => 'FOF40\Factory\Exception\ControllerNotFound',
                 'names' => array()
             )
         );
@@ -81,7 +81,7 @@ class BasicFactoryDataprovider
                 'view' => 'foobars',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ModelNotFound',
+                        'FOF40\Factory\Exception\ModelNotFound',
                         true
                     )
                 )
@@ -98,14 +98,14 @@ class BasicFactoryDataprovider
                 'view' => 'foobars',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ModelNotFound',
-                        'FOF30\Factory\Exception\ModelNotFound'
+                        'FOF40\Factory\Exception\ModelNotFound',
+                        'FOF40\Factory\Exception\ModelNotFound'
                     )
                 )
             ),
             array(
                 'case' => 'Model is not found',
-                'exception' => 'FOF30\Factory\Exception\ModelNotFound',
+                'exception' => 'FOF40\Factory\Exception\ModelNotFound',
                 'names' => array()
             )
         );
@@ -151,7 +151,7 @@ class BasicFactoryDataprovider
                 'type' => 'html',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ViewNotFound',
+                        'FOF40\Factory\Exception\ViewNotFound',
                         true
                     )
                 )
@@ -169,14 +169,14 @@ class BasicFactoryDataprovider
                 'type' => 'html',
                 'mock' => array(
                     'create' => array(
-                        'FOF30\Factory\Exception\ViewNotFound',
-                        'FOF30\Factory\Exception\ViewNotFound'
+                        'FOF40\Factory\Exception\ViewNotFound',
+                        'FOF40\Factory\Exception\ViewNotFound'
                     )
                 )
             ),
             array(
                 'case' => 'View is not found',
-                'exception' => 'FOF30\Factory\Exception\ViewNotFound',
+                'exception' => 'FOF40\Factory\Exception\ViewNotFound',
                 'names' => array()
             )
         );
@@ -202,7 +202,7 @@ class BasicFactoryDataprovider
         $data[] = array(
             array(
                 'mock' => array(
-                    'create' => 'FOF30\Factory\Exception\DispatcherNotFound'
+                    'create' => 'FOF40\Factory\Exception\DispatcherNotFound'
                 )
             ),
             array(
@@ -233,7 +233,7 @@ class BasicFactoryDataprovider
         $data[] = array(
             array(
                 'mock' => array(
-                    'create' => 'FOF30\Factory\Exception\ToolbarNotFound'
+                    'create' => 'FOF40\Factory\Exception\ToolbarNotFound'
                 )
             ),
             array(
@@ -264,7 +264,7 @@ class BasicFactoryDataprovider
         $data[] = array(
             array(
                 'mock' => array(
-                    'create' => 'FOF30\Factory\Exception\TransparentAuthenticationNotFound'
+                    'create' => 'FOF40\Factory\Exception\TransparentAuthenticationNotFound'
                 )
             ),
             array(
@@ -355,7 +355,7 @@ class BasicFactoryDataprovider
             array(
                 'case'      => 'With scaffolding, with filename (not existing), source is the name of the form',
                 'result'    => true,
-                'exception' => 'FOF30\Factory\Exception\FormLoadFile'
+                'exception' => 'FOF40\Factory\Exception\FormLoadFile'
             )
         );
 
@@ -395,7 +395,7 @@ class BasicFactoryDataprovider
             array(
                 'case'      => 'With scaffolding, no filename, source is a malformed string',
                 'result'    => true,
-                'exception' => 'FOF30\Factory\Exception\FormLoadData'
+                'exception' => 'FOF40\Factory\Exception\FormLoadData'
             )
         );
 

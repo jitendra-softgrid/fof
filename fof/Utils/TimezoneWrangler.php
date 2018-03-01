@@ -5,19 +5,19 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
 use DateTime;
 use DateTimeZone;
 use Exception;
-use FOF30\Container\Container;
-use FOF30\Date\Date;
+use FOF40\Container\Container;
+use FOF40\Date\Date;
 use JUser;
 
 /**
  * A helper class to wrangle timezones, as used by Joomla!.
  *
- * @package  FOF30\Utils
+ * @package  FOF40\Utils
  *
  * @since    3.1.3
  */

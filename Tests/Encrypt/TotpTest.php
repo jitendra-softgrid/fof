@@ -5,15 +5,15 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Encrypt;
+namespace FOF40\Tests\Encrypt;
 
-use FOF30\Encrypt\Totp;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Encrypt\Totp;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @coversDefaultClass FOF30\Encrypt\Totp
+ * @coversDefaultClass FOF40\Encrypt\Totp
  *
- * @package FOF30\Tests\Encrypt
+ * @package FOF40\Tests\Encrypt
  */
 class TotpTest extends FOFTestCase
 {

@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Update;
+namespace FOF40\Update;
 
 defined('_JEXEC') or die;
 

@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Container;
+namespace FOF40\Container;
 
-use FOF30\Pimple\Container;
+use FOF40\Pimple\Container;
 
 defined('_JEXEC') or die;
 

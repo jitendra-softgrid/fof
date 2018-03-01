@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Layout;
+namespace FOF40\Tests\Layout;
 
 class LayoutFileTestProvider
 {

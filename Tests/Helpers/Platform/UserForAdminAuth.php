@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Helpers\Platform;
+namespace FOF40\Tests\Helpers\Platform;
 
 
 class UserForAdminAuth extends \JUser

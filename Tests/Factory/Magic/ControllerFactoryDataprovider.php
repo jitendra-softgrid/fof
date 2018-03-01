@@ -111,7 +111,7 @@ class ControllerFactoryDataprovider
             array(
                 'case' => 'The default datacontroller does not exist, passing the config',
                 'exception' => false,
-                'result' => 'FOF30\\Controller\\DataController',
+                'result' => 'FOF40\\Controller\\DataController',
                 'autoRouting' => 1,
                 'csrf' => 2,
                 'view' => 'Foobars',
@@ -178,7 +178,7 @@ class ControllerFactoryDataprovider
             array(
                 'case' => 'The default datacontroller does not exist, reading fof xml file',
                 'exception' => false,
-                'result' => 'FOF30\\Controller\\DataController',
+                'result' => 'FOF40\\Controller\\DataController',
                 'autoRouting' => 1,
                 'csrf' => 2,
                 'view' => 'Foobars',

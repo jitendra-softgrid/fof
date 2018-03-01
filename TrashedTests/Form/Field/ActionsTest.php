@@ -5,31 +5,31 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Actions;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Actions;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/ActionsDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Actions::<private>
- * @covers  FOF30\Form\Field\Actions::<protected>
+ * @covers  FOF40\Form\Field\Actions::<private>
+ * @covers  FOF40\Form\Field\Actions::<protected>
  */
 class ActionsTest extends FOFTestCase
 {
     /**
      * @group           AccessLevel
      * @group           Actions__get
-     * @covers          FOF30\Form\Field\Actions::__get
+     * @covers          FOF40\Form\Field\Actions::__get
      * @dataProvider    ActionsDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Actions')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Actions')
             ->setMethods(array('getStatic', 'getRepeatable'))
             ->getMock();
 
@@ -47,11 +47,11 @@ class ActionsTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           ActionsGetStatic
-     * @covers          FOF30\Form\Field\Actions::getStatic
+     * @covers          FOF40\Form\Field\Actions::getStatic
      */
     public function testGetStatic()
     {
-        $this->setExpectedException('FOF30\Form\Exception\GetStaticNotAllowed');
+        $this->setExpectedException('FOF40\Form\Exception\GetStaticNotAllowed');
 
         $field = new Actions();
 
@@ -61,7 +61,7 @@ class ActionsTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           ActionsGetRepeatable
-     * @covers          FOF30\Form\Field\Actions::getRepeatable
+     * @covers          FOF40\Form\Field\Actions::getRepeatable
      * @dataProvider    ActionsDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
@@ -82,7 +82,7 @@ class ActionsTest extends FOFTestCase
             }
         ));
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Actions')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Actions')
             ->setMethods(array('getPublishedField'))
             ->getMock();
 
@@ -110,11 +110,11 @@ class ActionsTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           ActionsGetRepeatable
-     * @covers          FOF30\Form\Field\Actions::getRepeatable
+     * @covers          FOF40\Form\Field\Actions::getRepeatable
      */
     public function testGetRepeatableException()
     {
-        $this->setExpectedException('FOF30\Form\Exception\DataModelRequired');
+        $this->setExpectedException('FOF40\Form\Exception\DataModelRequired');
 
         $field = new Actions();
 

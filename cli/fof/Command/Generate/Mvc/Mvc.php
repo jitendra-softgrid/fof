@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Generator\Command\Generate\Mvc;
+namespace FOF40\Generator\Command\Generate\Mvc;
 
-use FOF30\Generator\Command\Command;
-use FOF30\Generator\Command\Generate\Controller\Controller;
-use FOF30\Generator\Command\Generate\Model\Model;
-use FOF30\Generator\Command\Generate\View\View;
+use FOF40\Generator\Command\Command;
+use FOF40\Generator\Command\Generate\Controller\Controller;
+use FOF40\Generator\Command\Generate\Model\Model;
+use FOF40\Generator\Command\Generate\View\View;
 
 class Mvc extends Command
 {

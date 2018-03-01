@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model\DataModel;
+namespace FOF40\Model\DataModel;
 
-use FOF30\Model\DataModel;
-use FOF30\Utils\Collection as BaseCollection;
+use FOF40\Model\DataModel;
+use FOF40\Utils\Collection as BaseCollection;
 
 defined('_JEXEC') or die;
 

@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form\Exception;
+namespace FOF40\Form\Exception;
 
 use Exception;
 
@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 
 /**
  * Class InvalidGroupContents
- * @package FOF30\Form\Exception
+ * @package FOF40\Form\Exception
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class InvalidGroupContents extends \InvalidArgumentException

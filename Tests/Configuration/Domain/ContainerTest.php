@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Configuration\Domain\Container;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Configuration\Domain\Container;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Domain\Container::<protected>
- * @covers  FOF30\Configuration\Domain\Container::<private>
+ * @covers  FOF40\Configuration\Domain\Container::<protected>
+ * @covers  FOF40\Configuration\Domain\Container::<private>
  */
 class ContainerTest extends FOFTestCase
 {
     /**
      * @group       ConfigurationContainer
-     * @covers      FOF30\Configuration\Domain\Container::parseDomain
+     * @covers      FOF40\Configuration\Domain\Container::parseDomain
      */
     public function testParseDomain()
     {
@@ -40,7 +40,7 @@ class ContainerTest extends FOFTestCase
     }
 
     /**
-     * @covers  FOF30\Configuration\Domain\Container::get
+     * @covers  FOF40\Configuration\Domain\Container::get
      *
      * @dataProvider getTestGet
      *

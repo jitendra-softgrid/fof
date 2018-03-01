@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-namespace FOF30\Pimple;
+namespace FOF40\Pimple;
 
 /**
  * Container main class.

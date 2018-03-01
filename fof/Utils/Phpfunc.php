@@ -7,7 +7,7 @@
  * Based on the Seesion package of Aura for PHP – https://github.com/auraphp/Aura.Session
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
 defined('_JEXEC') or die;
 

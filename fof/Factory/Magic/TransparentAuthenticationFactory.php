@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Magic;
+namespace FOF40\Factory\Magic;
 
-use FOF30\Dispatcher\Dispatcher;
-use FOF30\Model\DataModel;
-use FOF30\View\DataView\DataViewInterface;
+use FOF40\Dispatcher\Dispatcher;
+use FOF40\Model\DataModel;
+use FOF40\View\DataView\DataViewInterface;
 
 defined('_JEXEC') or die;
 
@@ -35,7 +35,7 @@ class TransparentAuthenticationFactory extends BaseFactory
 
 		if (!class_exists($className, true))
 		{
-			$className = '\\FOF30\\TransparentAuthentication\\TransparentAuthentication';
+			$className = '\\FOF40\\TransparentAuthentication\\TransparentAuthentication';
 		}
 
 		$dispatcher = new $className($this->container, $config);

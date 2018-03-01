@@ -5,25 +5,25 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\Assets;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Model\DataModel\Behaviour\Assets;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once 'AssetsDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\Assets::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\Assets::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\Assets
+ * @covers      FOF40\Model\DataModel\Behaviour\Assets::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\Assets::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\Assets
  */
 class AssetsTest extends DatabaseTest
 {
     /**
      * @group           Behaviour
      * @group           AssetsOnAfterSave
-     * @covers          FOF30\Model\DataModel\Behaviour\Assets::onAfterSave
+     * @covers          FOF40\Model\DataModel\Behaviour\Assets::onAfterSave
      * @dataProvider    AssetsDataprovider::getTestOnAfterSave
      */
     public function testOnAfterSave($test, $check)
@@ -97,7 +97,7 @@ class AssetsTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           AssetsOnAfterBind
-     * @covers          FOF30\Model\DataModel\Behaviour\Assets::onAfterBind
+     * @covers          FOF40\Model\DataModel\Behaviour\Assets::onAfterBind
      * @dataProvider    AssetsDataprovider::getTestOnAfterBind
      */
     public function testOnAfterBind($test, $check)
@@ -139,7 +139,7 @@ class AssetsTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           AssetsOnBeforeDelete
-     * @covers          FOF30\Model\DataModel\Behaviour\Assets::onBeforeDelete
+     * @covers          FOF40\Model\DataModel\Behaviour\Assets::onBeforeDelete
      * @dataProvider    AssetsDataprovider::getTestOnBeforeDelete
      */
     public function testOnBeforeDelete($test, $check)
@@ -165,7 +165,7 @@ class AssetsTest extends DatabaseTest
 
         if($check['exception'])
         {
-            $this->setExpectedException('FOF30\Model\DataModel\Exception\NoAssetKey');
+            $this->setExpectedException('FOF40\Model\DataModel\Exception\NoAssetKey');
         }
 
         $query       = $db->getQuery(true)->select('COUNT(*)')->from('#__assets');

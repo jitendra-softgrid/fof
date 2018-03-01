@@ -5,25 +5,25 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\Own;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Model\DataModel\Behaviour\Own;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once 'OwnDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\Own::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\Own::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\Own
+ * @covers      FOF40\Model\DataModel\Behaviour\Own::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\Own::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\Own
  */
 class OwnTest extends DatabaseTest
 {
     /**
      * @group           Behaviour
      * @group           OwnOnAfterBuildQuery
-     * @covers          FOF30\Model\DataModel\Behaviour\Own::onAfterBuildQuery
+     * @covers          FOF40\Model\DataModel\Behaviour\Own::onAfterBuildQuery
      * @dataProvider    OwnDataprovider::getTestOnAfterBuildQuery
      */
     public function testOnAfterBuildQuery($test, $check)
@@ -61,7 +61,7 @@ class OwnTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           OwnOnAfterLoad
-     * @covers          FOF30\Model\DataModel\Behaviour\Own::onAfterLoad
+     * @covers          FOF40\Model\DataModel\Behaviour\Own::onAfterLoad
      * @dataProvider    OwnDataprovider::getTestOnAfterLoad
      */
     public function testOnAfterLoad($test, $check)
@@ -74,7 +74,7 @@ class OwnTest extends DatabaseTest
         $platform = static::$container->platform;
         $platform::$user = (object)array('id' => 99);
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('reset', 'getFieldValue'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();

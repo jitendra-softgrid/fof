@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Email;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Email;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/EmailDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Email::<private>
- * @covers  FOF30\Form\Field\Email::<protected>
+ * @covers  FOF40\Form\Field\Email::<private>
+ * @covers  FOF40\Form\Field\Email::<protected>
  */
 class EmailTest extends DatabaseTest
 {
@@ -39,12 +39,12 @@ class EmailTest extends DatabaseTest
     /**
      * @group           Email
      * @group           Email__get
-     * @covers          FOF30\Form\Field\Email::__get
+     * @covers          FOF40\Form\Field\Email::__get
      * @dataProvider    EmailDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Email')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Email')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -60,12 +60,12 @@ class EmailTest extends DatabaseTest
     /**
      * @group           Email
      * @group           EmailGetStatic
-     * @covers          FOF30\Form\Field\Email::getStatic
+     * @covers          FOF40\Form\Field\Email::getStatic
      * @dataProvider    EmailDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Email')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Email')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -89,12 +89,12 @@ class EmailTest extends DatabaseTest
     /**
      * @group           Email
      * @group           EmailGetRepeatable
-     * @covers          FOF30\Form\Field\Email::getRepeatable
+     * @covers          FOF40\Form\Field\Email::getRepeatable
      * @dataProvider    EmailDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Email')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Email')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -117,14 +117,14 @@ class EmailTest extends DatabaseTest
     /**
      * @group           Email
      * @group           EmailGetFieldContents
-     * @covers          FOF30\Form\Field\Email::getFieldContents
+     * @covers          FOF40\Form\Field\Email::getFieldContents
      * @dataProvider    EmailDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)
     {
         $msg = 'Email::getFieldContents %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Email')->setMethods(array('parseFieldTags'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Email')->setMethods(array('parseFieldTags'))->getMock();
 
         $field->method('parseFieldTags')->willReturn('__PARSED__');
 
@@ -153,7 +153,7 @@ class EmailTest extends DatabaseTest
     /**
      * @group           Email
      * @group           EmailParseFieldTags
-     * @covers          FOF30\Form\Field\Email::parseFieldTags
+     * @covers          FOF40\Form\Field\Email::parseFieldTags
      * @dataProvider    EmailDataprovider::getTestParseFieldTags
      */
     public function testParseFieldTags($test, $check)

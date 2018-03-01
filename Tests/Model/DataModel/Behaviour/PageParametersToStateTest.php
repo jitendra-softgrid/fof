@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Input\Input;
-use FOF30\Model\DataModel\Behaviour\PageParametersToState;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Input\Input;
+use FOF40\Model\DataModel\Behaviour\PageParametersToState;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once 'PageParametersToStateDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\PageParametersToState::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\PageParametersToState::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\PageParametersToState
+ * @covers      FOF40\Model\DataModel\Behaviour\PageParametersToState::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\PageParametersToState::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\PageParametersToState
  */
 class PageParametersToStateTest extends DatabaseTest
 {
@@ -42,7 +42,7 @@ class PageParametersToStateTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           PageParametersToStateOnAfterConstruct
-     * @covers          FOF30\Model\DataModel\Behaviour\PageParametersToState::onAfterConstruct
+     * @covers          FOF40\Model\DataModel\Behaviour\PageParametersToState::onAfterConstruct
      * @dataProvider    PageParametersToStateDataprovider::getTestOnAfterConstruct
      */
     public function testOnAfterConstruct($test, $check)
@@ -61,7 +61,7 @@ class PageParametersToStateTest extends DatabaseTest
             'input'         => new Input($test['input'])
         ));
 
-        /** @var \FOF30\Tests\Helpers\TestJoomlaPlatform $platform */
+        /** @var \FOF40\Tests\Helpers\TestJoomlaPlatform $platform */
         $platform = $container->platform;
         $platform::$isAdmin = $test['mock']['admin'];
         $platform::$user = (object)array('id' => 99);

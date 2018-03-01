@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\DataView;
+namespace FOF40\View\DataView;
 
-use FOF30\Container\Container;
-use FOF30\Model\DataModel;
-use FOF30\Model\DataModel\Collection;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\Model\DataModel;
+use FOF40\Model\DataModel\Collection;
+use FOF40\View\View;
 use Joomla\Registry\Registry;
 
 defined('_JEXEC') or die;

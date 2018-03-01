@@ -5,28 +5,28 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Relation\Relation\BelongsToMany;
+namespace FOF40\Tests\DataModel\Relation\Relation\BelongsToMany;
 
-use FOF30\Model\DataModel\Collection;
-use FOF30\Model\DataModel\Relation\BelongsToMany;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Model\DataModel\Collection;
+use FOF40\Model\DataModel\Relation\BelongsToMany;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
 use Fakeapp\Site\Model\Groups;
 use Fakeapp\Site\Model\Parts;
 
 require_once 'BelongsToManyDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Relation\BelongsToMany::<protected>
- * @covers      FOF30\Model\DataModel\Relation\BelongsToMany::<private>
- * @package     FOF30\Tests\DataModel\Relation\BelongsToMany
+ * @covers      FOF40\Model\DataModel\Relation\BelongsToMany::<protected>
+ * @covers      FOF40\Model\DataModel\Relation\BelongsToMany::<private>
+ * @package     FOF40\Tests\DataModel\Relation\BelongsToMany
  */
 class BelongsToManyTest extends DatabaseTest
 {
     /**
      * @group           BelongsToMany
      * @group           BelongsToManyContruct
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::__construct
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::__construct
      * @dataProvider    BelongsToManyDataprovider::getTestConstruct
      */
     public function testConstruct($test, $check)
@@ -48,11 +48,11 @@ class BelongsToManyTest extends DatabaseTest
     /**
      * @group           BelongsToMany
      * @group           BelongsToManyContruct
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::__construct
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::__construct
      */
     public function testConstructException()
     {
-        $this->setExpectedException('FOF30\Model\DataModel\Relation\Exception\PivotTableNotFound');
+        $this->setExpectedException('FOF40\Model\DataModel\Relation\Exception\PivotTableNotFound');
 
         $model    = new Groups(static::$container);
         $relation = new BelongsToMany($model, 'Children');
@@ -61,7 +61,7 @@ class BelongsToManyTest extends DatabaseTest
     /**
      * @group           BelongsToMany
      * @group           BelongsToManySetDataFromCollection
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::setDataFromCollection
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::setDataFromCollection
      * @dataProvider    BelongsToManyDataprovider::getTestSetDataFromCollection
      */
     public function testSetDataFromCollection($test, $check)
@@ -92,7 +92,7 @@ class BelongsToManyTest extends DatabaseTest
     /**
      * @group           BelongsToMany
      * @group           BelongsToManyGetCountSubquery
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::getCountSubquery
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::getCountSubquery
      */
     public function testGetCountSubquery()
     {
@@ -114,7 +114,7 @@ WHERE `pivotTable`.`fakeapp_group_id` =`#__fakeapp_groups`.`fakeapp_group_id`';
     /**
      * @group           BelongsToMany
      * @group           BelongsToManySaveAll
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::saveAll
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::saveAll
      */
     public function testSaveAll()
     {
@@ -169,7 +169,7 @@ WHERE `pivotTable`.`fakeapp_group_id` =`#__fakeapp_groups`.`fakeapp_group_id`';
      *
      * @group           BelongsToMany
      * @group           BelongsToManySaveAll
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::saveAll
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::saveAll
      */
     public function testCaseAddNewRelatedItem()
     {
@@ -213,7 +213,7 @@ WHERE `pivotTable`.`fakeapp_group_id` =`#__fakeapp_groups`.`fakeapp_group_id`';
      *
      * @group           BelongsToMany
      * @group           BelongsToManySaveAll
-     * @covers          FOF30\Model\DataModel\Relation\BelongsToMany::saveAll
+     * @covers          FOF40\Model\DataModel\Relation\BelongsToMany::saveAll
      */
     public function testCaseAddExistingRelatedItem()
     {
@@ -337,14 +337,14 @@ WHERE `pivotTable`.`fakeapp_group_id` =`#__fakeapp_groups`.`fakeapp_group_id`';
     /**
      * @group       BelongsToMany
      * @group       BelongsToManyGetNew
-     * @covers      FOF30\Model\DataModel\Relation\BelongsToMany::getNew
+     * @covers      FOF40\Model\DataModel\Relation\BelongsToMany::getNew
      */
     public function testGetNew()
     {
         $model    = new Groups(static::$container);
         $relation = new BelongsToMany($model, 'Parts');
 
-        $this->setExpectedException('FOF30\Model\DataModel\Relation\Exception\NewNotSupported');
+        $this->setExpectedException('FOF40\Model\DataModel\Relation\Exception\NewNotSupported');
 
         $relation->getNew();
     }

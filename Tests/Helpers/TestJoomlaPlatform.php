@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Helpers;
+namespace FOF40\Tests\Helpers;
 
-use FOF30\Platform\Joomla\Platform as PlatformJoomla;
+use FOF40\Platform\Joomla\Platform as PlatformJoomla;
 
 /**
  * A specialised Joomla! platform abstraction class which can lie about running under CLI, frontend or backend.

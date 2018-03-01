@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Editor;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Field\Editor;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/EditorDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Editor::<private>
- * @covers  FOF30\Form\Field\Editor::<protected>
+ * @covers  FOF40\Form\Field\Editor::<private>
+ * @covers  FOF40\Form\Field\Editor::<protected>
  */
 class EditorTest extends FOFTestCase
 {
     /**
      * @group           Editor
      * @group           Editor__get
-     * @covers          FOF30\Form\Field\Editor::__get
+     * @covers          FOF40\Form\Field\Editor::__get
      * @dataProvider    EditorDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Editor')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Editor')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -43,12 +43,12 @@ class EditorTest extends FOFTestCase
     /**
      * @group           Editor
      * @group           EditorGetStatic
-     * @covers          FOF30\Form\Field\Editor::getStatic
+     * @covers          FOF40\Form\Field\Editor::getStatic
      * @dataProvider    EditorDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Editor')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Editor')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -72,12 +72,12 @@ class EditorTest extends FOFTestCase
     /**
      * @group           Editor
      * @group           EditorGetRepeatable
-     * @covers          FOF30\Form\Field\Editor::getRepeatable
+     * @covers          FOF40\Form\Field\Editor::getRepeatable
      * @dataProvider    EditorDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Editor')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Editor')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -100,7 +100,7 @@ class EditorTest extends FOFTestCase
     /**
      * @group           Editor
      * @group           EditorGetFieldContents
-     * @covers          FOF30\Form\Field\Editor::getFieldContents
+     * @covers          FOF40\Form\Field\Editor::getFieldContents
      * @dataProvider    EditorDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)

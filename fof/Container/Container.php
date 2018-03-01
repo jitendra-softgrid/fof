@@ -5,17 +5,17 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Container;
+namespace FOF40\Container;
 
-use FOF30\Autoloader\Autoloader;
-use FOF30\Factory\FactoryInterface;
-use FOF30\Inflector\Inflector;
-use FOF30\Params\Params;
-use FOF30\Platform\Joomla\Filesystem as JoomlaFilesystem;
-use FOF30\Render\RenderInterface;
-use FOF30\Template\Template;
-use FOF30\TransparentAuthentication\TransparentAuthentication as TransparentAuth;
-use FOF30\View\Compiler\Blade;
+use FOF40\Autoloader\Autoloader;
+use FOF40\Factory\FactoryInterface;
+use FOF40\Inflector\Inflector;
+use FOF40\Params\Params;
+use FOF40\Platform\Joomla\Filesystem as JoomlaFilesystem;
+use FOF40\Render\RenderInterface;
+use FOF40\Template\Template;
+use FOF40\TransparentAuthentication\TransparentAuthentication as TransparentAuth;
+use FOF40\View\Compiler\Blade;
 use JDatabaseDriver;
 use Joomla\Registry\Registry;
 use JSession;
@@ -50,26 +50,26 @@ defined('_JEXEC') or die;
  * @property  string                                   $frontEndPath       The absolute path to the front-end files
  * @property  string                                   $backEndPath        The absolute path to the back-end files
  * @property  string                                   $thisPath           The preferred path. Backend for Admin application, frontend otherwise
- * @property  string                                   $rendererClass      The fully qualified class name of the view renderer we'll be using. Must implement FOF30\Render\RenderInterface.
- * @property  string                                   $factoryClass       The fully qualified class name of the MVC Factory object, default is FOF30\Factory\BasicFactory.
- * @property  string                                   $platformClass      The fully qualified class name of the Platform abstraction object, default is FOF30\Platform\Joomla\Platform.
+ * @property  string                                   $rendererClass      The fully qualified class name of the view renderer we'll be using. Must implement FOF40\Render\RenderInterface.
+ * @property  string                                   $factoryClass       The fully qualified class name of the MVC Factory object, default is FOF40\Factory\BasicFactory.
+ * @property  string                                   $platformClass      The fully qualified class name of the Platform abstraction object, default is FOF40\Platform\Joomla\Platform.
  * @property  string                                   $mediaVersion       A version string for media files in forms. Default: md5 of release version, release date and site secret (if found)
  *
- * @property-read  \FOF30\Configuration\Configuration  $appConfig          The application configuration registry
- * @property-read  \FOF30\View\Compiler\Blade          $blade              The Blade view template compiler engine
+ * @property-read  \FOF40\Configuration\Configuration  $appConfig          The application configuration registry
+ * @property-read  \FOF40\View\Compiler\Blade          $blade              The Blade view template compiler engine
  * @property-read  \JDatabaseDriver                    $db                 The database connection object
- * @property-read  \FOF30\Dispatcher\Dispatcher        $dispatcher         The component's dispatcher
- * @property-read  \FOF30\Factory\FactoryInterface     $factory            The MVC object factory
- * @property-read  \FOF30\Platform\FilesystemInterface $filesystem         The filesystem abstraction layer object
- * @property-read  \FOF30\Inflector\Inflector          $inflector          The English word inflector (pluralise / singularise words etc)
- * @property-read  \FOF30\Params\Params          	   $params             The component's params
- * @property-read  \FOF30\Input\Input                  $input              The input object
- * @property-read  \FOF30\Platform\PlatformInterface   $platform           The platform abstraction layer object
- * @property-read  \FOF30\Render\RenderInterface       $renderer           The view renderer
+ * @property-read  \FOF40\Dispatcher\Dispatcher        $dispatcher         The component's dispatcher
+ * @property-read  \FOF40\Factory\FactoryInterface     $factory            The MVC object factory
+ * @property-read  \FOF40\Platform\FilesystemInterface $filesystem         The filesystem abstraction layer object
+ * @property-read  \FOF40\Inflector\Inflector          $inflector          The English word inflector (pluralise / singularise words etc)
+ * @property-read  \FOF40\Params\Params          	   $params             The component's params
+ * @property-read  \FOF40\Input\Input                  $input              The input object
+ * @property-read  \FOF40\Platform\PlatformInterface   $platform           The platform abstraction layer object
+ * @property-read  \FOF40\Render\RenderInterface       $renderer           The view renderer
  * @property-read  \JSession                           $session            Joomla! session storage
- * @property-read  \FOF30\Template\Template            $template           The template helper
+ * @property-read  \FOF40\Template\Template            $template           The template helper
  * @property-read  TransparentAuth                     $transparentAuth    Transparent authentication handler
- * @property-read  \FOF30\Toolbar\Toolbar              $toolbar            The component's toolbar
+ * @property-read  \FOF40\Toolbar\Toolbar              $toolbar            The component's toolbar
  */
 class Container extends ContainerBase
 {
@@ -116,7 +116,7 @@ END;
 	 * @param   array   $values     Container configuration overrides you want to apply. Optional.
 	 * @param   string  $section    The application section (site, admin) you want to fetch. Any other value results in auto-detection.
 	 *
-	 * @return \FOF30\Container\Container
+	 * @return \FOF40\Container\Container
 	 */
 	public static function &getInstance($component, array $values = array(), $section = 'auto')
 	{
@@ -150,7 +150,7 @@ END;
 	 * @param   array   $values     Container configuration overrides you want to apply. Optional.
 	 * @param   string  $section    The application section (site, admin) you want to fetch. Any other value results in auto-detection.
 	 *
-	 * @return \FOF30\Container\Container
+	 * @return \FOF40\Container\Container
 	 */
 	protected static function &makeInstance($component, array $values = array(), $section = 'auto')
 	{
@@ -239,8 +239,8 @@ END;
 
 		// Get the values overrides from fof.xml
 		$values = array_merge(array(
-			'factoryClass'              => '\\FOF30\\Factory\\BasicFactory',
-			'platformClass'             => '\\FOF30\\Platform\\Joomla\\Platform',
+			'factoryClass'              => '\\FOF40\\Factory\\BasicFactory',
+			'platformClass'             => '\\FOF40\\Platform\\Joomla\\Platform',
 			'scaffolding'               => false,
 			'saveScaffolding'           => false,
 			'saveControllerScaffolding' => false,
@@ -298,7 +298,7 @@ END;
 	 *
 	 * @param   array  $values  Overrides for the container configuration and services
 	 *
-	 * @throws  \FOF30\Container\Exception\NoComponent  If no component name is specified
+	 * @throws  \FOF40\Container\Exception\NoComponent  If no component name is specified
 	 */
 	public function __construct(array $values = array())
 	{
@@ -309,8 +309,8 @@ END;
 		$this->frontEndPath = '';
 		$this->backEndPath = '';
 		$this->thisPath = '';
-		$this->factoryClass = 'FOF30\\Factory\\BasicFactory';
-		$this->platformClass = 'FOF30\\Platform\\Joomla\\Platform';
+		$this->factoryClass = 'FOF40\\Factory\\BasicFactory';
+		$this->platformClass = 'FOF40\\Platform\\Joomla\\Platform';
 
 		// Try to construct this container object
 		parent::__construct($values);
@@ -394,7 +394,7 @@ END;
 		{
 			if (empty($c['platformClass']))
 			{
-				$c['platformClass'] = 'FOF30\\Platform\\Joomla\\Platform';
+				$c['platformClass'] = 'FOF40\\Platform\\Joomla\\Platform';
 			}
 
 			$this['platform'] = function (Container $c)
@@ -422,7 +422,7 @@ END;
 			{
 				if (empty($c['factoryClass']))
 				{
-					$c['factoryClass'] = 'FOF30\\Factory\\BasicFactory';
+					$c['factoryClass'] = 'FOF40\\Factory\\BasicFactory';
 				}
 
 				if (strpos($c['factoryClass'], '\\') === false)
@@ -435,13 +435,13 @@ END;
 					}
 					else
 					{
-						$c['factoryClass'] = '\\FOF30\\Factory\\' . ucfirst($c['factoryClass']) . 'Factory';
+						$c['factoryClass'] = '\\FOF40\\Factory\\' . ucfirst($c['factoryClass']) . 'Factory';
  					}
 				}
 
 				if (!class_exists($c['factoryClass'], true))
 				{
-					$c['factoryClass'] = 'FOF30\\Factory\\BasicFactory';
+					$c['factoryClass'] = 'FOF40\\Factory\\BasicFactory';
 				}
 
 				$factoryClass = $c['factoryClass'];
@@ -492,7 +492,7 @@ END;
 
 				if (!class_exists($class, true))
 				{
-					$class = '\\FOF30\\Configuration\\Configuration';
+					$class = '\\FOF40\\Configuration\\Configuration';
 				}
 
 				return new $class($c);
@@ -591,7 +591,7 @@ END;
 							continue;
 						}
 
-						$className = 'FOF30\\Render\\' . basename($filename, '.php');
+						$className = 'FOF40\\Render\\' . basename($filename, '.php');
 
 						if (!class_exists($className, true))
 						{
@@ -623,7 +623,7 @@ END;
 		// Input Access service
 		if (isset($this['input']) &&
 		    (!(is_object($this['input'])) ||
-		     !($this['input'] instanceof \FOF30\Input\Input) ||
+		     !($this['input'] instanceof \FOF40\Input\Input) ||
 		     !($this['input'] instanceof \JInput))
 		) {
 			if (empty($this['input']))
@@ -637,7 +637,7 @@ END;
 
 			$this['input'] = function (Container $c)
 			{
-				$input = new \FOF30\Input\Input($c['rawInputData']);
+				$input = new \FOF40\Input\Input($c['rawInputData']);
 				unset($c['rawInputData']);
 				return $input;
 			};
@@ -647,7 +647,7 @@ END;
 		{
 			$this['input'] = function ()
 			{
-				return new \FOF30\Input\Input();
+				return new \FOF40\Input\Input();
 			};
 		}
 

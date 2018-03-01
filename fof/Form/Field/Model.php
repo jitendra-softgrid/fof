@@ -5,13 +5,13 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form\Field;
+namespace FOF40\Form\Field;
 
-use FOF30\Container\Container;
-use FOF30\Form\FieldInterface;
-use FOF30\Form\Form;
-use FOF30\Model\DataModel;
-use FOF30\Utils\StringHelper;
+use FOF40\Container\Container;
+use FOF40\Form\FieldInterface;
+use FOF40\Form\Form;
+use FOF40\Model\DataModel;
+use FOF40\Utils\StringHelper;
 use \JHtml;
 use \JText;
 

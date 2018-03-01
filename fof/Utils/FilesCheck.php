@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
-use FOF30\Timer\Timer;
+use FOF40\Timer\Timer;
 
 defined('_JEXEC') or die;
 

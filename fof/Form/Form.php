@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form;
+namespace FOF40\Form;
 
-use FOF30\Container\Container;
-use FOF30\Form\Header\HeaderBase;
-use FOF30\Model\DataModel;
-use FOF30\View\DataView\DataViewInterface;
+use FOF40\Container\Container;
+use FOF40\Form\Header\HeaderBase;
+use FOF40\Model\DataModel;
+use FOF40\View\DataView\DataViewInterface;
 use JFactory;
 use JForm;
 use Joomla\Registry\Registry;
@@ -48,7 +48,7 @@ class Form extends JForm
 	/**
 	 * The Container this form belongs to
 	 *
-	 * @var \FOF30\Container\Container
+	 * @var \FOF40\Container\Container
 	 */
 	protected $container;
 
@@ -674,7 +674,7 @@ class Form extends JForm
 		// Get the prefixes for namespaced classes (FOF3 way)
 		$namespacedPrefixes = array(
 			$this->container->getNamespacePrefix(),
-			'FOF30\\',
+			'FOF40\\',
 		);
 
 		// Get the prefixes for non-namespaced classes (FOF2 and Joomla! way)
@@ -780,7 +780,7 @@ class Form extends JForm
 
 		if (class_exists('JLog'))
 		{
-			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 3.0 and should not be used.', \JLog::WARNING, 'deprecated');
+			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 4.0 and should not be used.', \JLog::WARNING, 'deprecated');
 		}
 	}
 
@@ -799,7 +799,7 @@ class Form extends JForm
 
 		if (class_exists('JLog'))
 		{
-			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 3.0 and should not be used.', \JLog::WARNING, 'deprecated');
+			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 4.0 and should not be used.', \JLog::WARNING, 'deprecated');
 		}
 	}
 
@@ -818,7 +818,7 @@ class Form extends JForm
 
 		if (class_exists('JLog'))
 		{
-			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 3.0 and should not be used.', \JLog::WARNING, 'deprecated');
+			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 4.0 and should not be used.', \JLog::WARNING, 'deprecated');
 		}
 	}
 
@@ -837,7 +837,7 @@ class Form extends JForm
 
 		if (class_exists('JLog'))
 		{
-			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 3.0 and should not be used.', \JLog::WARNING, 'deprecated');
+			\JLog::add(__CLASS__ . '::' . __METHOD__ . '() is deprecated since FOF 4.0 and should not be used.', \JLog::WARNING, 'deprecated');
 		}
 	}
 

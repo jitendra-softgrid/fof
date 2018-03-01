@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Platform;
+namespace FOF40\Platform;
 
 use Exception;
-use FOF30\Container\Container;
-use FOF30\Date\Date;
-use FOF30\Input\Input;
+use FOF40\Container\Container;
+use FOF40\Date\Date;
+use FOF40\Input\Input;
 use Joomla\Registry\Registry;
 
 defined('_JEXEC') or die;
@@ -26,7 +26,7 @@ interface PlatformInterface
 	/**
 	 * Public constructor.
 	 *
-	 * @param   \FOF30\Container\Container  $c  The component container
+	 * @param   \FOF40\Container\Container  $c  The component container
 	 */
 	public function __construct(Container $c);
 

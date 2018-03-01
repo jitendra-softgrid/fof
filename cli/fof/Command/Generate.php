@@ -1,6 +1,6 @@
 <?php
 
-namespace FOF30\Generator\Command;
+namespace FOF40\Generator\Command;
 
 class Generate extends Command
 {
@@ -61,7 +61,7 @@ class Generate extends Command
     protected function getClass()
     {
         $input  = $this->input;
-        $class  = 'FOF30\\Generator\\Command\\Generate';
+        $class  = 'FOF40\\Generator\\Command\\Generate';
         $return = '';
 
         $layout = strtolower($input->get('layout'));

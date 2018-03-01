@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model\DataModel\Filter;
+namespace FOF40\Model\DataModel\Filter;
 
-use FOF30\Model\DataModel\Filter\Exception\InvalidFieldObject;
-use FOF30\Model\DataModel\Filter\Exception\NoDatabaseObject;
+use FOF40\Model\DataModel\Filter\Exception\InvalidFieldObject;
+use FOF40\Model\DataModel\Filter\Exception\NoDatabaseObject;
 
 defined('_JEXEC') or die;
 
@@ -309,7 +309,7 @@ abstract class AbstractFilter
 
 		$classType = self::getFieldType($type);
 
-		$className = '\\FOF30\\Model\\DataModel\\Filter\\' . ucfirst($classType);
+		$className = '\\FOF40\\Model\\DataModel\\Filter\\' . ucfirst($classType);
 
 		if (($classType !== false) && class_exists($className, true))
 		{

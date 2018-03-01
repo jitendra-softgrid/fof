@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Download\Adapter;
+namespace FOF40\Download\Adapter;
 
-use FOF30\Download\DownloadInterface;
-use FOF30\Download\Exception\DownloadError;
+use FOF40\Download\DownloadInterface;
+use FOF40\Download\Exception\DownloadError;
 use JText;
 
 defined('_JEXEC') or die;

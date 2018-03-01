@@ -5,24 +5,24 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Factory\Magic;
+namespace FOF40\Tests\Factory\Magic;
 
-use FOF30\Factory\Magic\ControllerFactory;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
+use FOF40\Factory\Magic\ControllerFactory;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
 
 require_once 'ControllerFactoryDataprovider.php';
 
 /**
- * @covers      FOF30\Factory\Magic\ControllerFactory::<protected>
- * @covers      FOF30\Factory\Magic\ControllerFactory::<private>
- * @package     FOF30\Tests\Factory
+ * @covers      FOF40\Factory\Magic\ControllerFactory::<protected>
+ * @covers      FOF40\Factory\Magic\ControllerFactory::<private>
+ * @package     FOF40\Tests\Factory
  */
 class ControllerFactoryTest extends FOFTestCase
 {
     /**
-     * @covers          FOF30\Factory\Magic\ControllerFactory::make
+     * @covers          FOF40\Factory\Magic\ControllerFactory::make
      * @dataProvider    ControllerFactoryDataprovider::getTestMake
      */
     public function testMake($test, $check)
@@ -45,7 +45,7 @@ class ControllerFactoryTest extends FOFTestCase
 
         if($check['exception'])
         {
-            $this->setExpectedException('FOF30\Factory\Exception\ControllerNotFound');
+            $this->setExpectedException('FOF40\Factory\Exception\ControllerNotFound');
         }
 
         $result = $factory->make($test['name'], $test['config']);

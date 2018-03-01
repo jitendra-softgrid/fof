@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Scaffolding\Layout;
+namespace FOF40\Factory\Scaffolding\Layout;
 
-use FOF30\Model\DataModel;
+use FOF40\Model\DataModel;
 
 /**
  * Erects a scaffolding XML for edit views
  *
- * @package FOF30\Factory\Scaffolding
+ * @package FOF40\Factory\Scaffolding
  *
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
@@ -361,7 +361,7 @@ class FormErector extends BaseErector implements ErectorInterface
 	/**
 	 * Apply an access level field
 	 *
-	 * @param \FOF30\Model\DataModel $model
+	 * @param \FOF40\Model\DataModel $model
 	 * @param \SimpleXMLElement      $headerSet
 	 * @param \SimpleXMLElement      $fieldSet
 	 * @param string                 $fieldName

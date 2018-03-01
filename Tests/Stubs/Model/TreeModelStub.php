@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\Model;
+namespace FOF40\Tests\Stubs\Model;
 
-use FOF30\Container\Container;
-use FOF30\Model\TreeModel;
+use FOF40\Container\Container;
+use FOF40\Model\TreeModel;
 
 class TreeModelStub extends TreeModel
 {

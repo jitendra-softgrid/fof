@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form\Header;
+namespace FOF40\Form\Header;
 
 defined('_JEXEC') or die;
 

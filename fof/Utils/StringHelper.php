@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
 defined('_JEXEC') or die;
 
@@ -27,7 +27,7 @@ abstract class StringHelper
 	{
 		if (class_exists('\JLog'))
 		{
-			\JLog::add('FOF30\\Utils\\StringHelper::toSlug is deprecated. Use \\JApplicationHelper::stringURLSafe instead', \JLog::WARNING, 'deprecated');
+			\JLog::add('FOF40\\Utils\\StringHelper::toSlug is deprecated. Use \\JApplicationHelper::stringURLSafe instead', \JLog::WARNING, 'deprecated');
 		}
 
 		if (!class_exists('\JApplicationHelper'))
@@ -54,7 +54,7 @@ abstract class StringHelper
 	{
 		if (class_exists('\JLog'))
 		{
-			\JLog::add('FOF30\\Utils\\StringHelper::toASCII is deprecated. Use JFactory::getLanguage()->transliterate instead', \JLog::WARNING, 'deprecated');
+			\JLog::add('FOF40\\Utils\\StringHelper::toASCII is deprecated. Use JFactory::getLanguage()->transliterate instead', \JLog::WARNING, 'deprecated');
 		}
 
 		$lang = \JFactory::getLanguage();

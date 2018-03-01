@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Utils;
+namespace FOF40\Tests\Utils;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Utils\Collection;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Utils\Collection;
 
 class CollectionTest extends FOFTestCase
 {
@@ -50,7 +50,7 @@ class CollectionTest extends FOFTestCase
 
     public function testToArrayCallsToArrayOnEachItemInCollection()
     {
-        $item1 = $this->getMockBuilder('FOF30\\Registry\\Registry')
+        $item1 = $this->getMockBuilder('FOF40\\Registry\\Registry')
             ->setMethods(array('toArray'))
             ->getMock();
 		$item1
@@ -58,7 +58,7 @@ class CollectionTest extends FOFTestCase
 			->method('toArray')
 			->will($this->returnValue('foo.array'));
 
-		$item2 = $this->getMockBuilder('FOF30\\Registry\\Registry')
+		$item2 = $this->getMockBuilder('FOF40\\Registry\\Registry')
             ->setMethods(array('toArray'))
             ->getMock();
 
@@ -75,7 +75,7 @@ class CollectionTest extends FOFTestCase
 
     public function testToJsonEncodesTheToArrayResult()
 	{
-        $c = $this->getMockBuilder('FOF30\Utils\Collection')
+        $c = $this->getMockBuilder('FOF40\Utils\Collection')
             ->setMethods(array('toArray'))
             ->getMock();
 		$c->expects($this->once())->method('toArray')->will($this->returnValue('foo'));
@@ -86,7 +86,7 @@ class CollectionTest extends FOFTestCase
 
     public function testCastingToStringJsonEncodesTheToArrayResult()
 	{
-		$c = $this->getMockBuilder('FOF30\Utils\Collection')
+		$c = $this->getMockBuilder('FOF40\Utils\Collection')
             ->setMethods(array('toArray'))
             ->getMock();
 

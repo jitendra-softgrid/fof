@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\DataView;
+namespace FOF40\View\DataView;
 
-use FOF30\Container\Container;
-use FOF30\Model\DataModel;
-use FOF30\View\Exception\AccessForbidden;
+use FOF40\Container\Container;
+use FOF40\Model\DataModel;
+use FOF40\View\Exception\AccessForbidden;
 
 defined('_JEXEC') or die;
 

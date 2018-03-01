@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\Compiler;
+namespace FOF40\View\Compiler;
 
 defined('_JEXEC') or die;
 
@@ -718,7 +718,7 @@ class Blade implements CompilerInterface
 			$expression = substr($expression, 1, -1);
 		}
 
-		return "<?php echo \\FOF30\\Layout\\LayoutHelper::render(\$this->container, $expression); ?>";
+		return "<?php echo \\FOF40\\Layout\\LayoutHelper::render(\$this->container, $expression); ?>";
 	}
 
 	/**

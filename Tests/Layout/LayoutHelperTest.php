@@ -5,17 +5,17 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Layout;
+namespace FOF40\Tests\Layout;
 
 
-use FOF30\Layout\LayoutHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Layout\LayoutHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 
 /**
- * @covers  FOF30\Layout\LayoutHelper::<protected>
- * @covers  FOF30\Layout\LayoutHelper::<private>
+ * @covers  FOF40\Layout\LayoutHelper::<protected>
+ * @covers  FOF40\Layout\LayoutHelper::<private>
  */
 class LayoutHelperTest extends FOFTestCase
 {
@@ -59,9 +59,9 @@ class LayoutHelperTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Layout\LayoutHelper::render
+	 * @covers       FOF40\Layout\LayoutHelper::render
 	 *
-	 * @dataProvider FOF30\Tests\Layout\LayoutHelperTestProvider::getTestRender
+	 * @dataProvider FOF40\Tests\Layout\LayoutHelperTestProvider::getTestRender
 	 *
 	 * @param string $layoutId       The layout to load
 	 * @param array  $platformSetup  Platform setup (baseDirs, template, templateSuffixes)
@@ -83,7 +83,7 @@ class LayoutHelperTest extends FOFTestCase
 		}
 
 		$platformSetup = array_merge($defaultPlatformSetup, $platformSetup);
-		$reflector = new \ReflectionClass('FOF30\\Tests\\Helpers\\TestJoomlaPlatform');
+		$reflector = new \ReflectionClass('FOF40\\Tests\\Helpers\\TestJoomlaPlatform');
 
 		foreach ($platformSetup as $k => $v)
 		{
@@ -102,9 +102,9 @@ class LayoutHelperTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Layout\LayoutHelper::render
+	 * @covers       FOF40\Layout\LayoutHelper::render
 	 *
-	 * @dataProvider FOF30\Tests\Layout\LayoutHelperTestProvider::getTestRender
+	 * @dataProvider FOF40\Tests\Layout\LayoutHelperTestProvider::getTestRender
 	 *
 	 * @param string $layoutId       The layout to load
 	 * @param array  $platformSetup  Platform setup (baseDirs, template, templateSuffixes)
@@ -126,7 +126,7 @@ class LayoutHelperTest extends FOFTestCase
 		}
 
 		$platformSetup = array_merge($defaultPlatformSetup, $platformSetup);
-		$reflector = new \ReflectionClass('FOF30\\Tests\\Helpers\\TestJoomlaPlatform');
+		$reflector = new \ReflectionClass('FOF40\\Tests\\Helpers\\TestJoomlaPlatform');
 
 		foreach ($platformSetup as $k => $v)
 		{

@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Event;
+namespace FOF40\Tests\Event;
 
 
-use FOF30\Event\Observable;
-use FOF30\Tests\Helpers\ApplicationTestCase;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Event\FirstObserver;
+use FOF40\Event\Observable;
+use FOF40\Tests\Helpers\ApplicationTestCase;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Event\FirstObserver;
 
 class ObserverTest extends FOFTestCase
 {
@@ -44,7 +44,7 @@ class ObserverTest extends FOFTestCase
 
 	protected function setUp()
 	{
-		$this->dispatcher = $this->getMockBuilder('\\FOF30\\Event\\Observable')
+		$this->dispatcher = $this->getMockBuilder('\\FOF40\\Event\\Observable')
 			->disableOriginalConstructor()
 			->setMethods(array('attach', 'detach', 'trigger'))
 			->getMock();

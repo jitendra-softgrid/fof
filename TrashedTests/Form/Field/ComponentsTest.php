@@ -5,32 +5,32 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Components;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Form\Field\Components;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 
 require_once __DIR__ . '/ComponentsDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Components::<private>
- * @covers  FOF30\Form\Field\Components::<protected>
+ * @covers  FOF40\Form\Field\Components::<private>
+ * @covers  FOF40\Form\Field\Components::<protected>
  */
 class ComponentsTest extends FOFTestCase
 {
     /**
      * @group           Components
      * @group           Components__get
-     * @covers          FOF30\Form\Field\Components::__get
+     * @covers          FOF40\Form\Field\Components::__get
      * @dataProvider    ComponentsDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Components')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Components')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -46,11 +46,11 @@ class ComponentsTest extends FOFTestCase
     /**
      * @group           Components
      * @group           ComponentsGetStatic
-     * @covers          FOF30\Form\Field\Components::getStatic
+     * @covers          FOF40\Form\Field\Components::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Components')->setMethods(array('getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Components')->setMethods(array('getFieldContents'))->getMock();
 
         $field->expects($this->once())->method('getFieldContents')->with($this->equalTo(array('id' => 'foo')));
 
@@ -62,11 +62,11 @@ class ComponentsTest extends FOFTestCase
     /**
      * @group           Components
      * @group           ComponentsGetRepeatable
-     * @covers          FOF30\Form\Field\Components::getRepeatable
+     * @covers          FOF40\Form\Field\Components::getRepeatable
      */
     public function testGetRepeatable()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Components')->setMethods(array('getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Components')->setMethods(array('getFieldContents'))->getMock();
 
         $field->expects($this->once())->method('getFieldContents')->with($this->equalTo(array('class' => 'foo')));
 
@@ -78,7 +78,7 @@ class ComponentsTest extends FOFTestCase
     /**
      * @group           Components
      * @group           ComponentsGetFieldContents
-     * @covers          FOF30\Form\Field\Components::getFieldContents
+     * @covers          FOF40\Form\Field\Components::getFieldContents
      * @dataProvider    ComponentsDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)
@@ -91,7 +91,7 @@ class ComponentsTest extends FOFTestCase
             array('value' => 'test', 'text' => 'Test component'),
         );
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Components')->setMethods(array('getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Components')->setMethods(array('getOptions'))->getMock();
 
         $field->method('getOptions')->willReturn($components);
 
@@ -106,7 +106,7 @@ class ComponentsTest extends FOFTestCase
     /**
      * @group           Components
      * @group           ComponentsTranslate
-     * @covers          FOF30\Form\Field\Components::translate
+     * @covers          FOF40\Form\Field\Components::translate
      * @dataProvider    ComponentsDataprovider::getTestTranslate
      */
     public function testTranslate($test, $check)

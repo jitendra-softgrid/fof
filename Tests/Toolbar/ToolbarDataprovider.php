@@ -964,7 +964,7 @@ class ToolbarDataprovider
             array(
                 'mock' => array(
                     'getController' => true,
-                    'getView' => 'FOF30\Tests\Stubs\View\ViewStub',
+                    'getView' => 'FOF40\Tests\Stubs\View\ViewStub',
                     'cache'   => null
                 )
             ),
@@ -978,7 +978,7 @@ class ToolbarDataprovider
             array(
                 'mock' => array(
                     'getController' => true,
-                    'getView' => 'FOF30\Tests\Stubs\View\DataView\RawStub',
+                    'getView' => 'FOF40\Tests\Stubs\View\DataView\RawStub',
                     'cache'   => null
                 )
             ),

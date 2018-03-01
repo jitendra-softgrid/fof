@@ -24,10 +24,10 @@
  * THE SOFTWARE.
  */
 
-namespace FOF30\Tests\Stubs\Pimple;
+namespace FOF40\Tests\Stubs\Pimple;
 
-use \FOF30\Pimple\Pimple;
-use \FOF30\Pimple\ServiceProviderInterface;
+use \FOF40\Pimple\Pimple;
+use \FOF40\Pimple\ServiceProviderInterface;
 
 class PimpleServiceProvider implements ServiceProviderInterface
 {

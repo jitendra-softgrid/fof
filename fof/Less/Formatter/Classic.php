@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Less\Formatter;
+namespace FOF40\Less\Formatter;
 
 defined('_JEXEC') or die;
 

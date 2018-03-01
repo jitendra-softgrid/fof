@@ -305,8 +305,8 @@ class FormDataprovider
                 'type'   => 'text'
             ),
             'check' => array(
-                'case'   => 'Standard FOF30 field (autoloader)',
-                'result' => 'FOF30\Form\Field\Text'
+                'case'   => 'Standard FOF40 field (autoloader)',
+                'result' => 'FOF40\Form\Field\Text'
             )
         );
 
@@ -316,7 +316,7 @@ class FormDataprovider
                 'type'   => 'calendar'
             ),
             'check' => array(
-                'case'   => 'Specialized FOF30 field (autoloader)',
+                'case'   => 'Specialized FOF40 field (autoloader)',
                 'result' => 'Fakeapp\Site\Form\Field\Calendar'
             )
         );

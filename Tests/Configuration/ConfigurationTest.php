@@ -5,13 +5,13 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Configuration::<protected>
- * @covers  FOF30\Configuration\Configuration::<private>
+ * @covers  FOF40\Configuration\Configuration::<protected>
+ * @covers  FOF40\Configuration\Configuration::<private>
  */
 class ConfigurationTest extends FOFTestCase
 {
@@ -27,11 +27,11 @@ class ConfigurationTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Configuration::__construct
-	 * @covers  FOF30\Configuration\Configuration::parseComponent
-	 * @covers  FOF30\Configuration\Configuration::parseComponentArea
-	 * @covers  FOF30\Configuration\Configuration::getDomains
-	 * @covers  FOF30\Configuration\Configuration::get
+	 * @covers  FOF40\Configuration\Configuration::__construct
+	 * @covers  FOF40\Configuration\Configuration::parseComponent
+	 * @covers  FOF40\Configuration\Configuration::parseComponentArea
+	 * @covers  FOF40\Configuration\Configuration::getDomains
+	 * @covers  FOF40\Configuration\Configuration::get
 	 *
 	 * @return  void
 	 */
@@ -39,7 +39,7 @@ class ConfigurationTest extends FOFTestCase
 	{
 		$x = self::$container->appConfig;
 
-		$this->assertInstanceOf('\\FOF30\\Configuration\\Configuration', $x, 'Configuration object must be of correct type');
+		$this->assertInstanceOf('\\FOF40\\Configuration\\Configuration', $x, 'Configuration object must be of correct type');
 
 		$actual = $x->get('models.Orders.field.enabled', null);
 

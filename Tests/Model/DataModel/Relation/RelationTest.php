@@ -5,27 +5,27 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Relation;
+namespace FOF40\Tests\DataModel\Relation;
 
-use FOF30\Model\DataModel;
-use FOF30\Model\DataModel\Collection;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\RelationStub;
+use FOF40\Model\DataModel;
+use FOF40\Model\DataModel\Collection;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\RelationStub;
 
 require_once __DIR__.'/RelationDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Relation::<protected>
- * @covers      FOF30\Model\DataModel\Relation::<private>
- * @package     FOF30\Tests\DataModel\Relation
+ * @covers      FOF40\Model\DataModel\Relation::<protected>
+ * @covers      FOF40\Model\DataModel\Relation::<private>
+ * @package     FOF40\Tests\DataModel\Relation
  */
 class RelationTest extends DatabaseTest
 {
     /**
      * @group           Relation
      * @group           RelationContruct
-     * @covers          FOF30\Model\DataModel\Relation::__construct
+     * @covers          FOF40\Model\DataModel\Relation::__construct
      */
     public function testConstruct()
     {
@@ -45,7 +45,7 @@ class RelationTest extends DatabaseTest
     /**
      * @group           Relation
      * @group           RelationReset
-     * @covers          FOF30\Model\DataModel\Relation::reset
+     * @covers          FOF40\Model\DataModel\Relation::reset
      */
     public function testReset()
     {
@@ -59,7 +59,7 @@ class RelationTest extends DatabaseTest
 
         $result = $relation->reset();
 
-        $this->assertInstanceOf('FOF30\Model\DataModel\Relation', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('FOF40\Model\DataModel\Relation', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertEmpty(ReflectionHelper::getValue($relation, 'data'), sprintf($msg, 'Should empty the internal data'));
         $this->assertEmpty(ReflectionHelper::getValue($relation, 'foreignKeyMap'), sprintf($msg, 'Should empty the foreign key map'));
     }
@@ -67,13 +67,13 @@ class RelationTest extends DatabaseTest
     /**
      * @group           Relation
      * @group           RelationRebase
-     * @covers          FOF30\Model\DataModel\Relation::rebase
+     * @covers          FOF40\Model\DataModel\Relation::rebase
      */
     public function testRebase()
     {
         $model    = $this->buildModel();
 
-        $relation = $this->getMockBuilder('FOF30\Tests\Stubs\Model\RelationStub')
+        $relation = $this->getMockBuilder('FOF40\Tests\Stubs\Model\RelationStub')
             ->setMethods(array('reset'))
             ->setConstructorArgs(array($model, 'Fakeapp\Model\Children'))
             ->getMock();
@@ -84,14 +84,14 @@ class RelationTest extends DatabaseTest
 
         $result = $relation->rebase($newModel);
 
-        $this->assertInstanceOf('FOF30\Model\DataModel\Relation', $result, 'Relation::rebase should return an instance of itself');
+        $this->assertInstanceOf('FOF40\Model\DataModel\Relation', $result, 'Relation::rebase should return an instance of itself');
         $this->assertSame($newModel, ReflectionHelper::getValue($relation, 'parentModel'), 'Relation::rebase Failed to change the parent model');
     }
 
     /**
      * @group           Relation
      * @group           RelationGetData
-     * @covers          FOF30\Model\DataModel\Relation::getData
+     * @covers          FOF40\Model\DataModel\Relation::getData
      * @dataProvider    RelationDataprovider::getTestGetData
      */
     public function testGetData($test, $check)
@@ -130,7 +130,7 @@ class RelationTest extends DatabaseTest
     /**
      * @group           Relation
      * @group           RelationSetDataFromCollection
-     * @covers          FOF30\Model\DataModel\Relation::setDataFromCollection
+     * @covers          FOF40\Model\DataModel\Relation::setDataFromCollection
      */
     public function testSetDataFromCollection()
     {
@@ -161,7 +161,7 @@ class RelationTest extends DatabaseTest
     /**
      * @group           Relation
      * @group           RelationSaveAll
-     * @covers          FOF30\Model\DataModel\Relation::saveAll
+     * @covers          FOF40\Model\DataModel\Relation::saveAll
      */
     public function testSaveAll()
     {
@@ -173,7 +173,7 @@ class RelationTest extends DatabaseTest
             'tableName'   => '#__fakeapp_parents'
         );
 
-        $item = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $item = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('save'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -190,7 +190,7 @@ class RelationTest extends DatabaseTest
     /**
      * @group           Relation
      * @group           RelationGetforeignKeyMap
-     * @covers          FOF30\Model\DataModel\Relation::getForeignKeyMap
+     * @covers          FOF40\Model\DataModel\Relation::getForeignKeyMap
      */
     public function testGetForeignKeyMap()
     {
@@ -209,13 +209,13 @@ class RelationTest extends DatabaseTest
     /**
      * @param   string    $class
      *
-     * @return \FOF30\Model\DataModel
+     * @return \FOF40\Model\DataModel
      */
     protected function buildModel($class = null)
     {
         if(!$class)
         {
-            $class = '\\FOF30\\Tests\\Stubs\\Model\\DataModelStub';
+            $class = '\\FOF40\\Tests\\Stubs\\Model\\DataModelStub';
         }
 
         $config = array(

@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Generator\Command;
+namespace FOF40\Generator\Command;
 
-use FOF30\Generator\Command\Command as Command;
+use FOF40\Generator\Command\Command as Command;
 
 class Init extends Command
 {

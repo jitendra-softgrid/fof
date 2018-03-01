@@ -5,16 +5,16 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Hal;
+namespace FOF40\Tests\Hal;
 
-use FOF30\Hal\Links;
-use FOF30\Hal\Link;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Hal\Links;
+use FOF40\Hal\Link;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 class LinksTest extends FOFTestCase
 {
 	/**
-	 * @covers FOF30\Hal\Links::addLink
+	 * @covers FOF40\Hal\Links::addLink
 	 */
 	function testAddLink()
 	{
@@ -61,7 +61,7 @@ class LinksTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers FOF30\Hal\Links::addLinks
+	 * @covers FOF40\Hal\Links::addLinks
 	 */
 	function testAddLinks()
 	{
@@ -111,7 +111,7 @@ class LinksTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers FOF30\Hal\Links::getLinks
+	 * @covers FOF40\Hal\Links::getLinks
 	 */
 	function testGetLinks()
 	{

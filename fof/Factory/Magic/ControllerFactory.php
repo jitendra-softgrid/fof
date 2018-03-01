@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Magic;
+namespace FOF40\Factory\Magic;
 
-use FOF30\Controller\DataController;
-use FOF30\Factory\Exception\ControllerNotFound;
+use FOF40\Controller\DataController;
+use FOF40\Factory\Exception\ControllerNotFound;
 
 defined('_JEXEC') or die;
 
@@ -56,7 +56,7 @@ class ControllerFactory extends BaseFactory
 
 		if (!class_exists($className, true))
 		{
-			$className = 'FOF30\\Controller\\DataController';
+			$className = 'FOF40\\Controller\\DataController';
 		}
 
 		$controller = new $className($this->container, $config);

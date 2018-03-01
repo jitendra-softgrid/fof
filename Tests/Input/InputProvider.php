@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Input;
+namespace FOF40\Tests\Input;
 
-use FOF30\Input\Input as FOFInput;
+use FOF40\Input\Input as FOFInput;
 
 abstract class InputProvider
 {

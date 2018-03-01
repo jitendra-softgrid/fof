@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Database;
+namespace FOF40\Database;
 
 use JDatabaseDriver;
 use SimpleXMLElement;

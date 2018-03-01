@@ -5,23 +5,23 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Controller;
+namespace FOF40\Tests\Controller;
 
-use FOF30\Input\Input;
-use FOF30\Tests\Helpers\ApplicationTestCase;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Controller\ControllerStub;
-use FOF30\Tests\Stubs\Model\ModelStub;
-use FOF30\Tests\Stubs\View\ViewStub;
+use FOF40\Input\Input;
+use FOF40\Tests\Helpers\ApplicationTestCase;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Controller\ControllerStub;
+use FOF40\Tests\Stubs\Model\ModelStub;
+use FOF40\Tests\Stubs\View\ViewStub;
 
 require_once 'ControllerDataprovider.php';
 
 /**
- * @covers      FOF30\Controller\Controller::<protected>
- * @covers      FOF30\Controller\Controller::<private>
- * @package     FOF30\Tests\Controller
+ * @covers      FOF40\Controller\Controller::<protected>
+ * @covers      FOF40\Controller\Controller::<private>
+ * @package     FOF40\Tests\Controller
  */
 class ControllerTest extends ApplicationTestCase
 {
@@ -45,7 +45,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerConstruct
-     * @covers          FOF30\Controller\Controller::__construct
+     * @covers          FOF40\Controller\Controller::__construct
      * @dataProvider    ControllerDataprovider::getTest__construct
      */
     public function test__construct($test, $check)
@@ -63,7 +63,7 @@ class ControllerTest extends ApplicationTestCase
         $container = new TestContainer($containerSetup);
 
         // First of all let's get the mock of the object WITHOUT calling the constructor
-        $controller = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Controller\\ControllerStub')
+        $controller = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Controller\\ControllerStub')
             ->setMethods(array('registerDefaultTask', 'setModelName', 'setViewName'))
             ->setConstructorArgs(array())
             ->setMockClassName('')
@@ -91,7 +91,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerConstruct
-     * @covers          FOF30\Controller\Controller::__construct
+     * @covers          FOF40\Controller\Controller::__construct
      */
     public function test__constructTaskMap()
     {
@@ -114,7 +114,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerConstruct
-     * @covers          FOF30\Controller\Controller::__get
+     * @covers          FOF40\Controller\Controller::__get
      * @dataProvider    ControllerDataprovider::getTest__get
      */
     public function test__get($test, $check)
@@ -148,7 +148,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerExecute
-     * @covers          FOF30\Controller\Controller::execute
+     * @covers          FOF40\Controller\Controller::execute
      * @dataProvider    ControllerDataprovider::getTestExecute
      */
     public function testExecute($test, $check)
@@ -189,11 +189,11 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerExecute
-     * @covers          FOF30\Controller\Controller::execute
+     * @covers          FOF40\Controller\Controller::execute
      */
     public function testExecuteException()
     {
-        $this->setExpectedException('FOF30\Controller\Exception\TaskNotFound');
+        $this->setExpectedException('FOF40\Controller\Exception\TaskNotFound');
 
         $controller = new ControllerStub(static::$container);
 
@@ -205,7 +205,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerDisplay
-     * @covers          FOF30\Controller\Controller::display
+     * @covers          FOF40\Controller\Controller::display
      * @dataProvider    ControllerDataprovider::getTestDisplay
      */
     public function testDisplay($test, $check)
@@ -222,7 +222,7 @@ class ControllerTest extends ApplicationTestCase
         $platform = $container->platform;
         $platform::$template = 'fake_test_template';
 
-        $view = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\View\\ViewStub')
+        $view = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\View\\ViewStub')
             ->setMethods(array('setDefaultModel', 'setLayout', 'display'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -238,7 +238,7 @@ class ControllerTest extends ApplicationTestCase
             }
         );
 
-        $controller = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Controller\\ControllerStub')
+        $controller = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Controller\\ControllerStub')
             ->setMethods(array('getView', 'getModel'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -261,7 +261,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetModel
-     * @covers          FOF30\Controller\Controller::getModel
+     * @covers          FOF40\Controller\Controller::getModel
      * @dataProvider    ControllerDataprovider::getTestGetModel
      */
     public function testGetModel($test, $check)
@@ -298,7 +298,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetView
-     * @covers          FOF30\Controller\Controller::getView
+     * @covers          FOF40\Controller\Controller::getView
      * @dataProvider    ControllerDataprovider::getTestGetView
      */
     public function testGetView($test, $check)
@@ -342,7 +342,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerSetViewName
-     * @covers          FOF30\Controller\Controller::setViewName
+     * @covers          FOF40\Controller\Controller::setViewName
      */
     public function testSetViewName()
     {
@@ -359,7 +359,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerSetModelName
-     * @covers          FOF30\Controller\Controller::setModelName
+     * @covers          FOF40\Controller\Controller::setModelName
      */
     public function testSetModelName()
     {
@@ -376,7 +376,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerSetModel
-     * @covers          FOF30\Controller\Controller::setModel
+     * @covers          FOF40\Controller\Controller::setModel
      */
     public function testSetModel()
     {
@@ -397,7 +397,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerSetView
-     * @covers          FOF30\Controller\Controller::setView
+     * @covers          FOF40\Controller\Controller::setView
      */
     public function testSetView()
     {
@@ -418,7 +418,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetTask
-     * @covers          FOF30\Controller\Controller::getName
+     * @covers          FOF40\Controller\Controller::getName
      */
     public function testGetName()
     {
@@ -434,13 +434,13 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetTask
-     * @covers          FOF30\Controller\Controller::getName
+     * @covers          FOF40\Controller\Controller::getName
      */
     public function testGetNameException()
     {
-        $this->setExpectedException('FOF30\Controller\Exception\CannotGetName');
+        $this->setExpectedException('FOF40\Controller\Exception\CannotGetName');
 
-        $controller = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Controller\\ControllerStub')
+        $controller = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Controller\\ControllerStub')
             ->setMethods(array('registerTask'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -453,7 +453,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetTask
-     * @covers          FOF30\Controller\Controller::getTask
+     * @covers          FOF40\Controller\Controller::getTask
      */
     public function testGetTask()
     {
@@ -470,7 +470,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerGetTasks
-     * @covers          FOF30\Controller\Controller::getTasks
+     * @covers          FOF40\Controller\Controller::getTasks
      */
     public function testGetTasks()
     {
@@ -487,7 +487,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerRedirect
-     * @covers          FOF30\Controller\Controller::redirect
+     * @covers          FOF40\Controller\Controller::redirect
      * @dataProvider    ControllerDataprovider::getTestRedirect
      */
     public function testRedirect($test, $check)
@@ -535,7 +535,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerRegisterDefaultTask
-     * @covers          FOF30\Controller\Controller::registerDefaultTask
+     * @covers          FOF40\Controller\Controller::registerDefaultTask
      */
     public function testRegisterDefaultTask()
     {
@@ -543,20 +543,20 @@ class ControllerTest extends ApplicationTestCase
         $container  = new TestContainer(array(
             'componentName' => 'com_eastwood'
         ));
-        $controller = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Controller\\ControllerStub')
+        $controller = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Controller\\ControllerStub')
             ->setMethods(array('registerTask'))
             ->setConstructorArgs(array($container))
             ->getMock();
 
         $result     = $controller->registerDefaultTask('dummy');
 
-        $this->assertInstanceOf('\\FOF30\\Controller\\Controller', $result, 'Controller::registerDefaultTask should return an instance of itself');
+        $this->assertInstanceOf('\\FOF40\\Controller\\Controller', $result, 'Controller::registerDefaultTask should return an instance of itself');
     }
 
     /**
      * @group           Controller
      * @group           ControllerRegisterTask
-     * @covers          FOF30\Controller\Controller::registerTask
+     * @covers          FOF40\Controller\Controller::registerTask
      * @dataProvider    ControllerDataprovider::getTestRegisterTask
      */
     public function testRegisterTask($test, $check)
@@ -573,7 +573,7 @@ class ControllerTest extends ApplicationTestCase
 
         $taskMap = ReflectionHelper::getValue($controller, 'taskMap');
 
-        $this->assertInstanceOf('\\FOF30\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
 
         if($check['register'])
         {
@@ -588,7 +588,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerUnregisterTask
-     * @covers          FOF30\Controller\Controller::unregisterTask
+     * @covers          FOF40\Controller\Controller::unregisterTask
      */
     public function testUnregisterTask()
     {
@@ -604,14 +604,14 @@ class ControllerTest extends ApplicationTestCase
 
         $taskMap = ReflectionHelper::getValue($controller, 'taskMap');
 
-        $this->assertInstanceOf('\\FOF30\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertArrayNotHasKey('foo', $taskMap, sprintf($msg, 'Should remove the task form the mapping'));
     }
 
     /**
      * @group           Controller
      * @group           ControllerSetMessage
-     * @covers          FOF30\Controller\Controller::setMessage
+     * @covers          FOF40\Controller\Controller::setMessage
      * @dataProvider    ControllerDataprovider::getTestSetMessage
      */
     public function testSetMessage($test, $check)
@@ -643,7 +643,7 @@ class ControllerTest extends ApplicationTestCase
     /**
      * @group           Controller
      * @group           ControllerSetRedirect
-     * @covers          FOF30\Controller\Controller::setRedirect
+     * @covers          FOF40\Controller\Controller::setRedirect
      * @dataProvider    ControllerDataprovider::getTestSetRedirect
      */
     public function testSetRedirect($test, $check)
@@ -661,7 +661,7 @@ class ControllerTest extends ApplicationTestCase
         $message  = ReflectionHelper::getValue($controller, 'message');
         $type     = ReflectionHelper::getValue($controller, 'messageType');
 
-        $this->assertInstanceOf('\\FOF30\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Controller\\Controller', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertEquals($check['redirect'], $redirect, sprintf($msg, 'Did not set the redirect url correctly'));
         $this->assertEquals($check['message'], $message, sprintf($msg, 'Did not set the message correctly'));
         $this->assertEquals($check['type'], $type, sprintf($msg, 'Did not set the message type correctly'));

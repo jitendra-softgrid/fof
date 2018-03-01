@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Magic;
+namespace FOF40\Factory\Magic;
 
-use FOF30\Factory\Exception\ViewNotFound;
-use FOF30\Model\DataModel;
-use FOF30\View\DataView\DataViewInterface;
+use FOF40\Factory\Exception\ViewNotFound;
+use FOF40\Model\DataModel;
+use FOF40\View\DataView\DataViewInterface;
 
 defined('_JEXEC') or die;
 
@@ -51,7 +51,7 @@ class ViewFactory extends BaseFactory
 
 		if (!class_exists($className, true))
 		{
-			$className = '\\FOF30\\View\\DataView\\' . ucfirst($viewType);
+			$className = '\\FOF40\\View\\DataView\\' . ucfirst($viewType);
 		}
 
 		if (!class_exists($className, true))
@@ -61,7 +61,7 @@ class ViewFactory extends BaseFactory
 
 		if (!class_exists($className))
 		{
-			$className = '\\FOF30\\View\\DataView\\Html';
+			$className = '\\FOF40\\View\\DataView\\Html';
 		}
 
 		$view = new $className($this->container, $config);

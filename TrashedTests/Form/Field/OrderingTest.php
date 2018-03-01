@@ -5,32 +5,32 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Ordering;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Ordering;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/OrderingDataprovider.php';
 
 /**
- * @covers  \FOF30\Form\Field\Ordering::<private>
- * @covers  \FOF30\Form\Field\Ordering::<protected>
+ * @covers  \FOF40\Form\Field\Ordering::<private>
+ * @covers  \FOF40\Form\Field\Ordering::<protected>
  */
 class OrderingTest extends DatabaseTest
 {
     /**
      * @group           OrderingField
      * @group           Ordering__get
-     * @covers          \FOF30\Form\Field\Ordering::__get
-     * @dataProvider    \FOF30\Tests\Form\Field\OrderingDataprovider::getTest__get
+     * @covers          \FOF40\Form\Field\Ordering::__get
+     * @dataProvider    \FOF40\Tests\Form\Field\OrderingDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Ordering')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Ordering')
             ->setMethods(array('getStatic', 'getRepeatable'))
             ->getMock();
 
@@ -48,8 +48,8 @@ class OrderingTest extends DatabaseTest
     /**
      * @group           OrderingField
      * @group           OrderingGetInput
-     * @covers          \FOF30\Form\Field\Ordering::getInput
-     * @dataProvider    \FOF30\Tests\Form\Field\OrderingDataprovider::getTestGetInput
+     * @covers          \FOF40\Form\Field\Ordering::getInput
+     * @dataProvider    \FOF40\Tests\Form\Field\OrderingDataprovider::getTestGetInput
      */
     public function testGetInput($test, $check)
     {
@@ -94,11 +94,11 @@ class OrderingTest extends DatabaseTest
     /**
      * @group           OrderingField
      * @group           OrderingGetStatic
-     * @covers          \FOF30\Form\Field\Ordering::getStatic
+     * @covers          \FOF40\Form\Field\Ordering::getStatic
      */
     public function testGetStatic()
     {
-        $this->setExpectedException('FOF30\Form\Exception\GetStaticNotAllowed');
+        $this->setExpectedException('FOF40\Form\Exception\GetStaticNotAllowed');
 
         $field = new Ordering();
 
@@ -108,8 +108,8 @@ class OrderingTest extends DatabaseTest
     /**
      * @group           OrderingField
      * @group           OrderingGetRepeatable
-     * @covers          \FOF30\Form\Field\Ordering::getRepeatable
-     * @dataProvider    \FOF30\Tests\Form\Field\OrderingDataprovider::getTestGetRepeatable
+     * @covers          \FOF40\Form\Field\Ordering::getRepeatable
+     * @dataProvider    \FOF40\Tests\Form\Field\OrderingDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
@@ -180,11 +180,11 @@ class OrderingTest extends DatabaseTest
     /**
      * @group           OrderingField
      * @group           OrderingGetRepeatable
-     * @covers          \FOF30\Form\Field\Ordering::getRepeatable
+     * @covers          \FOF40\Form\Field\Ordering::getRepeatable
      */
     public function testGetRepeatableException()
     {
-        $this->setExpectedException('FOF30\Form\Exception\DataModelRequired');
+        $this->setExpectedException('FOF40\Form\Exception\DataModelRequired');
 
         $field = new Ordering();
         $field->getRepeatable();

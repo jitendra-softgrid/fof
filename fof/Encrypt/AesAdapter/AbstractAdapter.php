@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Encrypt\AesAdapter;
+namespace FOF40\Encrypt\AesAdapter;
 
 // Protect from unauthorized access
 defined('_JEXEC') or die();

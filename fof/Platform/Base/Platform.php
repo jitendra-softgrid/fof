@@ -5,19 +5,19 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Platform\Base;
+namespace FOF40\Platform\Base;
 
 use Exception;
-use FOF30\Container\Container;
-use FOF30\Input\Input;
-use FOF30\Platform\PlatformInterface;
+use FOF40\Container\Container;
+use FOF40\Input\Input;
+use FOF40\Platform\PlatformInterface;
 
 defined('_JEXEC') or die;
 
 /**
  * Abstract implementation of the Platform integration
  *
- * @package FOF30\Platform\Base
+ * @package FOF40\Platform\Base
  */
 abstract class Platform implements PlatformInterface
 {
@@ -27,7 +27,7 @@ abstract class Platform implements PlatformInterface
 	/**
 	 * Public constructor.
 	 *
-	 * @param   \FOF30\Container\Container  $c  The component container
+	 * @param   \FOF40\Container\Container  $c  The component container
 	 */
 	public function __construct(Container $c)
 	{

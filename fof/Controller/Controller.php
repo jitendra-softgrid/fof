@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Controller;
+namespace FOF40\Controller;
 
-use FOF30\Container\Container;
-use FOF30\Controller\Exception\CannotGetName;
-use FOF30\Controller\Exception\TaskNotFound;
-use FOF30\Model\DataModel;
-use FOF30\Model\Model;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\Controller\Exception\CannotGetName;
+use FOF40\Controller\Exception\TaskNotFound;
+use FOF40\Model\DataModel;
+use FOF40\Model\Model;
+use FOF40\View\View;
 
 defined('_JEXEC') or die;
 
@@ -21,7 +21,7 @@ defined('_JEXEC') or die;
  *
  * A generic MVC controller implementation
  *
- * @property-read  \FOF30\Input\Input  $input  The input object (magic __get returns the Input from the Container)
+ * @property-read  \FOF40\Input\Input  $input  The input object (magic __get returns the Input from the Container)
  */
 class Controller
 {
@@ -67,7 +67,7 @@ class Controller
 	 *         plural view (since the Controller names are different). That's the reason why this feature is turned off
 	 *         by default.
 	 *
-	 * False = same behavior as FOF 3.0.0 to 3.1.1 inclusive.
+	 * False = same behavior as FOF 4.0.0 to 3.1.1 inclusive.
 	 *
 	 * @var   bool
 	 */
@@ -250,7 +250,7 @@ class Controller
 		$this->container = $container;
 
 		// Determine the methods to exclude from the base class.
-		$xMethods = get_class_methods('\\FOF30\\Controller\\Controller');
+		$xMethods = get_class_methods('\\FOF40\\Controller\\Controller');
 
 		// Get the public methods in this class using reflection.
 		$r        = new \ReflectionClass($this);

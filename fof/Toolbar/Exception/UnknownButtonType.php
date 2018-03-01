@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Toolbar\Exception;
+namespace FOF40\Toolbar\Exception;
 
 use Exception;
 

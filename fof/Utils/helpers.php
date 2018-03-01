@@ -375,7 +375,7 @@ if ( ! function_exists('array_sort'))
 	 */
 	function array_sort($array, Closure $callback)
 	{
-		return FOF30\Utils\Collection::make($array)->sortBy($callback)->all();
+		return FOF40\Utils\Collection::make($array)->sortBy($callback)->all();
 	}
 }
 

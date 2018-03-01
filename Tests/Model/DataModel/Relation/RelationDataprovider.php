@@ -41,7 +41,7 @@ class RelationDataprovider
             array(
                 'mock' => array(
                     'filter' => true,
-                    'data'   => new \FOF30\Model\DataModel\Collection(array(1))
+                    'data'   => new \FOF40\Model\DataModel\Collection(array(1))
                 )
             ),
             array(

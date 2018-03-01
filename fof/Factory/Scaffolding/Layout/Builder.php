@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Scaffolding\Layout;
+namespace FOF40\Factory\Scaffolding\Layout;
 
-use FOF30\Container\Container;
+use FOF40\Container\Container;
 use SimpleXMLElement;
 
 /**
@@ -17,13 +17,13 @@ use SimpleXMLElement;
  * is not designed for production; it's designed to give you a way to quickly add some test data to your component
  * and get started really fast with FOF development.
  *
- * @package FOF30\Factory\Scaffolding
+ * @package FOF40\Factory\Scaffolding
  *
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Builder
 {
-	/** @var  \FOF30\Container\Container  The container we belong to */
+	/** @var  \FOF40\Container\Container  The container we belong to */
 	protected $container = null;
 
 	/** @var  bool  Should I save the scaffolding results? */
@@ -38,7 +38,7 @@ class Builder
 	/**
 	 * Create the scaffolding builder instance
 	 *
-	 * @param \FOF30\Container\Container $c
+	 * @param \FOF40\Container\Container $c
 	 */
 	public function __construct(Container $c)
 	{
@@ -96,7 +96,7 @@ class Builder
 		$model = $this->container->factory->model($viewName);
 
 		// Create the scaffolding object and build the XML file
-		$className = 'FOF30\\Factory\\Scaffolding\\Layout\\' . $builderType . 'Erector';
+		$className = 'FOF40\\Factory\\Scaffolding\\Layout\\' . $builderType . 'Erector';
 
 		/** @var ErectorInterface $erector */
 		$erector = new $className($this, $model, $viewName);

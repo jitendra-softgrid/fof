@@ -5,33 +5,33 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Model;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Model;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/ModelDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Model::<private>
- * @covers  FOF30\Form\Field\Model::<protected>
+ * @covers  FOF40\Form\Field\Model::<private>
+ * @covers  FOF40\Form\Field\Model::<protected>
  */
 class ModelTest extends DatabaseTest
 {
     /**
      * @group           ModelField
      * @group           Model__get
-     * @covers          FOF30\Form\Field\Model::__get
-     * @dataProvider    FOF30\Tests\Form\Field\ModelDataprovider::getTest__get
+     * @covers          FOF40\Form\Field\Model::__get
+     * @dataProvider    FOF40\Tests\Form\Field\ModelDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Model')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Model')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -47,11 +47,11 @@ class ModelTest extends DatabaseTest
     /**
      * @group           ModelField
      * @group           ModelGetStatic
-     * @covers          FOF30\Form\Field\Model::getStatic
+     * @covers          FOF40\Form\Field\Model::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Model')->setMethods(array('getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Model')->setMethods(array('getOptions'))->getMock();
 
         $field->method('getOptions')->willReturn(array(
             array('value' => 'foo', 'text' => 'Foobar'),
@@ -70,14 +70,14 @@ class ModelTest extends DatabaseTest
     /**
      * @group           ModelField
      * @group           ModelGetRepeatable
-     * @covers          FOF30\Form\Field\Model::getRepeatable
-     * @dataProvider    FOF30\Tests\Form\Field\ModelDataprovider::getTestGetRepeatable
+     * @covers          FOF40\Form\Field\Model::getRepeatable
+     * @dataProvider    FOF40\Tests\Form\Field\ModelDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
         $msg = 'Model::getRepeatable %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Model')->setMethods(array('parseFieldTags', 'getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Model')->setMethods(array('parseFieldTags', 'getOptions'))->getMock();
 
         $field->method('parseFieldTags')->willReturn('__PARSED__');
         $field->method('getOptions')->willReturn(array(
@@ -121,8 +121,8 @@ class ModelTest extends DatabaseTest
     /**
      * @group           ModelField
      * @group           ModelGetOptions
-     * @covers          FOF30\Form\Field\Model::getOptions
-     * @dataProvider    FOF30\Tests\Form\Field\ModelDataprovider::getTestGetOptions
+     * @covers          FOF40\Form\Field\Model::getOptions
+     * @dataProvider    FOF40\Tests\Form\Field\ModelDataprovider::getTestGetOptions
      */
     public function testGetOptions($test, $check)
     {
@@ -135,7 +135,7 @@ class ModelTest extends DatabaseTest
             'idFieldName' => 'foftest_foobar_id'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('applyAccessFiltering', 'with', 'setState', 'get'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -156,7 +156,7 @@ class ModelTest extends DatabaseTest
             }
         ));
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Model')->setMethods(array('parseFieldTags'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Model')->setMethods(array('parseFieldTags'))->getMock();
 
         $field->method('parseFieldTags')->willReturn('__PARSED__');
 
@@ -201,8 +201,8 @@ class ModelTest extends DatabaseTest
     /**
      * @group           ModelField
      * @group           ModelParseFieldTags
-     * @covers          FOF30\Form\Field\Model::parseFieldTags
-     * @dataProvider    FOF30\Tests\Form\Field\ModelDataprovider::getTestParseFieldTags
+     * @covers          FOF40\Form\Field\Model::parseFieldTags
+     * @dataProvider    FOF40\Tests\Form\Field\ModelDataprovider::getTestParseFieldTags
      */
     public function testParseFieldTags($test, $check)
     {

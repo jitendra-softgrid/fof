@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/IntegerDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Integer::<private>
- * @covers  FOF30\Form\Field\Integer::<protected>
+ * @covers  FOF40\Form\Field\Integer::<private>
+ * @covers  FOF40\Form\Field\Integer::<protected>
  */
 class IntegerTest extends FOFTestCase
 {
     /**
      * @group           Integer
      * @group           Integer__get
-     * @covers          FOF30\Form\Field\Integer::__get
+     * @covers          FOF40\Form\Field\Integer::__get
      * @dataProvider    IntegerDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Integer')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Integer')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -43,14 +43,14 @@ class IntegerTest extends FOFTestCase
     /**
      * @group           Integer
      * @group           IntegerGetStatic
-     * @covers          FOF30\Form\Field\Integer::getStatic
+     * @covers          FOF40\Form\Field\Integer::getStatic
      * @dataProvider    IntegerDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
         $msg = 'Integer::getStatic %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Integer')->setMethods(array('getInput'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Integer')->setMethods(array('getInput'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
 
@@ -76,14 +76,14 @@ class IntegerTest extends FOFTestCase
     /**
      * @group           Integer
      * @group           IntegerGetRepeatable
-     * @covers          FOF30\Form\Field\Integer::getRepeatable
+     * @covers          FOF40\Form\Field\Integer::getRepeatable
      * @dataProvider    IntegerDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
         $msg = 'Integer::getRepeatable %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Integer')->setMethods(array('getInput', 'getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Integer')->setMethods(array('getInput', 'getOptions'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->method('getOptions')->willReturn(array(

@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Hal\Render;
+namespace FOF40\Hal\Render;
 
-use FOF30\Hal\Document;
-use FOF30\Hal\Link;
-use FOF30\Model\DataModel;
+use FOF40\Hal\Document;
+use FOF40\Hal\Link;
+use FOF40\Model\DataModel;
 
 defined('_JEXEC') or die;
 

@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Generator\Command\Generate\Layout;
+namespace FOF40\Generator\Command\Generate\Layout;
 
-use FOF30\Generator\Command\Command as Command;
-use FOF30\Factory\Scaffolding\Layout\Builder as LayoutBuilder;
-use FOF30\Container\Container as Container;
-use FOF30\Model\DataModel\Exception\NoTableColumns;
+use FOF40\Generator\Command\Command as Command;
+use FOF40\Factory\Scaffolding\Layout\Builder as LayoutBuilder;
+use FOF40\Container\Container as Container;
+use FOF40\Model\DataModel\Exception\NoTableColumns;
 
 abstract class LayoutBase extends Command
 {
@@ -28,7 +28,7 @@ abstract class LayoutBase extends Command
 	protected function createViewFile($view, $viewType, $backend)
 	{
         // Let's force the use of the Magic Factory
-		$container = Container::getInstance($this->component, array('factoryClass' => 'FOF30\\Factory\\MagicFactory'));
+		$container = Container::getInstance($this->component, array('factoryClass' => 'FOF40\\Factory\\MagicFactory'));
 		$container->factory->setSaveScaffolding(true);
 
 		// plural / singular

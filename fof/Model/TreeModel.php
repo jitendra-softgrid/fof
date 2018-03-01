@@ -5,18 +5,18 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model;
+namespace FOF40\Model;
 
-use FOF30\Container\Container;
-use FOF30\Model\DataModel\Exception\TreeIncompatibleTable;
-use FOF30\Model\DataModel\Exception\TreeInvalidLftRgtCurrent;
-use FOF30\Model\DataModel\Exception\TreeInvalidLftRgtOther;
-use FOF30\Model\DataModel\Exception\TreeInvalidLftRgtParent;
-use FOF30\Model\DataModel\Exception\TreeInvalidLftRgtSibling;
-use FOF30\Model\DataModel\Exception\TreeMethodOnlyAllowedInRoot;
-use FOF30\Model\DataModel\Exception\TreeRootNotFound;
-use FOF30\Model\DataModel\Exception\TreeUnexpectedPrimaryKey;
-use FOF30\Model\DataModel\Exception\TreeUnsupportedMethod;
+use FOF40\Container\Container;
+use FOF40\Model\DataModel\Exception\TreeIncompatibleTable;
+use FOF40\Model\DataModel\Exception\TreeInvalidLftRgtCurrent;
+use FOF40\Model\DataModel\Exception\TreeInvalidLftRgtOther;
+use FOF40\Model\DataModel\Exception\TreeInvalidLftRgtParent;
+use FOF40\Model\DataModel\Exception\TreeInvalidLftRgtSibling;
+use FOF40\Model\DataModel\Exception\TreeMethodOnlyAllowedInRoot;
+use FOF40\Model\DataModel\Exception\TreeRootNotFound;
+use FOF40\Model\DataModel\Exception\TreeUnexpectedPrimaryKey;
+use FOF40\Model\DataModel\Exception\TreeUnsupportedMethod;
 
 defined('_JEXEC') or die;
 
@@ -45,7 +45,7 @@ class TreeModel extends DataModel
 	 * Public constructor. Overrides the parent constructor, making sure there are lft/rgt columns which make it
 	 * compatible with nested sets.
 	 *
-	 * @see \FOF30\Model\DataModel::__construct()
+	 * @see \FOF40\Model\DataModel::__construct()
 	 *
 	 * @param   Container  $container  The configuration variables to this model
 	 * @param   array      $config     Configuration values for this model

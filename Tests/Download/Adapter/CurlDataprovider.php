@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Download\Adapter;
+namespace FOF40\Tests\Download\Adapter;
 
 class CurlDataprovider
 {

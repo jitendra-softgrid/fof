@@ -5,27 +5,27 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once 'ButtonDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Button::<private>
- * @covers  FOF30\Form\Field\Button::<protected>
+ * @covers  FOF40\Form\Field\Button::<private>
+ * @covers  FOF40\Form\Field\Button::<protected>
  */
 class ButtonTest extends FOFTestCase
 {
     /**
      * @group           Button
      * @group           ButtonGetStatic
-     * @covers          FOF30\Form\Field\Button::getStatic
+     * @covers          FOF40\Form\Field\Button::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Button')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Button')
             ->setMethods(array('getInput'))
             ->getMock();
 
@@ -37,11 +37,11 @@ class ButtonTest extends FOFTestCase
     /**
      * @group           Button
      * @group           ButtonGetRepeatable
-     * @covers          FOF30\Form\Field\Button::getRepeatable
+     * @covers          FOF40\Form\Field\Button::getRepeatable
      */
     public function testGetRepeatable()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Button')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Button')
             ->setMethods(array('getInput'))
             ->getMock();
 
@@ -53,14 +53,14 @@ class ButtonTest extends FOFTestCase
     /**
      * @group           Button
      * @group           ButtonGetInput
-     * @covers          FOF30\Form\Field\Button::getInput
+     * @covers          FOF40\Form\Field\Button::getInput
      * @dataProvider    ButtonDataprovider::getTestGetInput
      */
     public function testGetInput($test, $check)
     {
         $msg = 'Button::getInput %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Button')
+        $field = $this->getMockBuilder('FOF40\Form\Field\Button')
             ->setMethods(array('parseFieldTags'))
             ->getMock();
 

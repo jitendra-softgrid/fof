@@ -5,33 +5,33 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Callback;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\Callback;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/CallbackDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Callback::<private>
- * @covers  FOF30\Form\Field\Callback::<protected>
+ * @covers  FOF40\Form\Field\Callback::<private>
+ * @covers  FOF40\Form\Field\Callback::<protected>
  */
 class CallbackTest extends FOFTestCase
 {
     /**
      * @group           Callback
      * @group           Callback__get
-     * @covers          FOF30\Form\Field\Callback::__get
+     * @covers          FOF40\Form\Field\Callback::__get
      * @dataProvider    CallbackDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Callback')->setMethods(array('getStatic', 'getRepeatable', 'getInput'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Callback')->setMethods(array('getStatic', 'getRepeatable', 'getInput'))->getMock();
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
         $field->expects($this->exactly($check['input']))->method('getInput');
@@ -48,11 +48,11 @@ class CallbackTest extends FOFTestCase
     /**
      * @group           Callback
      * @group           CallbackGetStatic
-     * @covers          FOF30\Form\Field\Callback::getStatic
+     * @covers          FOF40\Form\Field\Callback::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Callback')->setMethods(array('getCallbackResults'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Callback')->setMethods(array('getCallbackResults'))->getMock();
 
         $field->expects($this->once())->method('getCallbackResults');
 
@@ -62,11 +62,11 @@ class CallbackTest extends FOFTestCase
     /**
      * @group           Callback
      * @group           CallbackGetRepeatable
-     * @covers          FOF30\Form\Field\Callback::getRepeatable
+     * @covers          FOF40\Form\Field\Callback::getRepeatable
      */
     public function testGetRepeatable()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Callback')->setMethods(array('getCallbackResults'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Callback')->setMethods(array('getCallbackResults'))->getMock();
 
         $field->expects($this->once())->method('getCallbackResults');
 
@@ -76,7 +76,7 @@ class CallbackTest extends FOFTestCase
     /**
      * @group           Callback
      * @group           CallbackGetCallbackResults
-     * @covers          FOF30\Form\Field\Callback::getCallbackResults
+     * @covers          FOF40\Form\Field\Callback::getCallbackResults
      * @dataProvider    CallbackDataprovider::getTestGetCallbackResults
      */
     public function testGetCallbackResults($test, $check)

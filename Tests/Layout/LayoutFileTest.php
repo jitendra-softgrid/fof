@@ -5,17 +5,17 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Layout;
+namespace FOF40\Tests\Layout;
 
 
-use FOF30\Layout\LayoutFile;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Layout\LayoutFile;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 
 /**
- * @covers  FOF30\Layout\LayoutFile::<protected>
- * @covers  FOF30\Layout\LayoutFile::<private>
+ * @covers  FOF40\Layout\LayoutFile::<protected>
+ * @covers  FOF40\Layout\LayoutFile::<private>
  */
 class LayoutFileTest extends FOFTestCase
 {
@@ -59,9 +59,9 @@ class LayoutFileTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Layout\LayoutFile::getPath
+	 * @covers  FOF40\Layout\LayoutFile::getPath
 	 *
-	 * @dataProvider FOF30\Tests\Layout\LayoutFileTestProvider::getTestGetPath
+	 * @dataProvider FOF40\Tests\Layout\LayoutFileTestProvider::getTestGetPath
 	 *
 	 * @param string $layoutId      The layout to load
 	 * @param array  $platformSetup Platform setup (baseDirs, template, templateSuffixes)
@@ -83,7 +83,7 @@ class LayoutFileTest extends FOFTestCase
 		}
 
 		$platformSetup = array_merge($defaultPlatformSetup, $platformSetup);
-		$reflector = new \ReflectionClass('FOF30\\Tests\\Helpers\\TestJoomlaPlatform');
+		$reflector = new \ReflectionClass('FOF40\\Tests\\Helpers\\TestJoomlaPlatform');
 
 		foreach ($platformSetup as $k => $v)
 		{

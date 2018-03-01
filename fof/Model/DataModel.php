@@ -5,26 +5,26 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model;
+namespace FOF40\Model;
 
-use FOF30\Container\Container;
-use FOF30\Controller\Exception\LockedRecord;
-use FOF30\Date\Date;
-use FOF30\Event\Dispatcher;
-use FOF30\Event\Observer;
-use FOF30\Form\Form;
-use FOF30\Model\DataModel\Collection as DataCollection;
-use FOF30\Model\DataModel\Exception\BaseException;
-use FOF30\Model\DataModel\Exception\CannotLockNotLoadedRecord;
-use FOF30\Model\DataModel\Exception\InvalidSearchMethod;
-use FOF30\Model\DataModel\Exception\NoAssetKey;
-use FOF30\Model\DataModel\Exception\NoContentType;
-use FOF30\Model\DataModel\Exception\NoItemsFound;
-use FOF30\Model\DataModel\Exception\NoTableColumns;
-use FOF30\Model\DataModel\Exception\RecordNotLoaded;
-use FOF30\Model\DataModel\Exception\SpecialColumnMissing;
-use FOF30\Model\DataModel\RelationManager;
-use FOF30\Utils\ArrayHelper;
+use FOF40\Container\Container;
+use FOF40\Controller\Exception\LockedRecord;
+use FOF40\Date\Date;
+use FOF40\Event\Dispatcher;
+use FOF40\Event\Observer;
+use FOF40\Form\Form;
+use FOF40\Model\DataModel\Collection as DataCollection;
+use FOF40\Model\DataModel\Exception\BaseException;
+use FOF40\Model\DataModel\Exception\CannotLockNotLoadedRecord;
+use FOF40\Model\DataModel\Exception\InvalidSearchMethod;
+use FOF40\Model\DataModel\Exception\NoAssetKey;
+use FOF40\Model\DataModel\Exception\NoContentType;
+use FOF40\Model\DataModel\Exception\NoItemsFound;
+use FOF40\Model\DataModel\Exception\NoTableColumns;
+use FOF40\Model\DataModel\Exception\RecordNotLoaded;
+use FOF40\Model\DataModel\Exception\SpecialColumnMissing;
+use FOF40\Model\DataModel\RelationManager;
+use FOF40\Utils\ArrayHelper;
 
 defined('_JEXEC') or die;
 
@@ -199,7 +199,7 @@ class DataModel extends Model implements \JTableInterface
 	 * @param   Container  $container  The configuration variables to this model
 	 * @param   array      $config     Configuration values for this model
 	 *
-	 * @throws \FOF30\Model\DataModel\Exception\NoTableColumns
+	 * @throws \FOF40\Model\DataModel\Exception\NoTableColumns
 	 */
 	public function __construct(Container $container, array $config = array())
 	{
@@ -1024,7 +1024,7 @@ class DataModel extends Model implements \JTableInterface
 	 *
 	 * @return  array  Array of [relationName => fieldName] arrays
 	 *
-	 * @throws  \FOF30\Model\DataModel\Relation\Exception\RelationNotFound
+	 * @throws  \FOF40\Model\DataModel\Relation\Exception\RelationNotFound
 	 */
 	public function getRelationFields()
 	{
@@ -2582,7 +2582,7 @@ class DataModel extends Model implements \JTableInterface
 	 * Adds a behaviour by its name. It will search the following classes, in this order:
 	 * \component_namespace\Model\modelName\Behaviour\behaviourName
 	 * \component_namespace\Model\Behaviour\behaviourName
-	 * \FOF30\Model\DataModel\Behaviour\behaviourName
+	 * \FOF40\Model\DataModel\Behaviour\behaviourName
 	 * where:
 	 * component_namespace  is the namespace of the component as defined in the container
 	 * modelName            is the model's name, first character uppercase, e.g. Baz
@@ -2597,7 +2597,7 @@ class DataModel extends Model implements \JTableInterface
 		$prefixes = array(
 			$this->container->getNamespacePrefix() . 'Model\\Behaviour\\' . ucfirst($this->getName()),
 			$this->container->getNamespacePrefix() . 'Model\\Behaviour',
-			'\\FOF30\\Model\\DataModel\\Behaviour',
+			'\\FOF40\\Model\\DataModel\\Behaviour',
 		);
 
 		foreach ($prefixes as $prefix)
@@ -2621,7 +2621,7 @@ class DataModel extends Model implements \JTableInterface
 	 * Removes a behaviour by its name. It will search the following classes, in this order:
 	 * \component_namespace\Model\modelName\Behaviour\behaviourName
 	 * \component_namespace\Model\DataModel\Behaviour\behaviourName
-	 * \FOF30\Model\DataModel\Behaviour\behaviourName
+	 * \FOF40\Model\DataModel\Behaviour\behaviourName
 	 * where:
 	 * component_namespace  is the namespace of the component as defined in the container
 	 * modelName            is the model's name, first character uppercase, e.g. Baz
@@ -2636,7 +2636,7 @@ class DataModel extends Model implements \JTableInterface
 		$prefixes = array(
 			$this->container->getNamespacePrefix() . 'Model\\Behaviour\\' . ucfirst($this->getName()),
 			$this->container->getNamespacePrefix() . 'Model\\Behaviour',
-			'\\FOF30\\Model\\DataModel\\Behaviour',
+			'\\FOF40\\Model\\DataModel\\Behaviour',
 		);
 
 		foreach ($prefixes as $prefix)
@@ -2966,7 +2966,7 @@ class DataModel extends Model implements \JTableInterface
 	public function where($fieldName, $method = '=', $values = null)
 	{
 		// Make sure the Filters behaviour is added to the model
-		if (!$this->behavioursDispatcher->hasObserverClass('FOF30\\Model\\DataModel\\Behaviour\\Filters'))
+		if (!$this->behavioursDispatcher->hasObserverClass('FOF40\\Model\\DataModel\\Behaviour\\Filters'))
 		{
 			$this->addBehaviour('filters');
 		}
@@ -3265,7 +3265,7 @@ class DataModel extends Model implements \JTableInterface
 	public function has($relation, $operator = '>=', $value = 1, $replace = true)
 	{
 		// Make sure the Filters behaviour is added to the model
-		if (!$this->behavioursDispatcher->hasObserverClass('FOF30\\Model\\DataModel\\Behaviour\\RelationFilters'))
+		if (!$this->behavioursDispatcher->hasObserverClass('FOF40\\Model\\DataModel\\Behaviour\\RelationFilters'))
 		{
 			$this->addBehaviour('relationFilters');
 		}

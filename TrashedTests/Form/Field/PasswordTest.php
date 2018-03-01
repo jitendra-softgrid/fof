@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Password;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Field\Password;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/PasswordDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Password::<private>
- * @covers  FOF30\Form\Field\Password::<protected>
+ * @covers  FOF40\Form\Field\Password::<private>
+ * @covers  FOF40\Form\Field\Password::<protected>
  */
 class PasswordTest extends FOFTestCase
 {
     /**
      * @group           Password
      * @group           Password__get
-     * @covers          FOF30\Form\Field\Password::__get
+     * @covers          FOF40\Form\Field\Password::__get
      * @dataProvider    PasswordDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Password')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Password')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -43,12 +43,12 @@ class PasswordTest extends FOFTestCase
     /**
      * @group           Password
      * @group           PasswordGetStatic
-     * @covers          FOF30\Form\Field\Password::getStatic
+     * @covers          FOF40\Form\Field\Password::getStatic
      * @dataProvider    PasswordDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Password')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Password')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -72,12 +72,12 @@ class PasswordTest extends FOFTestCase
     /**
      * @group           Password
      * @group           PasswordGetRepeatable
-     * @covers          FOF30\Form\Field\Password::getRepeatable
+     * @covers          FOF40\Form\Field\Password::getRepeatable
      * @dataProvider    PasswordDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Password')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Password')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -100,7 +100,7 @@ class PasswordTest extends FOFTestCase
     /**
      * @group           Password
      * @group           PasswordGetFieldContents
-     * @covers          FOF30\Form\Field\Password::getFieldContents
+     * @covers          FOF40\Form\Field\Password::getFieldContents
      * @dataProvider    PasswordDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)

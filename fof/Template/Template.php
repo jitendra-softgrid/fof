@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Template;
+namespace FOF40\Template;
 
-use FOF30\Container\Container;
-use FOF30\Less\Less;
+use FOF40\Container\Container;
+use FOF40\Less\Less;
 use JDocument;
 
 defined('_JEXEC') or die;
@@ -691,7 +691,7 @@ class Template
 	 * http://example.com/index.php?option=com_foo&view=categories&layout=tree
 	 *
 	 * If $merge is unspecified (null) we will auto-detect the intended behavior. If you haven't specified option and
-	 * one of view or task we will merge. Otherwise no merging takes place. This covers most use cases of FOF 3.0.
+	 * one of view or task we will merge. Otherwise no merging takes place. This covers most use cases of FOF 4.0.
 	 *
 	 * @param   string  $route  The parameters string
 	 * @param   bool    $merge  Should I perform parameter merging?
@@ -703,7 +703,7 @@ class Template
 		$route = trim($route);
 
 		/**
-		 * Backwards compatibility with FOF 3.0: if the merge option is unspecified we will auto-detect the behaviour.
+		 * Backwards compatibility with FOF 4.0: if the merge option is unspecified we will auto-detect the behaviour.
 		 * If option and either one of view or task are present we won't merge.
 		 */
 		if (is_null($merge))

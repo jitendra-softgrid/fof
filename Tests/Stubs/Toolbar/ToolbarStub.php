@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\Toolbar;
+namespace FOF40\Tests\Stubs\Toolbar;
 
-use FOF30\Toolbar\Toolbar;
+use FOF40\Toolbar\Toolbar;
 
 class ToolbarStub extends Toolbar
 {

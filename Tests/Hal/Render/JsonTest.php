@@ -5,13 +5,13 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Hal\Render;
+namespace FOF40\Tests\Hal\Render;
 
-use FOF30\Hal\Document;
-use FOF30\Hal\Link;
-use FOF30\Hal\Render\Json;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Hal\Document;
+use FOF40\Hal\Link;
+use FOF40\Hal\Render\Json;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 class JsonTest extends FOFTestCase
 {
@@ -54,7 +54,7 @@ class JsonTest extends FOFTestCase
 	/**
 	 * Test the __construct contructor
 	 *
-	 * @covers FOF30\Hal\Render\Json::__construct
+	 * @covers FOF40\Hal\Render\Json::__construct
 	 *
 	 * @return Json
 	 */
@@ -77,7 +77,7 @@ class JsonTest extends FOFTestCase
 	 *
 	 * @dataProvider getTestGetLink
 	 *
-	 * @covers       FOF30\Hal\Render\Json::_getLink
+	 * @covers       FOF40\Hal\Render\Json::_getLink
 	 *
 	 * @return Json
 	 */
@@ -95,7 +95,7 @@ class JsonTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers FOF30\Hal\Render\Json::render
+	 * @covers FOF40\Hal\Render\Json::render
 	 */
 	public function testRender()
 	{

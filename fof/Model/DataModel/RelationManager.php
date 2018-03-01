@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model\DataModel;
+namespace FOF40\Model\DataModel;
 
-use FOF30\Inflector\Inflector;
-use FOF30\Model\DataModel;
+use FOF40\Inflector\Inflector;
+use FOF40\Model\DataModel;
 
 defined('_JEXEC') or die;
 
@@ -130,7 +130,7 @@ class RelationManager
 
 				$baseName = ucfirst($file->getBasename('.php'));
 				$methodName = strtolower($baseName[0]) . substr($baseName, 1);
-				$className = '\\FOF30\\Model\\DataModel\\Relation\\' . $baseName;
+				$className = '\\FOF40\\Model\\DataModel\\Relation\\' . $baseName;
 
 				if (!class_exists($className, true))
 				{
@@ -324,7 +324,7 @@ class RelationManager
 	 *
 	 * @param string                $name           The name of the relation to return data for
 	 * @param callable              $callback       A callback to customise the returned data
-	 * @param \FOF30\Utils\Collection $dataCollection Used when fetching the data of an eager loaded relation
+	 * @param \FOF40\Utils\Collection $dataCollection Used when fetching the data of an eager loaded relation
 	 *
 	 * @see Relation::getData()
 	 *
@@ -332,7 +332,7 @@ class RelationManager
 	 *
 	 * @throws Relation\Exception\RelationNotFound
 	 */
-	public function getData($name, $callback = null, \FOF30\Utils\Collection $dataCollection = null)
+	public function getData($name, $callback = null, \FOF40\Utils\Collection $dataCollection = null)
 	{
 		if (!isset($this->relations[$name]))
 		{

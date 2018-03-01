@@ -5,16 +5,16 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View;
+namespace FOF40\View;
 
-use FOF30\Container\Container;
-use FOF30\Model\Model;
-use FOF30\View\Engine\EngineInterface;
-use FOF30\View\Exception\AccessForbidden;
-use FOF30\View\Exception\CannotGetName;
-use FOF30\View\Exception\EmptyStack;
-use FOF30\View\Exception\ModelNotFound;
-use FOF30\View\Exception\UnrecognisedExtension;
+use FOF40\Container\Container;
+use FOF40\Model\Model;
+use FOF40\View\Engine\EngineInterface;
+use FOF40\View\Exception\AccessForbidden;
+use FOF40\View\Exception\CannotGetName;
+use FOF40\View\Exception\EmptyStack;
+use FOF40\View\Exception\ModelNotFound;
+use FOF40\View\Exception\UnrecognisedExtension;
 
 defined('_JEXEC') or die;
 
@@ -23,7 +23,7 @@ defined('_JEXEC') or die;
  *
  * A generic MVC view implementation
  *
- * @property-read  \FOF30\Input\Input  $input  The input object (magic __get returns the Input from the Container)
+ * @property-read  \FOF40\Input\Input  $input  The input object (magic __get returns the Input from the Container)
  */
 class View
 {
@@ -149,8 +149,8 @@ class View
 	 * @var    array
 	 */
 	protected $viewEngineMap = array(
-		'.blade.php' => 'FOF30\\View\\Engine\\BladeEngine',
-		'.php'       => 'FOF30\\View\\Engine\\PhpEngine',
+		'.blade.php' => 'FOF40\\View\\Engine\\BladeEngine',
+		'.php'       => 'FOF40\\View\\Engine\\PhpEngine',
 	);
 
 	/**
@@ -1321,7 +1321,7 @@ class View
 	 * Model object instance used by the form. You can override this method to populate your View class with data from
 	 * that model.
 	 *
-	 * @param   \FOF30\Model\Model  $model  The model object passed from the XML form renderer
+	 * @param   \FOF40\Model\Model  $model  The model object passed from the XML form renderer
 	 *
 	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */

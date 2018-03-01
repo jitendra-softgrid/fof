@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Toolbar;
+namespace FOF40\Tests\Toolbar;
 
-use FOF30\Input\Input;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
-use FOF30\Tests\Stubs\Toolbar\ToolbarStub;
-use FOF30\Toolbar\Toolbar;
+use FOF40\Input\Input;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
+use FOF40\Tests\Stubs\Toolbar\ToolbarStub;
+use FOF40\Toolbar\Toolbar;
 
 require_once 'ToolbarDataprovider.php';
 require_once JPATH_TESTS.'/Stubs/Joomla/JToolbarHelper.php';
 
 /**
- * @covers  FOF30\Toolbar\Toolbar::<protected>
- * @covers  FOF30\Toolbar\Toolbar::<private>
+ * @covers  FOF40\Toolbar\Toolbar::<protected>
+ * @covers  FOF40\Toolbar\Toolbar::<private>
  */
 class ToolbarTest extends FOFTestCase
 {
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::__construct
+     * @covers          FOF40\Toolbar\Toolbar::__construct
      */
     public function test__construct()
     {
@@ -66,14 +66,14 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::renderToolbar
+     * @covers          FOF40\Toolbar\Toolbar::renderToolbar
      * @dataProvider    ToolbarDataprovider::getTestRenderToolbar
      */
     public function testRenderToolbar($test, $check)
     {
         $msg = 'Toolbar::renderToolbar %s - Case: '.$check['case'];
 
-        $controller = $this->getMockBuilder('\FOF30\Tests\Stubs\Controller\ControllerStub')
+        $controller = $this->getMockBuilder('\FOF40\Tests\Stubs\Controller\ControllerStub')
             ->setMethods(array('getName', 'getTask'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -81,7 +81,7 @@ class ToolbarTest extends FOFTestCase
         $controller->method('getName')->willReturn($test['mock']['getName']);
         $controller->method('getTask')->willReturn($test['mock']['getTask']);
 
-        $dispacher = $this->getMockBuilder('FOF30\Dispatcher\Dispatcher')
+        $dispacher = $this->getMockBuilder('FOF40\Dispatcher\Dispatcher')
             ->setMethods(array('getController'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -89,7 +89,7 @@ class ToolbarTest extends FOFTestCase
         $dispacher->method('getController')
             ->willReturn($test['mock']['getController'] ? $controller : null);
 
-        $appConfig = $this->getMockBuilder('FOF30\Configuration\Configuration')
+        $appConfig = $this->getMockBuilder('FOF40\Configuration\Configuration')
             ->setMethods(array('get'))
             ->setConstructorArgs(array())
             ->setMockClassName('')
@@ -127,7 +127,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::onCpanelsBrowse
+     * @covers          FOF40\Toolbar\Toolbar::onCpanelsBrowse
      * @dataProvider    ToolbarDataprovider::getTestOnCpanelsBrowse
      */
     public function testOnCpanelsBrowse($test, $check)
@@ -139,7 +139,7 @@ class ToolbarTest extends FOFTestCase
         $platform = static::$container->platform;
         $platform::$isAdmin = $test['mock']['isAdmin'];
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('renderSubmenu', 'isDataView'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -159,7 +159,7 @@ class ToolbarTest extends FOFTestCase
     /**
      * @group           Toolbar
      * @group           ToolbarOnBrowse
-     * @covers          FOF30\Toolbar\Toolbar::onBrowse
+     * @covers          FOF40\Toolbar\Toolbar::onBrowse
      * @dataProvider    ToolbarDataprovider::getTestOnBrowse
      */
     public function testOnBrowse($test, $check)
@@ -199,7 +199,7 @@ class ToolbarTest extends FOFTestCase
         $platform = $container->platform;
         $platform::$isAdmin = $test['mock']['isAdmin'];
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('renderSubmenu', 'isDataView'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -220,7 +220,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::onRead
+     * @covers          FOF40\Toolbar\Toolbar::onRead
      * @dataProvider    ToolbarDataprovider::getTestOnRead
      */
     public function testOnRead($test, $check)
@@ -232,7 +232,7 @@ class ToolbarTest extends FOFTestCase
         $platform = static::$container->platform;
         $platform::$isAdmin = $test['mock']['isAdmin'];
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('renderSubmenu', 'isDataView'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -252,7 +252,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::onAdd
+     * @covers          FOF40\Toolbar\Toolbar::onAdd
      * @dataProvider    ToolbarDataprovider::getTestOnAdd
      */
     public function testOnAdd($test, $check)
@@ -264,7 +264,7 @@ class ToolbarTest extends FOFTestCase
         $platform = static::$container->platform;
         $platform::$isAdmin = $test['mock']['isAdmin'];
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('isDataView'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -283,7 +283,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::onEdit
+     * @covers          FOF40\Toolbar\Toolbar::onEdit
      * @dataProvider    ToolbarDataprovider::getTestOnEdit
      */
     public function testOnEdit($test, $check)
@@ -291,7 +291,7 @@ class ToolbarTest extends FOFTestCase
         $platform = static::$container->platform;
         $platform::$isAdmin = $test['mock']['isAdmin'];
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('onAdd'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -305,7 +305,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::clearLinks
+     * @covers          FOF40\Toolbar\Toolbar::clearLinks
      */
     public function testClearLinks()
     {
@@ -320,7 +320,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::getLinks
+     * @covers          FOF40\Toolbar\Toolbar::getLinks
      */
     public function testGetLinks()
     {
@@ -336,7 +336,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::appendLink
+     * @covers          FOF40\Toolbar\Toolbar::appendLink
      * @dataProvider    ToolbarDataprovider::getTestAppendLink
      */
     public function testAppendLink($test, $check)
@@ -356,7 +356,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::prefixLink
+     * @covers          FOF40\Toolbar\Toolbar::prefixLink
      */
     public function testPrefixLink()
     {
@@ -375,7 +375,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::renderSubmenu
+     * @covers          FOF40\Toolbar\Toolbar::renderSubmenu
      * @dataProvider    ToolbarDataprovider::getTestRenderSubmenu
      */
     public function testRenderSubmenu($test, $check)
@@ -387,7 +387,7 @@ class ToolbarTest extends FOFTestCase
             'input' => new Input($test['input'])
         ));
 
-        $toolbar = $this->getMockBuilder('FOF30\Tests\Stubs\Toolbar\ToolbarStub')
+        $toolbar = $this->getMockBuilder('FOF40\Tests\Stubs\Toolbar\ToolbarStub')
             ->setMethods(array('getMyViews', 'appendLink'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -405,7 +405,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::getRenderFrontendButtons
+     * @covers          FOF40\Toolbar\Toolbar::getRenderFrontendButtons
      */
     public function testGetRenderFrontendButtons()
     {
@@ -418,7 +418,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::setRenderFrontendButtons
+     * @covers          FOF40\Toolbar\Toolbar::setRenderFrontendButtons
      */
     public function testSetRenderFrontendButtons()
     {
@@ -431,7 +431,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::getRenderFrontendSubmenu
+     * @covers          FOF40\Toolbar\Toolbar::getRenderFrontendSubmenu
      */
     public function testGetRenderFrontendSubmenu()
     {
@@ -444,7 +444,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::setRenderFrontendSubmenu
+     * @covers          FOF40\Toolbar\Toolbar::setRenderFrontendSubmenu
      */
     public function testSetRenderFrontendSubmenu()
     {
@@ -457,7 +457,7 @@ class ToolbarTest extends FOFTestCase
 
     /**
      * @group           Toolbar
-     * @covers          FOF30\Toolbar\Toolbar::isDataView
+     * @covers          FOF40\Toolbar\Toolbar::isDataView
      * @dataProvider    ToolbarDataprovider::getTestIsDataView
      */
     public function testIsDataView($test, $check)
@@ -470,7 +470,7 @@ class ToolbarTest extends FOFTestCase
 
         $TestContainer = static::$container;
 
-        $controller = $this->getMockBuilder('\FOF30\Tests\Stubs\Controller\ControllerStub')
+        $controller = $this->getMockBuilder('\FOF40\Tests\Stubs\Controller\ControllerStub')
             ->setMethods(array('getView'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -483,7 +483,7 @@ class ToolbarTest extends FOFTestCase
             return null;
         });
 
-        $dispacher = $this->getMockBuilder('FOF30\Dispatcher\Dispatcher')
+        $dispacher = $this->getMockBuilder('FOF40\Dispatcher\Dispatcher')
             ->setMethods(array('getController'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();

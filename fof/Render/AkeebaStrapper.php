@@ -5,16 +5,16 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Render;
+namespace FOF40\Render;
 
-use FOF30\Container\Container;
-use FOF30\Form\FieldInterface;
-use FOF30\Form\Form;
-use FOF30\Form\Header\Ordering as HeaderOrdering;
-use FOF30\Form\Field\Ordering as FieldOrdering;
-use FOF30\Model\DataModel;
-use FOF30\Toolbar\Toolbar;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\Form\FieldInterface;
+use FOF40\Form\Form;
+use FOF40\Form\Header\Ordering as HeaderOrdering;
+use FOF40\Form\Field\Ordering as FieldOrdering;
+use FOF40\Model\DataModel;
+use FOF40\Toolbar\Toolbar;
+use FOF40\View\View;
 use JHtml;
 use JHtmlSidebar;
 
@@ -26,7 +26,7 @@ defined('_JEXEC') or die;
  * Renderer options
  * linkbar_style        Style for linkbars: joomla3|classic. Default: joomla3
  *
- * @package FOF30\Render
+ * @package FOF40\Render
  */
 class AkeebaStrapper extends RenderBase implements RenderInterface
 {

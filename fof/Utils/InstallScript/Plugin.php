@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils\InstallScript;
+namespace FOF40\Utils\InstallScript;
 
 use Exception;
-use FOF30\Database\Installer;
+use FOF40\Database\Installer;
 use JFactory;
 use JLoader;
 
@@ -20,7 +20,7 @@ JLoader::import('joomla.installer.installer');
 JLoader::import('joomla.utilities.date');
 
 // In case FOF's autoloader is not present yet, e.g. new installation
-if (!class_exists('FOF30\\Utils\\InstallScript\\BaseInstaller', true))
+if (!class_exists('FOF40\\Utils\\InstallScript\\BaseInstaller', true))
 {
 	require_once __DIR__ . '/BaseInstaller.php';
 }
@@ -28,7 +28,7 @@ if (!class_exists('FOF30\\Utils\\InstallScript\\BaseInstaller', true))
 /**
  * A helper class which you can use to create plugin installation scripts.
  *
- * Example usage: class PlgSystemExampleInstallerScript extends FOF30\Utils\InstallScript\Module
+ * Example usage: class PlgSystemExampleInstallerScript extends FOF40\Utils\InstallScript\Module
  *
  * NB: The class name is always Plg<Plugin Folder><Plugin Name>InstallerScript per Joomla's conventions.
  *
@@ -133,8 +133,8 @@ class Plugin extends BaseInstaller
 		 * uninstallation would fail and make the entire package uninstallation to fail (the package is impossible to
 		 * uninstall).
 		 */
-		// Add ourselves to the list of extensions depending on FOF30
-		// $this->addDependency('fof30', $this->getDependencyName());
+		// Add ourselves to the list of extensions depending on FOF40
+		// $this->addDependency('fof40', $this->getDependencyName());
 
 		// Install or update database
 		$schemaPath  = $parent->getParent()->getPath('source') . '/' . $this->schemaXmlPath;
@@ -181,8 +181,8 @@ class Plugin extends BaseInstaller
 		 * uninstallation would fail and make the entire package uninstallation to fail (the package is impossible to
 		 * uninstall).
 		 */
-		// Remove ourselves from the list of extensions depending on FOF30
-		// $this->removeDependency('fof30', $this->getDependencyName());
+		// Remove ourselves from the list of extensions depending on FOF40
+		// $this->removeDependency('fof40', $this->getDependencyName());
 	}
 
 	/**

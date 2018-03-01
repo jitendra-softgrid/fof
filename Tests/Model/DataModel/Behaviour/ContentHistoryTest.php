@@ -5,19 +5,19 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Behaviour\ContentHistory;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Model\DataModel\Behaviour\ContentHistory;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once 'ContentHistoryDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Behaviour\ContentHistory::<protected>
- * @covers      FOF30\Model\DataModel\Behaviour\ContentHistory::<private>
- * @package     FOF30\Tests\DataModel\Behaviour\ContentHistory
+ * @covers      FOF40\Model\DataModel\Behaviour\ContentHistory::<protected>
+ * @covers      FOF40\Model\DataModel\Behaviour\ContentHistory::<private>
+ * @package     FOF40\Tests\DataModel\Behaviour\ContentHistory
  */
 class ContentHistoryTest extends DatabaseTest
 {
@@ -31,7 +31,7 @@ class ContentHistoryTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           ContentHistoryOnAfterSave
-     * @covers          FOF30\Model\DataModel\Behaviour\ContentHistory::onAfterSave
+     * @covers          FOF40\Model\DataModel\Behaviour\ContentHistory::onAfterSave
      * @dataProvider    ContentHistoryDataprovider::getTestOnAfterSave
      */
     public function testOnAfterSave($test, $check)
@@ -44,7 +44,7 @@ class ContentHistoryTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('getContentType', 'checkContentType'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -76,7 +76,7 @@ class ContentHistoryTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           ContentHistoryOnBeforeDelete
-     * @covers          FOF30\Model\DataModel\Behaviour\ContentHistory::onBeforeDelete
+     * @covers          FOF40\Model\DataModel\Behaviour\ContentHistory::onBeforeDelete
      * @dataProvider    ContentHistoryDataprovider::getTestOnBeforeDelete
      */
     public function testOnBeforeDelete($test, $check)
@@ -89,7 +89,7 @@ class ContentHistoryTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('getContentType', 'checkContentType'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -121,7 +121,7 @@ class ContentHistoryTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           ContentHistoryOnAfterPublish
-     * @covers          FOF30\Model\DataModel\Behaviour\ContentHistory::onAfterPublish
+     * @covers          FOF40\Model\DataModel\Behaviour\ContentHistory::onAfterPublish
      */
     public function testOnAfterPublish()
     {
@@ -130,7 +130,7 @@ class ContentHistoryTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('updateUcmContent'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -146,7 +146,7 @@ class ContentHistoryTest extends DatabaseTest
     /**
      * @group           Behaviour
      * @group           ContentHistoryOnAfterUnpublish
-     * @covers          FOF30\Model\DataModel\Behaviour\ContentHistory::onAfterUnpublish
+     * @covers          FOF40\Model\DataModel\Behaviour\ContentHistory::onAfterUnpublish
      */
     public function testOnAfterUnpublish()
     {
@@ -155,7 +155,7 @@ class ContentHistoryTest extends DatabaseTest
             'tableName'   => '#__foftest_foobars'
         );
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\DataModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\DataModelStub')
             ->setMethods(array('updateUcmContent'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();

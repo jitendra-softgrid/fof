@@ -5,25 +5,25 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Relation\Relation\HasMany;
+namespace FOF40\Tests\DataModel\Relation\Relation\HasMany;
 
-use FOF30\Model\DataModel\Relation\HasMany;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Model\DataModel\Relation\HasMany;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once 'HasManyDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Relation\HasMany::<protected>
- * @covers      FOF30\Model\DataModel\Relation\HasMany::<private>
- * @package     FOF30\Tests\DataModel\Relation\HasMany
+ * @covers      FOF40\Model\DataModel\Relation\HasMany::<protected>
+ * @covers      FOF40\Model\DataModel\Relation\HasMany::<private>
+ * @package     FOF40\Tests\DataModel\Relation\HasMany
  */
 class HasManyTest extends DatabaseTest
 {
     /**
      * @group           HasMany
      * @group           HasManyConstruct
-     * @covers          FOF30\Model\DataModel\Relation\HasMany::__construct
+     * @covers          FOF40\Model\DataModel\Relation\HasMany::__construct
      * @dataProvider    HasManyDataprovider::getTestConstruct
      */
     public function testConstruct($test, $check)
@@ -39,7 +39,7 @@ class HasManyTest extends DatabaseTest
     /**
      * @group           HasMany
      * @group           HasManyGetCountSubquery
-     * @covers          FOF30\Model\DataModel\Relation\HasMany::getCountSubquery
+     * @covers          FOF40\Model\DataModel\Relation\HasMany::getCountSubquery
      */
     public function testGetCountSubquery()
     {
@@ -65,7 +65,7 @@ class HasManyTest extends DatabaseTest
     /**
      * @group           HasMany
      * @group           HasManyGetNew
-     * @covers          FOF30\Model\DataModel\Relation\HasMany::getNew
+     * @covers          FOF40\Model\DataModel\Relation\HasMany::getNew
      */
     public function testGetNew()
     {
@@ -82,13 +82,13 @@ class HasManyTest extends DatabaseTest
     /**
      * @param   string    $class
      *
-     * @return \FOF30\Model\DataModel
+     * @return \FOF40\Model\DataModel
      */
     protected function buildModel($class = null)
     {
         if(!$class)
         {
-            $class = '\\FOF30\\Tests\\Stubs\\Model\\DataModelStub';
+            $class = '\\FOF40\\Tests\\Stubs\\Model\\DataModelStub';
         }
 
         $config = array(

@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Download;
+namespace FOF40\Tests\Download;
 
 class DownloadDataprovider
 {
@@ -15,11 +15,11 @@ class DownloadDataprovider
 			array('Fopen', true),
 			array('FOPEN', true),
 			array('fopen', true),
-			array('\\FOF30\\Download\\Adapter\\Fopen', true),
+			array('\\FOF40\\Download\\Adapter\\Fopen', true),
 			array('Curl', false),
 			array('CURL', false),
 			array('curl', false),
-			array('\\FOF30\\Download\\Adapter\\Curl', false),
+			array('\\FOF40\\Download\\Adapter\\Curl', false),
 			array('Spike', false),
 			array('\\JRegistry', false),
 			array(null, false),
@@ -35,8 +35,8 @@ class DownloadDataprovider
 			array('Curl', 'curl'),
 			array('CURL', 'curl'),
 			array('curl', 'curl'),
-			array('\\FOF30\\Download\\Adapter\\Fopen', 'fopen'),
-			array('\\FOF30\\Download\\Adapter\\Curl', 'curl'),
+			array('\\FOF40\\Download\\Adapter\\Fopen', 'fopen'),
+			array('\\FOF40\\Download\\Adapter\\Curl', 'curl'),
 			array('Spike', 'curl'),
 			array('\\JRegistry', 'curl'),
 			array(null, 'curl'),

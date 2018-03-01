@@ -5,15 +5,15 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils;
+namespace FOF40\Utils;
 
 
-use FOF30\Model\DataModel;
+use FOF40\Model\DataModel;
 
 /**
  * Generate phpDoc type hints for the magic fields of your DataModels
  *
- * @package FOF30\Utils
+ * @package FOF40\Utils
  */
 class ModelTypeHints
 {
@@ -42,7 +42,7 @@ class ModelTypeHints
 	/**
 	 * Public constructor
 	 *
-	 * @param   \FOF30\Model\DataModel  $model  The model to create hints for
+	 * @param   \FOF40\Model\DataModel  $model  The model to create hints for
 	 */
 	public function __construct(DataModel $model)
 	{
@@ -55,7 +55,7 @@ class ModelTypeHints
 	 *
 	 * @return  array
 	 *
-	 * @throws  \FOF30\Model\DataModel\Relation\Exception\RelationNotFound
+	 * @throws  \FOF40\Model\DataModel\Relation\Exception\RelationNotFound
 	 */
 	public function getRawHints()
 	{
@@ -67,7 +67,7 @@ class ModelTypeHints
 			'property-read' => array()
 		);
 
-		$hasFilters = $model->getBehavioursDispatcher()->hasObserverClass('FOF30\Model\DataModel\Behaviour\Filters');
+		$hasFilters = $model->getBehavioursDispatcher()->hasObserverClass('FOF40\Model\DataModel\Behaviour\Filters');
 
 		$magicFields = array(
 			'enabled', 'ordering', 'created_on', 'created_by', 'modified_on', 'modified_by',  'locked_on', 'locked_by',

@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Utils\FEFHelper;
+namespace FOF40\Utils\FEFHelper;
 
-use FOF30\Container\Container;
+use FOF40\Container\Container;
 
 abstract class Html
 {

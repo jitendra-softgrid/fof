@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Hal;
+namespace FOF40\Hal;
 
-use FOF30\Hal\Exception\InvalidRenderFormat;
-use FOF30\Hal\Render\RenderInterface;
+use FOF40\Hal\Exception\InvalidRenderFormat;
+use FOF40\Hal\Render\RenderInterface;
 
 defined('_JEXEC') or die;
 
@@ -23,7 +23,7 @@ class Document
 	/**
 	 * The collection of links of this document
 	 *
-	 * @var   \FOF30\Hal\Links
+	 * @var   \FOF40\Hal\Links
 	 */
 	private $_links = null;
 
@@ -219,7 +219,7 @@ class Document
 	 */
 	public function render($format = 'json')
 	{
-		$class_name = '\\FOF30\\Hal\\Render\\' . ucfirst($format);
+		$class_name = '\\FOF40\\Hal\\Render\\' . ucfirst($format);
 
 		if (!class_exists($class_name, true))
 		{

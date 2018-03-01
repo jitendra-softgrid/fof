@@ -141,7 +141,7 @@ class SwitchFactoryDataprovider
             ),
             array(
                 'case' => 'Dispatcher not found, fall back to the standard one',
-                'result' => 'FOF30\Dispatcher\Dispatcher'
+                'result' => 'FOF40\Dispatcher\Dispatcher'
             )
         );
 
@@ -179,7 +179,7 @@ class SwitchFactoryDataprovider
             ),
             array(
                 'case' => 'Toolbar not found, fall back to the standard one',
-                'result' => 'FOF30\Toolbar\Toolbar'
+                'result' => 'FOF40\Toolbar\Toolbar'
             )
         );
 
@@ -217,7 +217,7 @@ class SwitchFactoryDataprovider
             ),
             array(
                 'case' => 'TransparentAuthentication not found, fall back to the standard one',
-                'result' => 'FOF30\TransparentAuthentication\TransparentAuthentication'
+                'result' => 'FOF40\TransparentAuthentication\TransparentAuthentication'
             )
         );
 

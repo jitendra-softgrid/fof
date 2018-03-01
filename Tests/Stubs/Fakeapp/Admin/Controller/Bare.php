@@ -7,7 +7,7 @@
 
 namespace Fakeapp\Admin\Controller;
 
-use FOF30\Controller\DataController;
+use FOF40\Controller\DataController;
 
 class Bare extends DataController
 {

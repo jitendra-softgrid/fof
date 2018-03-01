@@ -5,24 +5,24 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Filter\Boolean;
+namespace FOF40\Tests\DataModel\Filter\Boolean;
 
-use FOF30\Model\DataModel\Filter\Boolean;
-use FOF30\Tests\Helpers\DatabaseTest;
+use FOF40\Model\DataModel\Filter\Boolean;
+use FOF40\Tests\Helpers\DatabaseTest;
 
 require_once 'BooleanDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel\Filter\Boolean::<protected>
- * @covers      FOF30\Model\DataModel\Filter\Boolean::<private>
- * @package     FOF30\Tests\DataModel\Filter\Boolean
+ * @covers      FOF40\Model\DataModel\Filter\Boolean::<protected>
+ * @covers      FOF40\Model\DataModel\Filter\Boolean::<private>
+ * @package     FOF40\Tests\DataModel\Filter\Boolean
  */
 class BooleanTest extends DatabaseTest
 {
     /**
      * @group           BooleanFilter
      * @group           BooleanFilterIsEmpty
-     * @covers          FOF30\Model\DataModel\Filter\Boolean::isEmpty
+     * @covers          FOF40\Model\DataModel\Filter\Boolean::isEmpty
      * @dataProvider    BooleanDataprovider::getTestIsEmpty
      */
     public function testIsEmpty($test, $check)

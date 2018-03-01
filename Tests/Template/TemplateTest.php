@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Template;
+namespace FOF40\Tests\Template;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
-use FOF30\Tests\Platform\PlatformJoomlaTest;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Tests\Platform\PlatformJoomlaTest;
 use JFactory;
 use JDocument;
 use JFolder;
@@ -20,7 +20,7 @@ use ReflectionProperty;
 /**
  * Class TemplateTest
  *
- * @package FOF30\Tests\Template
+ * @package FOF40\Tests\Template
  */
 class TemplateTest extends FOFTestCase
 {

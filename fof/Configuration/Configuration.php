@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Configuration;
+namespace FOF40\Configuration;
 
-use FOF30\Container\Container;
+use FOF40\Container\Container;
 
 defined('_JEXEC') or die;
 
@@ -66,8 +66,8 @@ class Configuration
 			return $default;
 		}
 
-		$class = '\\FOF30\\Configuration\\Domain\\' . ucfirst($domain);
-		/** @var   \FOF30\Configuration\Domain\DomainInterface  $o */
+		$class = '\\FOF40\\Configuration\\Domain\\' . ucfirst($domain);
+		/** @var   \FOF40\Configuration\Domain\DomainInterface  $o */
 		$o = new $class;
 
 		return $o->get(self::$configurations[$this->container->componentName], $var, $default);
@@ -180,11 +180,11 @@ class Configuration
 
 		foreach ($domains as $dom)
 		{
-			$class = '\\FOF30\\Configuration\\Domain\\' . ucfirst($dom);
+			$class = '\\FOF40\\Configuration\\Domain\\' . ucfirst($dom);
 
 			if (class_exists($class, true))
 			{
-				/** @var   \FOF30\Configuration\Domain\DomainInterface $o */
+				/** @var   \FOF40\Configuration\Domain\DomainInterface $o */
 				$o = new $class;
 				$o->parseDomain($xml, $ret);
 			}

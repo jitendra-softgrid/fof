@@ -5,22 +5,22 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Input;
+namespace FOF40\Tests\Input;
 
-use FOF30\Input\Input;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Input\Input;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 /**
- * @covers  FOF30\Input\Input::<protected>
- * @covers  FOF30\Input\Input::<private>
+ * @covers  FOF40\Input\Input::<protected>
+ * @covers  FOF40\Input\Input::<private>
  */
 class InputTest extends FOFTestCase
 {
 	/**
-	 * @covers        FOF30\Input\Input::__construct
+	 * @covers        FOF40\Input\Input::__construct
 	 *
-	 * @dataProvider  FOF30\Tests\Input\InputProvider::getTestConstructor
+	 * @dataProvider  FOF40\Tests\Input\InputProvider::getTestConstructor
 	 *
 	 * @backupGlobals enabled
 	 */
@@ -48,10 +48,10 @@ class InputTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Input\Input::get
-	 * @covers       FOF30\Input\Input::_cleanVar
+	 * @covers       FOF40\Input\Input::get
+	 * @covers       FOF40\Input\Input::_cleanVar
 	 *
-	 * @dataProvider FOF30\Tests\Input\InputProvider::getTestGet
+	 * @dataProvider FOF40\Tests\Input\InputProvider::getTestGet
 	 */
 	public function testGet($key, $filter, $expected, $message)
 	{
@@ -69,7 +69,7 @@ class InputTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Input\Input::getData
+	 * @covers       FOF40\Input\Input::getData
 	 */
 	public function testGetData()
 	{
@@ -82,9 +82,9 @@ class InputTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Input\Input::__call
+	 * @covers       FOF40\Input\Input::__call
 	 *
-	 * @dataProvider FOF30\Tests\Input\InputProvider::getTestMagicCall
+	 * @dataProvider FOF40\Tests\Input\InputProvider::getTestMagicCall
 	 */
 	public function testMagicCall($key, $filter, $expected, $message)
 	{

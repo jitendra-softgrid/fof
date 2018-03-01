@@ -5,30 +5,30 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory;
+namespace FOF40\Factory;
 
-use FOF30\Container\Container;
-use FOF30\Controller\Controller;
-use FOF30\Dispatcher\Dispatcher;
-use FOF30\Factory\Exception\ControllerNotFound;
-use FOF30\Factory\Exception\DispatcherNotFound;
-use FOF30\Factory\Exception\FormLoadData;
-use FOF30\Factory\Exception\FormLoadFile;
-use FOF30\Factory\Exception\ModelNotFound;
-use FOF30\Factory\Exception\ToolbarNotFound;
-use FOF30\Factory\Exception\FormNotFound;
-use FOF30\Factory\Exception\TransparentAuthenticationNotFound;
-use FOF30\Factory\Exception\ViewNotFound;
-use FOF30\Factory\Scaffolding\Layout\Builder as LayoutBuilder;
-use FOF30\Factory\Scaffolding\Controller\Builder as ControllerBuilder;
-use FOF30\Factory\Scaffolding\Model\Builder as ModelBuilder;
-use FOF30\Factory\Scaffolding\View\Builder as ViewBuilder;
-use FOF30\Form\Form;
-use FOF30\Model\Model;
-use FOF30\Toolbar\Toolbar;
-use FOF30\TransparentAuthentication\TransparentAuthentication;
-use FOF30\View\View;
-use FOF30\View\ViewTemplateFinder;
+use FOF40\Container\Container;
+use FOF40\Controller\Controller;
+use FOF40\Dispatcher\Dispatcher;
+use FOF40\Factory\Exception\ControllerNotFound;
+use FOF40\Factory\Exception\DispatcherNotFound;
+use FOF40\Factory\Exception\FormLoadData;
+use FOF40\Factory\Exception\FormLoadFile;
+use FOF40\Factory\Exception\ModelNotFound;
+use FOF40\Factory\Exception\ToolbarNotFound;
+use FOF40\Factory\Exception\FormNotFound;
+use FOF40\Factory\Exception\TransparentAuthenticationNotFound;
+use FOF40\Factory\Exception\ViewNotFound;
+use FOF40\Factory\Scaffolding\Layout\Builder as LayoutBuilder;
+use FOF40\Factory\Scaffolding\Controller\Builder as ControllerBuilder;
+use FOF40\Factory\Scaffolding\Model\Builder as ModelBuilder;
+use FOF40\Factory\Scaffolding\View\Builder as ViewBuilder;
+use FOF40\Form\Form;
+use FOF40\Model\Model;
+use FOF40\Toolbar\Toolbar;
+use FOF40\TransparentAuthentication\TransparentAuthentication;
+use FOF40\View\View;
+use FOF40\View\ViewTemplateFinder;
 
 defined('_JEXEC') or die;
 
@@ -62,7 +62,7 @@ class BasicFactory implements FactoryInterface
 
     /**
      * Section used to build the namespace prefix. We have to pass it since in CLI scaffolding we need
-     * to force the section we're in (ie Site or Admin). {@see \FOF30\Container\Container::getNamespacePrefix() } for valid values
+     * to force the section we're in (ie Site or Admin). {@see \FOF40\Container\Container::getNamespacePrefix() } for valid values
      *
      * @var   string
      */
@@ -71,7 +71,7 @@ class BasicFactory implements FactoryInterface
 	/**
 	 * Public constructor for the factory object
 	 *
-	 * @param  \FOF30\Container\Container $container  The container we belong to
+	 * @param  \FOF40\Container\Container $container  The container we belong to
 	 */
 	public function __construct(Container $container)
 	{

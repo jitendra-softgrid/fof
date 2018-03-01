@@ -5,32 +5,32 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Media;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Form\Field\Media;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 use org\bovigo\vfs\vfsStream;
 
 require_once __DIR__ . '/MediaDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Media::<private>
- * @covers  FOF30\Form\Field\Media::<protected>
+ * @covers  FOF40\Form\Field\Media::<private>
+ * @covers  FOF40\Form\Field\Media::<protected>
  */
 class MediaTest extends FOFTestCase
 {
     /**
      * @group           Media
      * @group           Media__get
-     * @covers          FOF30\Form\Field\Media::__get
+     * @covers          FOF40\Form\Field\Media::__get
      * @dataProvider    MediaDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Media')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Media')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -46,12 +46,12 @@ class MediaTest extends FOFTestCase
     /**
      * @group           Media
      * @group           MediaGetStatic
-     * @covers          FOF30\Form\Field\Media::getStatic
+     * @covers          FOF40\Form\Field\Media::getStatic
      * @dataProvider    MediaDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Media')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Media')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -75,12 +75,12 @@ class MediaTest extends FOFTestCase
     /**
      * @group           Media
      * @group           MediaGetRepeatable
-     * @covers          FOF30\Form\Field\Media::getRepeatable
+     * @covers          FOF40\Form\Field\Media::getRepeatable
      * @dataProvider    MediaDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Media')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Media')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -103,7 +103,7 @@ class MediaTest extends FOFTestCase
     /**
      * @group           Media
      * @group           MediaGetFieldContents
-     * @covers          FOF30\Form\Field\Media::getFieldContents
+     * @covers          FOF40\Form\Field\Media::getFieldContents
      * @dataProvider    MediaDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)

@@ -5,22 +5,22 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Event;
+namespace FOF40\Tests\Event;
 
 
-use FOF30\Container\Container;
-use FOF30\Event\Dispatcher;
-use FOF30\Tests\Helpers\ApplicationTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Event\FirstObserver;
-use FOF30\Tests\Stubs\Event\SecondObserver;
+use FOF40\Container\Container;
+use FOF40\Event\Dispatcher;
+use FOF40\Tests\Helpers\ApplicationTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Event\FirstObserver;
+use FOF40\Tests\Stubs\Event\SecondObserver;
 
 /**
  * Class DispatcherTest
  *
- * @package FOF30\Tests\Event
+ * @package FOF40\Tests\Event
  *
- * @coversDefaultClass FOF30\Event\Dispatcher
+ * @coversDefaultClass FOF40\Event\Dispatcher
  */
 class DispatcherTest extends ApplicationTestCase
 {
@@ -28,7 +28,7 @@ class DispatcherTest extends ApplicationTestCase
 	protected $object;
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::__construct
+	 * @covers FOF40\Event\Dispatcher::__construct
 	 */
 	public function testConstructor()
 	{
@@ -38,7 +38,7 @@ class DispatcherTest extends ApplicationTestCase
 
 		$myDispatcher = new Dispatcher($container);
 
-		$this->assertInstanceOf('\\FOF30\\Event\\Dispatcher', $myDispatcher);
+		$this->assertInstanceOf('\\FOF40\\Event\\Dispatcher', $myDispatcher);
 
 		$this->assertEquals(
 			$container,
@@ -52,7 +52,7 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::getContainer
+	 * @covers FOF40\Event\Dispatcher::getContainer
 	 */
 	public function testGetContainer()
 	{
@@ -61,7 +61,7 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::attach
+	 * @covers FOF40\Event\Dispatcher::attach
 	 */
 	public function testAttach()
 	{
@@ -88,7 +88,7 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::detach
+	 * @covers FOF40\Event\Dispatcher::detach
 	 */
 	public function testDetach()
 	{
@@ -118,8 +118,8 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::hasObserver
-	 * @covers FOF30\Event\Dispatcher::hasObserverClass
+	 * @covers FOF40\Event\Dispatcher::hasObserver
+	 * @covers FOF40\Event\Dispatcher::hasObserverClass
 	 */
 	public function testHasObserver()
 	{
@@ -139,7 +139,7 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::trigger
+	 * @covers FOF40\Event\Dispatcher::trigger
 	 */
 	public function testTrigger()
 	{
@@ -175,7 +175,7 @@ class DispatcherTest extends ApplicationTestCase
 	}
 
 	/**
-	 * @covers FOF30\Event\Dispatcher::chainHandle
+	 * @covers FOF40\Event\Dispatcher::chainHandle
 	 */
 	public function testChainHandle()
 	{

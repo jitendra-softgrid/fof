@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Helpers\Application;
+namespace FOF40\Tests\Helpers\Application;
 
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 class MockApplicationBase
 {

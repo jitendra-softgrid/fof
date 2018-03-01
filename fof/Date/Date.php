@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Date;
+namespace FOF40\Date;
 
 use DateInterval;
 use DateTime;

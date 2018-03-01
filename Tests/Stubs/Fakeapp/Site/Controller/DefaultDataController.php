@@ -7,7 +7,7 @@
 
 namespace Fakeapp\Site\Controller;
 
-use FOF30\Controller\DataController;
+use FOF40\Controller\DataController;
 
 class DefaultDataController extends DataController
 {

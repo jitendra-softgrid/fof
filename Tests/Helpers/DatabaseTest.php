@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Helpers;
+namespace FOF40\Tests\Helpers;
 
-use FOF30\Container\Container;
+use FOF40\Container\Container;
 
 abstract class DatabaseTest extends \PHPUnit_Extensions_Database_TestCase
 {

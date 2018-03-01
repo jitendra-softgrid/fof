@@ -257,7 +257,7 @@ class SpecialColumnsDataprovider
                 'table' => '#__foftest_bares'
             ),
             array(
-                'exception' => 'FOF30\Model\DataModel\Exception\SpecialColumnMissing'
+                'exception' => 'FOF40\Model\DataModel\Exception\SpecialColumnMissing'
             )
         );
 
@@ -268,7 +268,7 @@ class SpecialColumnsDataprovider
                 'table' => '#__foftest_foobars'
             ),
             array(
-                'exception' => 'FOF30\Model\DataModel\Exception\RecordNotLoaded'
+                'exception' => 'FOF40\Model\DataModel\Exception\RecordNotLoaded'
             )
         );
 
@@ -555,7 +555,7 @@ class SpecialColumnsDataprovider
                 )
             ),
             array(
-                'exception' => 'FOF30\Model\DataModel\Exception\RecordNotLoaded',
+                'exception' => 'FOF40\Model\DataModel\Exception\RecordNotLoaded',
                 'unlock'    => false
             )
         );
@@ -836,7 +836,7 @@ class SpecialColumnsDataprovider
                 )
             ),
             array(
-                'exception' => 'FOF30\Controller\Exception\LockedRecord',
+                'exception' => 'FOF40\Controller\Exception\LockedRecord',
                 'unlock'    => false
             )
         );
@@ -865,7 +865,7 @@ class SpecialColumnsDataprovider
                 )
             ),
             array(
-                'exception' => 'FOF30\Controller\Exception\LockedRecord',
+                'exception' => 'FOF40\Controller\Exception\LockedRecord',
                 'unlock'    => false
             )
         );

@@ -5,23 +5,23 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Utils;
+namespace FOF40\Tests\Utils;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Utils\Buffer;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Utils\Buffer;
 
 /**
  * Class BufferTest
  *
- * @package FOF30\Tests\Utils
+ * @package FOF40\Tests\Utils
  *
- * @coversDefaultClass FOF30\Utils\Buffer
+ * @coversDefaultClass FOF40\Utils\Buffer
  */
 class BufferTest extends FOFTestCase
 {
 	/**
 	 * @group   Buffer
-	 * @covers  FOF30\Utils\Buffer::stream_open
+	 * @covers  FOF40\Utils\Buffer::stream_open
 	 */
 	public function testStreamOpen()
 	{
@@ -54,7 +54,7 @@ class BufferTest extends FOFTestCase
 
 	/**
 	 * @group   Buffer
-	 * @covers  FOF30\Utils\Buffer::stream_write
+	 * @covers  FOF40\Utils\Buffer::stream_write
 	 */
 	public function testStreamWrite()
 	{
@@ -98,7 +98,7 @@ class BufferTest extends FOFTestCase
 
 	/**
 	 * @group   Buffer
-	 * @covers  FOF30\Utils\Buffer::stream_read
+	 * @covers  FOF40\Utils\Buffer::stream_read
 	 */
 	public function testStreamRead()
 	{
@@ -152,7 +152,7 @@ class BufferTest extends FOFTestCase
 
 	/**
 	 * @group   Buffer
-	 * @covers FOF30\Utils\Buffer::stream_tell
+	 * @covers FOF40\Utils\Buffer::stream_tell
 	 */
 	public function testStreamTell()
 	{
@@ -175,7 +175,7 @@ class BufferTest extends FOFTestCase
 
 	/**
 	 * @group   Buffer
-	 * @covers  FOF30\Utils\Buffer::stream_eof
+	 * @covers  FOF40\Utils\Buffer::stream_eof
 	 */
 	public function testStreamEof()
 	{
@@ -204,7 +204,7 @@ class BufferTest extends FOFTestCase
 
 	/**
 	 * @group   Buffer
-	 * @covers  FOF30\Utils\Buffer::stream_seek
+	 * @covers  FOF40\Utils\Buffer::stream_seek
 	 */
 	public function testStreamSeek()
 	{

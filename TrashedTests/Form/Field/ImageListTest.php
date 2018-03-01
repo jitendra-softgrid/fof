@@ -5,32 +5,32 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\ImageList;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestJoomlaPlatform;
+use FOF40\Form\Field\ImageList;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestJoomlaPlatform;
 use org\bovigo\vfs\vfsStream;
 
 require_once __DIR__ . '/ImageListDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\ImageList::<private>
- * @covers  FOF30\Form\Field\ImageList::<protected>
+ * @covers  FOF40\Form\Field\ImageList::<private>
+ * @covers  FOF40\Form\Field\ImageList::<protected>
  */
 class ImageListTest extends FOFTestCase
 {
     /**
      * @group           ImageList
      * @group           ImageList__get
-     * @covers          FOF30\Form\Field\ImageList::__get
+     * @covers          FOF40\Form\Field\ImageList::__get
      * @dataProvider    ImageListDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\ImageList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\ImageList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -46,12 +46,12 @@ class ImageListTest extends FOFTestCase
     /**
      * @group           ImageList
      * @group           ImageListGetStatic
-     * @covers          FOF30\Form\Field\ImageList::getStatic
+     * @covers          FOF40\Form\Field\ImageList::getStatic
      * @dataProvider    ImageListDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\ImageList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\ImageList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -75,12 +75,12 @@ class ImageListTest extends FOFTestCase
     /**
      * @group           ImageList
      * @group           ImageListGetRepeatable
-     * @covers          FOF30\Form\Field\ImageList::getRepeatable
+     * @covers          FOF40\Form\Field\ImageList::getRepeatable
      * @dataProvider    ImageListDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\ImageList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\ImageList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -103,7 +103,7 @@ class ImageListTest extends FOFTestCase
     /**
      * @group           ImageList
      * @group           ImageListGetFieldContents
-     * @covers          FOF30\Form\Field\ImageList::getFieldContents
+     * @covers          FOF40\Form\Field\ImageList::getFieldContents
      * @dataProvider    ImageListDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)

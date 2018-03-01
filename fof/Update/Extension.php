@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Update;
+namespace FOF40\Update;
 
-use FOF30\Container\Container;
-use FOF30\Download\Download;
+use FOF40\Container\Container;
+use FOF40\Download\Download;
 use Exception;
 use SimpleXMLElement;
 

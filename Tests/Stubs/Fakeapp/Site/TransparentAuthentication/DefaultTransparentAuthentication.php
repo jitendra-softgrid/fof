@@ -8,7 +8,7 @@
 namespace Fakeapp\Site\TransparentAuthentication;
 
 
-use FOF30\TransparentAuthentication\TransparentAuthentication;
+use FOF40\TransparentAuthentication\TransparentAuthentication;
 
 class DefaultTransparentAuthentication extends TransparentAuthentication
 {

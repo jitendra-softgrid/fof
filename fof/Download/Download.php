@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Download;
+namespace FOF40\Download;
 
-use FOF30\Container\Container;
-use FOF30\Download\Exception\DownloadError;
+use FOF40\Container\Container;
+use FOF40\Download\Exception\DownloadError;
 use JText;
-use FOF30\Timer\Timer;
+use FOF40\Timer\Timer;
 
 defined('_JEXEC') or die;
 
@@ -47,7 +47,7 @@ class Download
 	/**
 	 * Public constructor
 	 *
-	 * @param   \FOF30\Container\Container   $c  The component container
+	 * @param   \FOF40\Container\Container   $c  The component container
 	 */
 	public function __construct(Container $c)
 	{
@@ -75,7 +75,7 @@ class Download
 		}
 
 		// Load the language strings
-		$c->platform->loadTranslations('lib_fof30');
+		$c->platform->loadTranslations('lib_fof40');
 	}
 
 	/**
@@ -91,9 +91,9 @@ class Download
 		{
 			$adapter = new $className;
 		}
-		elseif (class_exists('\\FOF30\\Download\\Adapter\\' . ucfirst($className)))
+		elseif (class_exists('\\FOF40\\Download\\Adapter\\' . ucfirst($className)))
 		{
-			$className = '\\FOF30\\Download\\Adapter\\' . ucfirst($className);
+			$className = '\\FOF40\\Download\\Adapter\\' . ucfirst($className);
 			$adapter = new $className;
 		}
 
@@ -114,7 +114,7 @@ class Download
 		{
 			$class = get_class($this->adapter);
 
-			return strtolower(str_ireplace('FOF30\\Download\\Adapter\\', '', $class));
+			return strtolower(str_ireplace('FOF40\\Download\\Adapter\\', '', $class));
 		}
 
 		return '';
@@ -434,7 +434,7 @@ class Download
 
 			$return[] = array(
 				'fullpath'  => $file,
-				'classname' => '\\FOF30\\Download\\Adapter\\' . ucfirst(basename($parts[0], '.php'))
+				'classname' => '\\FOF40\\Download\\Adapter\\' . ucfirst(basename($parts[0], '.php'))
 			);
 		}
 

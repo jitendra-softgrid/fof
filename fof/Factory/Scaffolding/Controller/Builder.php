@@ -5,26 +5,26 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Scaffolding\Controller;
+namespace FOF40\Factory\Scaffolding\Controller;
 
-use FOF30\Container\Container;
-use FOF30\Factory\Magic\ControllerFactory;
+use FOF40\Container\Container;
+use FOF40\Factory\Magic\ControllerFactory;
 
 /**
  * Scaffolding Builder
  *
- * @package FOF30\Factory\Scaffolding
+ * @package FOF40\Factory\Scaffolding
  *
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Builder
 {
-	/** @var  \FOF30\Container\Container  The container we belong to */
+	/** @var  \FOF40\Container\Container  The container we belong to */
 	protected $container = null;
 
     /**
      * Section used to build the namespace prefix. We have to pass it since in CLI scaffolding we need
-     * to force the section we're in (ie Site or Admin). {@see \FOF30\Container\Container::getNamespacePrefix() } for valid values
+     * to force the section we're in (ie Site or Admin). {@see \FOF40\Container\Container::getNamespacePrefix() } for valid values
      *
      * @var   string
      */
@@ -33,7 +33,7 @@ class Builder
 	/**
 	 * Create the scaffolding builder instance
 	 *
-	 * @param \FOF30\Container\Container $c
+	 * @param \FOF40\Container\Container $c
 	 */
 	public function __construct(Container $c)
 	{

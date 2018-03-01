@@ -5,19 +5,19 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Download\Adapter;
+namespace FOF40\Tests\Download\Adapter;
 
-use FOF30\Download\Adapter\Curl;
-use FOF30\Tests\Helpers\Download\FakeCurl;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Download\Adapter\Curl;
+use FOF40\Tests\Helpers\Download\FakeCurl;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/../../Helpers/Download/FakeCurlImporter.php';
 require_once __DIR__ . '/CurlDataprovider.php';
 
 /**
- * @covers  FOF30\Download\Adapter\Curl::<protected>
- * @covers  FOF30\Download\Adapter\Curl::<private>
+ * @covers  FOF40\Download\Adapter\Curl::<protected>
+ * @covers  FOF40\Download\Adapter\Curl::<private>
  */
 class CurlTest extends FOFTestCase
 {
@@ -38,13 +38,13 @@ class CurlTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Download\Adapter\Curl::__construct
+	 * @covers  FOF40\Download\Adapter\Curl::__construct
 	 */
 	public function testConstructor()
 	{
 		$adapter = new Curl();
 
-		$this->assertInstanceOf('FOF30\\Download\\Adapter\\Curl', $adapter, 'Adapter must match correct object type');
+		$this->assertInstanceOf('FOF40\\Download\\Adapter\\Curl', $adapter, 'Adapter must match correct object type');
 		$this->assertEquals(110, ReflectionHelper::getValue($adapter, 'priority'), 'Adapter priority must match');
 		$this->assertEquals(true, ReflectionHelper::getValue($adapter, 'supportsFileSize'), 'Adapter must support file size');
 		$this->assertEquals(true, ReflectionHelper::getValue($adapter, 'supportsChunkDownload'), 'Adapter must support chunked download');
@@ -53,9 +53,9 @@ class CurlTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Download\Adapter\Curl::downloadAndReturn
+	 * @covers  FOF40\Download\Adapter\Curl::downloadAndReturn
 	 *
-	 * @dataProvider    FOF30\Tests\Download\Adapter\CurlDataprovider::getTestDownloadAndReturn
+	 * @dataProvider    FOF40\Tests\Download\Adapter\CurlDataprovider::getTestDownloadAndReturn
 	 *
 	 * @param array $config
 	 * @param array $test
@@ -82,9 +82,9 @@ class CurlTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Download\Adapter\Curl::getFileSize
+	 * @covers  FOF40\Download\Adapter\Curl::getFileSize
 	 *
-	 * @dataProvider    FOF30\Tests\Download\Adapter\CurlDataprovider::getTestGetFileSize
+	 * @dataProvider    FOF40\Tests\Download\Adapter\CurlDataprovider::getTestGetFileSize
 	 *
 	 * @param array $config
 	 * @param array $test

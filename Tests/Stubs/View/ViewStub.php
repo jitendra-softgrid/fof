@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\View;
+namespace FOF40\Tests\Stubs\View;
 
-use FOF30\Container\Container;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\View\View;
 
 class ViewStub extends View
 {

@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Encrypt;
+namespace FOF40\Encrypt;
 
-use FOF30\Encrypt\AesAdapter\AdapterInterface;
-use FOF30\Encrypt\AesAdapter\Mcrypt;
-use FOF30\Encrypt\AesAdapter\OpenSSL;
-use FOF30\Utils\Phpfunc;
+use FOF40\Encrypt\AesAdapter\AdapterInterface;
+use FOF40\Encrypt\AesAdapter\Mcrypt;
+use FOF40\Encrypt\AesAdapter\OpenSSL;
+use FOF40\Utils\Phpfunc;
 
 defined('_JEXEC') or die;
 

@@ -5,15 +5,15 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Platform\Joomla;
+namespace FOF40\Platform\Joomla;
 
 use Exception;
-use FOF30\Container\Container;
-use FOF30\Date\Date;
-use FOF30\Date\DateDecorator;
-use FOF30\Inflector\Inflector;
-use FOF30\Input\Input;
-use FOF30\Platform\Base\Platform as BasePlatform;
+use FOF40\Container\Container;
+use FOF40\Date\Date;
+use FOF40\Date\DateDecorator;
+use FOF40\Inflector\Inflector;
+use FOF40\Input\Input;
+use FOF40\Platform\Base\Platform as BasePlatform;
 use JApplicationCms;
 use JApplicationWeb;
 use JCache;
@@ -65,7 +65,7 @@ class Platform extends BasePlatform
 	 *
 	 * Overridden to cater for CLI applications not having access to a session object.
 	 *
-	 * @param   \FOF30\Container\Container  $c  The component container
+	 * @param   \FOF40\Container\Container  $c  The component container
 	 */
 	public function __construct(Container $c)
 	{

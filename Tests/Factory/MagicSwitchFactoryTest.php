@@ -5,24 +5,24 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Factory;
+namespace FOF40\Tests\Factory;
 
-use FOF30\Factory\MagicSwitchFactory;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\TestContainer;
+use FOF40\Factory\MagicSwitchFactory;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\TestContainer;
 
 require_once 'MagicSwitchFactoryDataprovider.php';
 
 /**
- * @covers      FOF30\Factory\MagicSwitchFactory::<protected>
- * @covers      FOF30\Factory\MagicSwitchFactory::<private>
- * @package     FOF30\Tests\MagicSwitchFactory
+ * @covers      FOF40\Factory\MagicSwitchFactory::<protected>
+ * @covers      FOF40\Factory\MagicSwitchFactory::<private>
+ * @package     FOF40\Tests\MagicSwitchFactory
  */
 class MagicSwitchFactoryTest extends FOFTestCase
 {
     /**
      * @group           MagicSwitchFactory
-     * @covers          FOF30\Factory\MagicSwitchFactory::controller
+     * @covers          FOF40\Factory\MagicSwitchFactory::controller
      * @dataProvider    MagicSwitchFactoryDataprovider::getTestController
      */
     public function testController($test, $check)
@@ -38,7 +38,7 @@ class MagicSwitchFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicSwitchFactory
-     * @covers          FOF30\Factory\MagicSwitchFactory::model
+     * @covers          FOF40\Factory\MagicSwitchFactory::model
      * @dataProvider    MagicSwitchFactoryDataprovider::getTestModel
      */
     public function testModel($test, $check)
@@ -54,7 +54,7 @@ class MagicSwitchFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicSwitchFactory
-     * @covers          FOF30\Factory\MagicSwitchFactory::view
+     * @covers          FOF40\Factory\MagicSwitchFactory::view
      * @dataProvider    MagicSwitchFactoryDataprovider::getTestView
      */
     public function testView($test, $check)
@@ -74,7 +74,7 @@ class MagicSwitchFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicSwitchFactory
-     * @covers          FOF30\Factory\MagicSwitchFactory::dispatcher
+     * @covers          FOF40\Factory\MagicSwitchFactory::dispatcher
      * @dataProvider    MagicSwitchFactoryDataprovider::getTestDispatcher
      */
     public function testDispatcher($test, $check)
@@ -101,7 +101,7 @@ class MagicSwitchFactoryTest extends FOFTestCase
 
     /**
      * @group           MagicSwitchFactory
-     * @covers          FOF30\Factory\MagicSwitchFactory::transparentAuthentication
+     * @covers          FOF40\Factory\MagicSwitchFactory::transparentAuthentication
      * @dataProvider    MagicSwitchFactoryDataprovider::getTestTransparentAuthentication
      */
     public function testTransparentAuthentication($test, $check)

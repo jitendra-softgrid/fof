@@ -6,7 +6,7 @@
  */
 
 // Required to load FOF and Joomla!
-use FOF30\Tests\Helpers\TravisLogger;
+use FOF40\Tests\Helpers\TravisLogger;
 
 define('_JEXEC', 1);
 define('JDEBUG', 0);
@@ -17,11 +17,11 @@ if (!defined('JPATH_TESTS'))
 }
 
 // Include the FOF autoloader.
-if (!class_exists('FOF30\\Autoloader\\Autoloader'))
+if (!class_exists('FOF40\\Autoloader\\Autoloader'))
 {
 	require_once __DIR__ . '/../fof/Autoloader/Autoloader.php';
 
-	if (!class_exists('FOF30\\Autoloader\\Autoloader'))
+	if (!class_exists('FOF40\\Autoloader\\Autoloader'))
 	{
 		echo 'ERROR: FOF Autoloader not found' . PHP_EOL;
 
@@ -32,9 +32,9 @@ if (!class_exists('FOF30\\Autoloader\\Autoloader'))
 require_once __DIR__ . '/../fof/Utils/helpers.php';
 
 // Tell the FOF autoloader where to load test classes from (very useful for stubs!)
-\FOF30\Autoloader\Autoloader::getInstance()->addMap('FOF30\\Tests\\', __DIR__);
-\FOF30\Autoloader\Autoloader::getInstance()->addMap('Fakeapp\\', __DIR__ . '/Stubs/Fakeapp');
-\FOF30\Autoloader\Autoloader::getInstance()->addMap('Dummyapp\\', __DIR__ . '/Stubs/Dummyapp');
+\FOF40\Autoloader\Autoloader::getInstance()->addMap('FOF40\\Tests\\', __DIR__);
+\FOF40\Autoloader\Autoloader::getInstance()->addMap('Fakeapp\\', __DIR__ . '/Stubs/Fakeapp');
+\FOF40\Autoloader\Autoloader::getInstance()->addMap('Dummyapp\\', __DIR__ . '/Stubs/Dummyapp');
 
 TravisLogger::reset();
 TravisLogger::log(4, 'Log reset');
@@ -210,7 +210,7 @@ catch (Exception $e)
 TravisLogger::log(4, 'Create test specific tables');
 
 // Let's use our class to create the schema
-$importer = new \FOF30\Database\Installer(JFactory::getDbo(), JPATH_TESTS . '/Stubs/schema');
+$importer = new \FOF40\Database\Installer(JFactory::getDbo(), JPATH_TESTS . '/Stubs/schema');
 $importer->updateSchema();
 unset($importer);
 

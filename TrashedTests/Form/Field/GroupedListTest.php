@@ -5,30 +5,30 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\GroupedList;
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Field\GroupedList;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/GroupedListDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\GroupedList::<private>
- * @covers  FOF30\Form\Field\GroupedList::<protected>
+ * @covers  FOF40\Form\Field\GroupedList::<private>
+ * @covers  FOF40\Form\Field\GroupedList::<protected>
  */
 class GroupedListTest extends FOFTestCase
 {
     /**
      * @group           GroupedList
      * @group           GroupedList__get
-     * @covers          FOF30\Form\Field\GroupedList::__get
+     * @covers          FOF40\Form\Field\GroupedList::__get
      * @dataProvider    GroupedListDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedList')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -44,12 +44,12 @@ class GroupedListTest extends FOFTestCase
     /**
      * @group           GroupedList
      * @group           GroupedListGetStatic
-     * @covers          FOF30\Form\Field\GroupedList::getStatic
+     * @covers          FOF40\Form\Field\GroupedList::getStatic
      * @dataProvider    GroupedListDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -73,12 +73,12 @@ class GroupedListTest extends FOFTestCase
     /**
      * @group           GroupedList
      * @group           GroupedListGetRepeatable
-     * @covers          FOF30\Form\Field\GroupedList::getRepeatable
+     * @covers          FOF40\Form\Field\GroupedList::getRepeatable
      * @dataProvider    GroupedListDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedList')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -101,7 +101,7 @@ class GroupedListTest extends FOFTestCase
     /**
      * @group           GroupedList
      * @group           GroupedListGetFieldContents
-     * @covers          FOF30\Form\Field\GroupedList::getFieldContents
+     * @covers          FOF40\Form\Field\GroupedList::getFieldContents
      * @dataProvider    GroupedListDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)
@@ -139,7 +139,7 @@ class GroupedListTest extends FOFTestCase
     /**
      * @group           GroupedList
      * @group           GroupedListGetOptionName
-     * @covers          FOF30\Form\Field\GroupedList::getOptionName
+     * @covers          FOF40\Form\Field\GroupedList::getOptionName
      * @dataProvider    GroupedListDataprovider::getTestGetOptionName
      */
     public function testGetOptionName($test, $check)

@@ -4,7 +4,7 @@
  * @copyright   Copyright (c)2010-2018 Nicholas K. Dionysopoulos / Akeeba Ltd
  * @license     GNU GPL version 3 or later
  */
-use FOF30\Generator\Command\Command;
+use FOF40\Generator\Command\Command;
 
 /**
  * FOF3 Generator App
@@ -130,15 +130,15 @@ class FofApp extends JApplicationCli
 		$path = $phar ? (Phar::running(true) . '/fof/') : (realpath(dirname(__FILE__)) . '/');
 
 		// Register the current namespace with the autoloader
-		FOF30\Autoloader\Autoloader::getInstance()->addMap('FOF30\\Generator\\', array($path));
-		FOF30\Autoloader\Autoloader::getInstance()->register();
+		FOF40\Autoloader\Autoloader::getInstance()->addMap('FOF40\\Generator\\', array($path));
+		FOF40\Autoloader\Autoloader::getInstance()->register();
 
 		// Get command
 		$command = array_shift($args);
 		$command = ucfirst(strtolower($command));
 
 		// Run automatically every know command
-		$class = 'FOF30\Generator\Command\\' . $command;
+		$class = 'FOF40\Generator\Command\\' . $command;
 
 		try
         {
@@ -224,9 +224,9 @@ class FofApp extends JApplicationCli
         }
 
 		// Load FOF
-		if (!defined('FOF30_INCLUDED') && !@include_once(JPATH_LIBRARIES . '/fof30/include.php'))
+		if (!defined('FOF30_INCLUDED') && !@include_once(JPATH_LIBRARIES . '/fof40/include.php'))
 		{
-			die('FOF 3.0 is not installed');
+			die('FOF 4.0 is not installed');
 		}
 	}
 

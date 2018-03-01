@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="library" version="3.2" method="upgrade">
-    <name>FOF30</name>
-	<libraryname>fof30</libraryname>
+    <name>FOF40</name>
+	<libraryname>fof40</libraryname>
 	<description>
 		<![CDATA[
-		Framework-on-Framework (FOF) 3.x - The rapid application development framework for Joomla!.<br/>
+		Framework-on-Framework (FOF) 4.x - The rapid application development framework for Joomla!.<br/>
 		<b>WARNING</b>: This is NOT a duplicate of the FOF library already installed with Joomla!. It is a different version used by other extensions on your site. Do NOT uninstall either FOF package. If you do you will break your site.
 		]]>
 	</description>
@@ -19,7 +19,7 @@
 	<packagerurl>https://www.AkeebaBackup.com/download.html</packagerurl>
 
     <languages folder="fof/language">
-        <language tag="en-GB">en-GB/en-GB.lib_fof30.ini</language>
+        <language tag="en-GB">en-GB/en-GB.lib_fof40.ini</language>
     </languages>
 
     <files folder="fof">
@@ -62,6 +62,6 @@
 	<scriptfile>script.fof.php</scriptfile>
 
     <updateservers>
-        <server type="extension" priority="1" name="FOF 3.x">http://cdn.akeebabackup.com/updates/fof3.xml</server>
+        <server type="extension" priority="1" name="FOF 4.x">http://cdn.akeebabackup.com/updates/fof4.xml</server>
     </updateservers>
 </extension>

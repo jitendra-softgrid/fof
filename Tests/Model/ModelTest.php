@@ -5,28 +5,28 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Model;
+namespace FOF40\Tests\Model;
 
-use FOF30\Input\Input;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ClosureHelper;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\ModelStub;
+use FOF40\Input\Input;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ClosureHelper;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\ModelStub;
 
 require_once 'ModelDataprovider.php';
 
 /**
- * @covers      FOF30\Model\Model::<protected>
- * @covers      FOF30\Model\Model::<private>
- * @package     FOF30\Tests\Model
+ * @covers      FOF40\Model\Model::<protected>
+ * @covers      FOF40\Model\Model::<private>
+ * @package     FOF40\Tests\Model
  */
 class ModelTest extends FOFTestCase
 {
     /**
      * @group           Model
      * @group           Model__construct
-     * @covers          FOF30\Model\Model::__construct
+     * @covers          FOF40\Model\Model::__construct
      * @dataProvider    ModelDataprovider::getTest__construct()
      */
     public function test__construct($test, $check)
@@ -54,7 +54,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelGetName
-     * @covers          FOF30\Model\Model::getName
+     * @covers          FOF40\Model\Model::getName
      */
     public function testGetName()
     {
@@ -70,13 +70,13 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelGetTask
-     * @covers          FOF30\Model\Model::getName
+     * @covers          FOF40\Model\Model::getName
      */
     public function testGetNameException()
     {
-        $this->setExpectedException('FOF30\Model\Exception\CannotGetName');
+        $this->setExpectedException('FOF40\Model\Exception\CannotGetName');
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('getState'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -89,7 +89,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelGetState
-     * @covers          FOF30\Model\Model::getState
+     * @covers          FOF40\Model\Model::getState
      * @dataProvider    ModelDataprovider::getTestGetState
      */
     public function testGetState($test, $check)
@@ -113,7 +113,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelGetHash
-     * @covers          FOF30\Model\Model::getHash
+     * @covers          FOF40\Model\Model::getHash
      */
     public function testGetHash()
     {
@@ -128,7 +128,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelSetState
-     * @covers          FOF30\Model\Model::setState
+     * @covers          FOF40\Model\Model::setState
      * @dataProvider    ModelDataprovider::getTestSetState
      */
     public function testSetState($test, $check)
@@ -150,7 +150,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelClearState
-     * @covers          FOF30\Model\Model::clearState
+     * @covers          FOF40\Model\Model::clearState
      */
     public function testClearState()
     {
@@ -162,14 +162,14 @@ class ModelTest extends FOFTestCase
         // Let's convert the object to an array, so I can assert that is empty
         $state = (array) ReflectionHelper::getValue($model, 'state');
 
-        $this->assertInstanceOf('\\FOF30\\Model\\Model', $result, 'Model::clearState should return an instance of itself');
+        $this->assertInstanceOf('\\FOF40\\Model\\Model', $result, 'Model::clearState should return an instance of itself');
         $this->assertEmpty($state, 'Model::clearState failed to clear the internal state');
     }
 
     /**
      * @group           Model
      * @group           ModelGetClone
-     * @covers          FOF30\Model\Model::getClone
+     * @covers          FOF40\Model\Model::getClone
      */
     public function testGetClone()
     {
@@ -182,7 +182,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           ModelGetContainer
-     * @covers          FOF30\Model\Model::getContainer
+     * @covers          FOF40\Model\Model::getContainer
      */
     public function testGetContainer()
     {
@@ -196,11 +196,11 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           Model__get
-     * @covers          FOF30\Model\Model::__get
+     * @covers          FOF40\Model\Model::__get
      */
     public function test__get()
     {
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('getState'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -214,7 +214,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           Model__get
-     * @covers          FOF30\Model\Model::__get
+     * @covers          FOF40\Model\Model::__get
      */
     public function test__getInput()
     {
@@ -224,7 +224,7 @@ class ModelTest extends FOFTestCase
             'input' => $input
         ));
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('getState'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -238,11 +238,11 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           Model__set
-     * @covers          FOF30\Model\Model::__set
+     * @covers          FOF40\Model\Model::__set
      */
     public function test__set()
     {
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('setState'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -256,11 +256,11 @@ class ModelTest extends FOFTestCase
     /**
      * @group           Model
      * @group           Model__call
-     * @covers          FOF30\Model\Model::__call
+     * @covers          FOF40\Model\Model::__call
      */
     public function test__call()
     {
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('setState'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -268,13 +268,13 @@ class ModelTest extends FOFTestCase
 
         $result = $model->foo('bar');
 
-        $this->assertInstanceOf('\\FOF30\\Model\\Model', $result, 'Model::__call should return an istance of itself');
+        $this->assertInstanceOf('\\FOF40\\Model\\Model', $result, 'Model::__call should return an istance of itself');
     }
 
     /**
      * @group           Model
      * @group           ModelSavestate
-     * @covers          FOF30\Model\Model::savestate
+     * @covers          FOF40\Model\Model::savestate
      * @dataProvider    ModelDataprovider::getTestSavestate
      */
     public function testSaveState($test, $check)
@@ -285,14 +285,14 @@ class ModelTest extends FOFTestCase
         $result = $model->savestate($test['state']);
         $state  = ReflectionHelper::getValue($model, '_savestate');
 
-        $this->assertInstanceOf('\\FOF30\\Model\\Model', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Model\\Model', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertSame($check['state'], $state, sprintf($msg, 'Failed to set the savestate'));
     }
 
     /**
      * @group           Model
      * @group           ModelPopulateSavestate
-     * @covers          FOF30\Model\Model::populateSavestate
+     * @covers          FOF40\Model\Model::populateSavestate
      * @dataProvider    ModelDataprovider::getTestPopulatesavestate
      */
     public function testPopulateSavestate($test, $check)
@@ -304,7 +304,7 @@ class ModelTest extends FOFTestCase
             ))
         ));
 
-        $model = $this->getMockBuilder('FOF30\Tests\Stubs\Model\ModelStub')
+        $model = $this->getMockBuilder('FOF40\Tests\Stubs\Model\ModelStub')
             ->setMethods(array('savestate'))
             ->setConstructorArgs(array($container))
             ->getMock();
@@ -326,7 +326,7 @@ class ModelTest extends FOFTestCase
     /**
      * @group       Model
      * @group       ModelSetIgnoreRequest
-     * @covers      FOF30\Model\Model::setIgnoreRequest
+     * @covers      FOF40\Model\Model::setIgnoreRequest
      */
     public function testSetIgnoreRequest()
     {
@@ -336,14 +336,14 @@ class ModelTest extends FOFTestCase
 
         $ignore = ReflectionHelper::getValue($model, '_ignoreRequest');
 
-        $this->assertInstanceOf('\\FOF30\\Model\\Model', $result, 'Model::setIgnoreRequest should return an instance of itself');
+        $this->assertInstanceOf('\\FOF40\\Model\\Model', $result, 'Model::setIgnoreRequest should return an instance of itself');
         $this->assertEquals(true, $ignore, 'Model::setIgnoreRequest failed to set the flag');
     }
 
     /**
      * @group       Model
      * @group       ModelGetIgnoreRequest
-     * @covers      FOF30\Model\Model::getIgnoreRequest
+     * @covers      FOF40\Model\Model::getIgnoreRequest
      */
     public function testGetIgnoreRequest()
     {

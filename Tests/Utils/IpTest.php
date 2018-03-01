@@ -5,16 +5,16 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Utils;
+namespace FOF40\Tests\Utils;
 
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Stubs\Utils\IpStub;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Stubs\Utils\IpStub;
 
 require_once 'IpDataprovider.php';
 
 /**
- * @covers  \FOF30\Utils\Ip::<protected>
- * @covers  \FOF30\Utils\Ip::<private>
+ * @covers  \FOF40\Utils\Ip::<protected>
+ * @covers  \FOF40\Utils\Ip::<private>
  */
 class IpTest extends FOFTestCase
 {

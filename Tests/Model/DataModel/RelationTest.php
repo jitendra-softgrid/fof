@@ -5,28 +5,28 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel;
+namespace FOF40\Tests\DataModel;
 
-use FOF30\Model\DataModel\Collection;
-use FOF30\Tests\Helpers\DatabaseTest;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
-use FOF30\Tests\Stubs\Model\DataModelStub;
-use FOF30\Tests\Helpers\ClosureHelper;
+use FOF40\Model\DataModel\Collection;
+use FOF40\Tests\Helpers\DatabaseTest;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
+use FOF40\Tests\Stubs\Model\DataModelStub;
+use FOF40\Tests\Helpers\ClosureHelper;
 
 require_once 'RelationDataprovider.php';
 
 /**
- * @covers      FOF30\Model\DataModel::<protected>
- * @covers      FOF30\Model\DataModel::<private>
- * @package     FOF30\Tests\DataModel
+ * @covers      FOF40\Model\DataModel::<protected>
+ * @covers      FOF40\Model\DataModel::<private>
+ * @package     FOF40\Tests\DataModel
  */
 class DataModelRealtionTest extends DatabaseTest
 {
     /**
      * @group           DataModel
      * @group           DataModelSaveTouches
-     * @covers          FOF30\Model\DataModel::save
+     * @covers          FOF40\Model\DataModel::save
      */
     public function testSaveTouches()
     {
@@ -52,7 +52,7 @@ class DataModelRealtionTest extends DatabaseTest
             )
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('check', 'reorder'))
             ->setConstructorArgs(array($container, $config))
             ->getMock();
@@ -79,7 +79,7 @@ class DataModelRealtionTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelPush
-     * @covers          FOF30\Model\DataModel::push
+     * @covers          FOF40\Model\DataModel::push
      * @dataProvider    DataModelRelationDataprovider::getTestPush
      */
     public function testPush($test, $check)
@@ -91,12 +91,12 @@ class DataModelRealtionTest extends DatabaseTest
             'tableName'   => '#__foftest_bares'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('save'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
 
-        $relation = $this->getMockBuilder('FOF30\\Model\\DataModel\\RelationManager')
+        $relation = $this->getMockBuilder('FOF40\\Model\\DataModel\\RelationManager')
             ->setMethods(array('getRelationNames', 'save'))
             ->setConstructorArgs(array($model))
             ->getMock();
@@ -113,14 +113,14 @@ class DataModelRealtionTest extends DatabaseTest
         $result  = $model->push(null, '', null, $test['relations']);
         $touches = ReflectionHelper::getValue($model, 'touches');
 
-        $this->assertInstanceOf('\\FOF30\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertEquals($check['touches'], $touches, sprintf($msg, 'Failed to handle touches array'));
     }
 
     /**
      * @group           DataModel
      * @group           DataModelEagerLoad
-     * @covers          FOF30\Model\DataModel::eagerLoad
+     * @covers          FOF40\Model\DataModel::eagerLoad
      * @dataProvider    DataModelRelationDataprovider::getTestEagerLoad
      */
     public function testEagerLoad($test, $check)
@@ -141,7 +141,7 @@ class DataModelRealtionTest extends DatabaseTest
                 'setDataFromCollection' => function(){}
             ));
 
-            $mockedModelRelation = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+            $mockedModelRelation = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
                 ->setMethods(array('getRelations'))
                 ->setConstructorArgs(array(static::$container, $config))
                 ->getMock();
@@ -154,12 +154,12 @@ class DataModelRealtionTest extends DatabaseTest
 
         $collection = Collection::make($items);
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('getRelations'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
 
-        $relation = $this->getMockBuilder('FOF30\\Model\\DataModel\\RelationManager')
+        $relation = $this->getMockBuilder('FOF40\\Model\\DataModel\\RelationManager')
             ->setMethods(array('getData', 'getForeignKeyMap'))
             ->setConstructorArgs(array($model))
             ->getMock();
@@ -186,13 +186,13 @@ class DataModelRealtionTest extends DatabaseTest
 
         $result = $model->eagerLoad($collection, $test['relations']);
 
-        $this->assertInstanceOf('\\FOF30\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
     }
 
     /**
      * @group           DataModel
      * @group           DataModelHas
-     * @covers          FOF30\Model\DataModel::has
+     * @covers          FOF40\Model\DataModel::has
      * @dataProvider    DataModelRelationDataprovider::getTestHas
      */
     public function testHas($test, $check)
@@ -204,14 +204,14 @@ class DataModelRealtionTest extends DatabaseTest
             'tableName'   => '#__foftest_bares'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('addBehaviour'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
 
         $model->expects($check['add'] ? $this->once() : $this->never())->method('addBehaviour');
 
-        $dispatcher = $this->getMockBuilder('\\FOF30\\Event\\Dispatcher')
+        $dispatcher = $this->getMockBuilder('\\FOF40\\Event\\Dispatcher')
             ->setMethods(array('hasObserverClass'))
             ->setConstructorArgs(array(static::$container))
             ->getMock();
@@ -225,18 +225,18 @@ class DataModelRealtionTest extends DatabaseTest
         $result  = $model->has($test['relation'], $test['method'], $test['values'], $test['replace']);
         $filters = $model->getRelationFilters();
 
-        $this->assertInstanceOf('\\FOF30\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
+        $this->assertInstanceOf('\\FOF40\\Model\\DataModel', $result, sprintf($msg, 'Should return an instance of itself'));
         $this->assertEquals($check['filters'], $filters, sprintf($msg, 'Failed to correctly add the filter'));
     }
 
     /**
      * @group           DataModel
      * @group           DataModelHas
-     * @covers          FOF30\Model\DataModel::has
+     * @covers          FOF40\Model\DataModel::has
      */
     public function testHasException()
     {
-        $this->setExpectedException('FOF30\Model\DataModel\Exception\InvalidSearchMethod');
+        $this->setExpectedException('FOF40\Model\DataModel\Exception\InvalidSearchMethod');
 
         $config = array(
             'idFieldName' => 'foftest_bare_id',
@@ -250,7 +250,7 @@ class DataModelRealtionTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelGetRelations
-     * @covers          FOF30\Model\DataModel::getRelations
+     * @covers          FOF40\Model\DataModel::getRelations
      */
     public function testGetRelations()
     {
@@ -270,7 +270,7 @@ class DataModelRealtionTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelWhereHas
-     * @covers          FOF30\Model\DataModel::whereHas
+     * @covers          FOF40\Model\DataModel::whereHas
      */
     public function testWhereHas()
     {
@@ -279,7 +279,7 @@ class DataModelRealtionTest extends DatabaseTest
             'tableName'   => '#__foftest_bares'
         );
 
-        $model = $this->getMockBuilder('\\FOF30\\Tests\\Stubs\\Model\\DataModelStub')
+        $model = $this->getMockBuilder('\\FOF40\\Tests\\Stubs\\Model\\DataModelStub')
             ->setMethods(array('has'))
             ->setConstructorArgs(array(static::$container, $config))
             ->getMock();
@@ -295,13 +295,13 @@ class DataModelRealtionTest extends DatabaseTest
 
         $result = $model->whereHas('dummy', function(){}, true);
 
-        $this->assertInstanceOf('\\FOF30\\Model\\DataModel', $result, 'DataModel::whereHas Should return an instance of itself');
+        $this->assertInstanceOf('\\FOF40\\Model\\DataModel', $result, 'DataModel::whereHas Should return an instance of itself');
     }
 
     /**
      * @group           DataModel
      * @group           DataModelGetRelationFilters
-     * @covers          FOF30\Model\DataModel::getRelationFilters
+     * @covers          FOF40\Model\DataModel::getRelationFilters
      */
     public function testGetRelationFilters()
     {
@@ -323,7 +323,7 @@ class DataModelRealtionTest extends DatabaseTest
     /**
      * @group           DataModel
      * @group           DataModelGetTouches
-     * @covers          FOF30\Model\DataModel::getTouches
+     * @covers          FOF40\Model\DataModel::getTouches
      */
     public function testGetTouches()
     {

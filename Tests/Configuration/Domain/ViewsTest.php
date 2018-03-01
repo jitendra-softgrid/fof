@@ -5,14 +5,14 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Configuration\Domain;
+namespace FOF40\Tests\Configuration\Domain;
 
-use FOF30\Configuration\Domain\Views;
-use FOF30\Tests\Helpers\FOFTestCase;
+use FOF40\Configuration\Domain\Views;
+use FOF40\Tests\Helpers\FOFTestCase;
 
 /**
- * @covers  FOF30\Configuration\Domain\Views::<protected>
- * @covers  FOF30\Configuration\Domain\Views::<private>
+ * @covers  FOF40\Configuration\Domain\Views::<protected>
+ * @covers  FOF40\Configuration\Domain\Views::<private>
  */
 class ViewsTest extends FOFTestCase
 {
@@ -36,7 +36,7 @@ class ViewsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers  FOF30\Configuration\Domain\Views::parseDomain
+	 * @covers  FOF40\Configuration\Domain\Views::parseDomain
 	 *
 	 * @return  void
 	 */
@@ -73,8 +73,8 @@ class ViewsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Configuration\Domain\Views::get
-	 * @covers       FOF30\Configuration\Domain\Views::getTaskmap
+	 * @covers       FOF40\Configuration\Domain\Views::get
+	 * @covers       FOF40\Configuration\Domain\Views::getTaskmap
 	 *
 	 * @dataProvider getTestGetTaskmap
 	 *
@@ -126,8 +126,8 @@ class ViewsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Configuration\Domain\Views::get
-	 * @covers       FOF30\Configuration\Domain\Views::getAcl
+	 * @covers       FOF40\Configuration\Domain\Views::get
+	 * @covers       FOF40\Configuration\Domain\Views::getAcl
 	 *
 	 * @dataProvider getTestGetAcl
 	 *
@@ -167,8 +167,8 @@ class ViewsTest extends FOFTestCase
 	}
 
 	/**
-	 * @covers       FOF30\Configuration\Domain\Views::get
-	 * @covers       FOF30\Configuration\Domain\Views::getConfig
+	 * @covers       FOF40\Configuration\Domain\Views::get
+	 * @covers       FOF40\Configuration\Domain\Views::getConfig
 	 *
 	 * @dataProvider getTestGetConfig
 	 *
@@ -208,8 +208,8 @@ class ViewsTest extends FOFTestCase
 
 
 	/**
-	 * @covers       FOF30\Configuration\Domain\Views::get
-	 * @covers       FOF30\Configuration\Domain\Views::getToolbar
+	 * @covers       FOF40\Configuration\Domain\Views::get
+	 * @covers       FOF40\Configuration\Domain\Views::getToolbar
 	 *
 	 * @dataProvider getTestGetToolbar
 	 *

@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Form;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Form;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/AccessLevelDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\AccessLevel::<private>
- * @covers  FOF30\Form\Field\AccessLevel::<protected>
+ * @covers  FOF40\Form\Field\AccessLevel::<private>
+ * @covers  FOF40\Form\Field\AccessLevel::<protected>
  */
 class AccessLevelTest extends FOFTestCase
 {
     /**
      * @group           AccessLevel
      * @group           AccessLevel__get
-     * @covers          FOF30\Form\Field\AccessLevel::__get
+     * @covers          FOF40\Form\Field\AccessLevel::__get
      * @dataProvider    AccessLevelDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\AccessLevel')
+        $field = $this->getMockBuilder('FOF40\Form\Field\AccessLevel')
             ->setMethods(array('getStatic', 'getRepeatable'))
             ->getMock();
 
@@ -45,12 +45,12 @@ class AccessLevelTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           AccessLevelGetStatic
-     * @covers          FOF30\Form\Field\AccessLevel::getStatic
+     * @covers          FOF40\Form\Field\AccessLevel::getStatic
      * @dataProvider    AccessLevelDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\AccessLevel')
+        $field = $this->getMockBuilder('FOF40\Form\Field\AccessLevel')
             ->setMethods(array('getInput', 'getFieldContents'))
             ->getMock();
 
@@ -76,12 +76,12 @@ class AccessLevelTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           AccessLevelGetRepeatable
-     * @covers          FOF30\Form\Field\AccessLevel::getRepeatable
+     * @covers          FOF40\Form\Field\AccessLevel::getRepeatable
      * @dataProvider    AccessLevelDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\AccessLevel')
+        $field = $this->getMockBuilder('FOF40\Form\Field\AccessLevel')
             ->setMethods(array('getInput', 'getFieldContents'))
             ->getMock();
 
@@ -107,14 +107,14 @@ class AccessLevelTest extends FOFTestCase
     /**
      * @group           AccessLevel
      * @group           AccessLevelGetFieldContents
-     * @covers          FOF30\Form\Field\AccessLevel::getFieldContents
+     * @covers          FOF40\Form\Field\AccessLevel::getFieldContents
      * @dataProvider    AccessLevelDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)
     {
         $msg = 'AccessLevel::getFieldContents %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\AccessLevel')
+        $field = $this->getMockBuilder('FOF40\Form\Field\AccessLevel')
             ->setMethods(array('getOptions'))
             ->getMock();
 

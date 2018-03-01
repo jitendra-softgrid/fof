@@ -5,20 +5,20 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Dispatcher;
+namespace FOF40\Dispatcher;
 
 use Exception;
-use FOF30\Container\Container;
-use FOF30\Controller\Controller;
-use FOF30\Dispatcher\Exception\AccessForbidden;
-use FOF30\TransparentAuthentication\TransparentAuthentication;
+use FOF40\Container\Container;
+use FOF40\Controller\Controller;
+use FOF40\Dispatcher\Exception\AccessForbidden;
+use FOF40\TransparentAuthentication\TransparentAuthentication;
 
 defined('_JEXEC') or die;
 
 /**
  * A generic MVC dispatcher
  *
- * @property-read  \FOF30\Input\Input  $input  The input object (magic __get returns the Input from the Container)
+ * @property-read  \FOF40\Input\Input  $input  The input object (magic __get returns the Input from the Container)
  */
 class Dispatcher
 {
@@ -52,7 +52,7 @@ class Dispatcher
 	 * Do note that $config is passed to the Controller and through it to the Model and View. Please see these classes
 	 * for more information on the configuration variables they accept.
 	 *
-	 * @param \FOF30\Container\Container $container
+	 * @param \FOF40\Container\Container $container
 	 * @param array                      $config
 	 */
 	public function __construct(Container $container, array $config = array())

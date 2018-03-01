@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\Engine;
+namespace FOF40\View\Engine;
 
-use FOF30\Utils\Buffer;
-use FOF30\View\Compiler\CompilerInterface;
-use FOF30\View\Exception\PossiblySuhosin;
+use FOF40\Utils\Buffer;
+use FOF40\View\Compiler\CompilerInterface;
+use FOF40\View\Exception\PossiblySuhosin;
 
 defined('_JEXEC') or die;
 

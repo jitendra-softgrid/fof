@@ -5,17 +5,17 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\View\DataView;
+namespace FOF40\View\DataView;
 
-use FOF30\Form\Form as FormObject;
-use FOF30\Model\DataModel;
-use FOF30\Render\RenderInterface;
+use FOF40\Form\Form as FormObject;
+use FOF40\Model\DataModel;
+use FOF40\Render\RenderInterface;
 
 defined('_JEXEC') or die;
 
 /**
  * Class Form
- * @package FOF30\View\DataView
+ * @package FOF40\View\DataView
  *
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */

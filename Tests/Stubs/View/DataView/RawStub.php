@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\View\DataView;
+namespace FOF40\Tests\Stubs\View\DataView;
 
-use FOF30\Container\Container;
-use FOF30\View\DataView\Raw;
+use FOF40\Container\Container;
+use FOF40\View\DataView\Raw;
 
 class RawStub extends Raw
 {

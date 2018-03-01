@@ -5,15 +5,15 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Inflector;
+namespace FOF40\Tests\Inflector;
 
-use FOF30\Inflector\Inflector;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Helpers\TestContainer;
+use FOF40\Inflector\Inflector;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Helpers\TestContainer;
 
 /**
- * Test class for FOF30\Inflector\Inflector.
+ * Test class for FOF40\Inflector\Inflector.
  *
  * @since  1.0
  */
@@ -561,9 +561,9 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test deleteCache method
 	 *
-	 * @covers FOF30\Inflector\Inflector::deleteCache
-	 * @uses FOF30\Tests\Helpers\ReflectionHelper::setValue
-	 * @uses FOF30\Tests\Helpers\ReflectionHelper::getValue
+	 * @covers FOF40\Inflector\Inflector::deleteCache
+	 * @uses FOF40\Tests\Helpers\ReflectionHelper::setValue
+	 * @uses FOF40\Tests\Helpers\ReflectionHelper::getValue
 	 *
 	 * @return  void
 	 */
@@ -594,9 +594,9 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test addWord method
 	 *
-	 * @covers FOF30\Inflector\Inflector::addWord
-	 * @uses FOF30\Inflector\Inflector::singularize
-	 * @uses FOF30\Inflector\Inflector::pluralize
+	 * @covers FOF40\Inflector\Inflector::addWord
+	 * @uses FOF40\Inflector\Inflector::singularize
+	 * @uses FOF40\Inflector\Inflector::pluralize
 	 *
 	 * @return  void
 	 */
@@ -616,8 +616,8 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test pluralize method
 	 *
-	 * @covers FOF30\Inflector\Inflector::pluralize
-	 * @uses FOF30\Inflector\Inflector::deleteCache
+	 * @covers FOF40\Inflector\Inflector::pluralize
+	 * @uses FOF40\Inflector\Inflector::deleteCache
 	 *
 	 * @dataProvider getTestPluralizeData
 	 */
@@ -636,8 +636,8 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test singularize method
 	 *
-	 * @covers FOF30\Inflector\Inflector::singularize
-	 * @uses FOF30\Inflector\Inflector::deleteCache
+	 * @covers FOF40\Inflector\Inflector::singularize
+	 * @uses FOF40\Inflector\Inflector::deleteCache
 	 *
 	 * @dataProvider getTestSingularizeData
 	 */
@@ -656,7 +656,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test camelize method
 	 *
-	 * @covers FOF30\Inflector\Inflector::camelize
+	 * @covers FOF40\Inflector\Inflector::camelize
 	 *
 	 * @dataProvider getTestCamelizeData
 	 */
@@ -674,7 +674,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test underscore method
 	 *
-	 * @covers FOF30\Inflector\Inflector::underscore
+	 * @covers FOF40\Inflector\Inflector::underscore
 	 *
 	 * @dataProvider getTestUnderscoreData
 	 */
@@ -692,7 +692,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test explode method
 	 *
-	 * @covers FOF30\Inflector\Inflector::explode
+	 * @covers FOF40\Inflector\Inflector::explode
 	 *
 	 * @dataProvider getTestExplodeData
 	 */
@@ -710,7 +710,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test implode method
 	 *
-	 * @covers FOF30\Inflector\Inflector::implode
+	 * @covers FOF40\Inflector\Inflector::implode
 	 *
 	 * @dataProvider getTestImplodeData
 	 */
@@ -728,7 +728,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test humanize method
 	 *
-	 * @covers FOF30\Inflector\Inflector::humanize
+	 * @covers FOF40\Inflector\Inflector::humanize
 	 *
 	 * @dataProvider getTestHumanizeData
 	 */
@@ -746,7 +746,7 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test variableize method
 	 *
-	 * @covers FOF30\Inflector\Inflector::variablize
+	 * @covers FOF40\Inflector\Inflector::variablize
 	 *
 	 * @dataProvider getTestVariableizeData
 	 */
@@ -764,8 +764,8 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test isSingular method
 	 *
-	 * @covers FOF30\Inflector\Inflector::isSingular
-	 * @uses FOF30\Inflector\Inflector::deleteCache
+	 * @covers FOF40\Inflector\Inflector::isSingular
+	 * @uses FOF40\Inflector\Inflector::deleteCache
 	 *
 	 * @dataProvider getTestIsSingular
 	 */
@@ -785,8 +785,8 @@ class InflectorTest extends FOFTestCase
 	/**
 	 * Test isPlural method
 	 *
-	 * @covers FOF30\Inflector\Inflector::isPlural
-	 * @uses FOF30\Inflector\Inflector::deleteCache
+	 * @covers FOF40\Inflector\Inflector::isPlural
+	 * @uses FOF40\Inflector\Inflector::deleteCache
 	 *
 	 * @dataProvider getTestIsPlural
 	 */

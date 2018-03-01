@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\DataModel\Date;
+namespace FOF40\Tests\DataModel\Date;
 
-use FOF30\Model\DataModel\Filter\Date;
-use FOF30\Tests\Helpers\DatabaseTest;
+use FOF40\Model\DataModel\Filter\Date;
+use FOF40\Tests\Helpers\DatabaseTest;
 
 require_once 'DateDataprovider.php';
 /**
- * @covers      FOF30\Model\DataModel\Filter\Date::<protected>
- * @covers      FOF30\Model\DataModel\Filter\Date::<private>
- * @package     FOF30\Tests\DataModel\Filter\Date
+ * @covers      FOF40\Model\DataModel\Filter\Date::<protected>
+ * @covers      FOF40\Model\DataModel\Filter\Date::<private>
+ * @package     FOF40\Tests\DataModel\Filter\Date
  */
 class DateTest extends DatabaseTest
 {
     /**
-     * @covers      FOF30\Model\DataModel\Filter\Date::getDefaultSearchMethod
+     * @covers      FOF40\Model\DataModel\Filter\Date::getDefaultSearchMethod
      */
     public function testGetDefaultSearchMethod()
     {
@@ -31,7 +31,7 @@ class DateTest extends DatabaseTest
     /**
      * @group           DateFilter
      * @group           DateFilterBetween
-     * @covers          FOF30\Model\DataModel\Filter\Date::between
+     * @covers          FOF40\Model\DataModel\Filter\Date::between
      * @dataProvider    DateDataprovider::getTestBetween
      */
     public function testBetween($test, $check)
@@ -47,7 +47,7 @@ class DateTest extends DatabaseTest
     /**
      * @group           DateFilter
      * @group           DateFilterOutside
-     * @covers          FOF30\Model\DataModel\Filter\Date::outside
+     * @covers          FOF40\Model\DataModel\Filter\Date::outside
      * @dataProvider    DateDataprovider::getTestOutside
      */
     public function testOutside($test, $check)
@@ -63,7 +63,7 @@ class DateTest extends DatabaseTest
     /**
      * @group           DateFilter
      * @group           DateFilterInterval
-     * @covers          FOF30\Model\DataModel\Filter\Date::interval
+     * @covers          FOF40\Model\DataModel\Filter\Date::interval
      * @dataProvider    DateDataprovider::getTestInterval
      */
     public function testInterval($test, $check)

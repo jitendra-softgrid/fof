@@ -5,15 +5,15 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Toolbar;
+namespace FOF40\Toolbar;
 
-use FOF30\Container\Container;
-use FOF30\Controller\Controller;
-use FOF30\Toolbar\Exception\MissingAttribute;
-use FOF30\Toolbar\Exception\UnknownButtonType;
-use FOF30\Utils\StringHelper;
-use FOF30\View\DataView\DataViewInterface;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\Controller\Controller;
+use FOF40\Toolbar\Exception\MissingAttribute;
+use FOF40\Toolbar\Exception\UnknownButtonType;
+use FOF40\Utils\StringHelper;
+use FOF40\View\DataView\DataViewInterface;
+use FOF40\View\View;
 use Joomla\Utilities\ArrayHelper;
 use JToolBarHelper;
 use JText;

@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Magic;
+namespace FOF40\Factory\Magic;
 
-use FOF30\Container\Container;
-use FOF30\Controller\DataController;
-use FOF30\Factory\Exception\ControllerNotFound;
+use FOF40\Container\Container;
+use FOF40\Controller\DataController;
+use FOF40\Factory\Exception\ControllerNotFound;
 
 defined('_JEXEC') or die;
 
@@ -22,7 +22,7 @@ abstract class BaseFactory
 
     /**
      * Section used to build the namespace prefix. We have to pass it since in CLI scaffolding we need
-     * to force the section we're in (ie Site or Admin). {@see \FOF30\Container\Container::getNamespacePrefix() } for valid values
+     * to force the section we're in (ie Site or Admin). {@see \FOF40\Container\Container::getNamespacePrefix() } for valid values
      *
      * @var   string
      */

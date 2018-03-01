@@ -5,30 +5,30 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\GroupedButton;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
-use FOF30\Tests\Stubs\Model\DataModelStub;
+use FOF40\Form\Field\GroupedButton;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
+use FOF40\Tests\Stubs\Model\DataModelStub;
 
 require_once __DIR__ . '/GroupedButtonDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\GroupedButton::<private>
- * @covers  FOF30\Form\Field\GroupedButton::<protected>
+ * @covers  FOF40\Form\Field\GroupedButton::<private>
+ * @covers  FOF40\Form\Field\GroupedButton::<protected>
  */
 class GroupedButtonTest extends FOFTestCase
 {
     /**
      * @group           GroupedButton
      * @group           GroupedButton__get
-     * @covers          FOF30\Form\Field\GroupedButton::__get
+     * @covers          FOF40\Form\Field\GroupedButton::__get
      * @dataProvider    GroupedButtonDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedButton')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedButton')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -44,11 +44,11 @@ class GroupedButtonTest extends FOFTestCase
     /**
      * @group           GroupedButton
      * @group           GroupedButtonGetStatic
-     * @covers          FOF30\Form\Field\GroupedButton::getStatic
+     * @covers          FOF40\Form\Field\GroupedButton::getStatic
      */
     public function testGetStatic()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedButton')->setMethods(array('getInput'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedButton')->setMethods(array('getInput'))->getMock();
 
         $field->expects($this->once())->method('getInput');
 
@@ -58,11 +58,11 @@ class GroupedButtonTest extends FOFTestCase
     /**
      * @group           GroupedButton
      * @group           GroupedButtonGetRepeatable
-     * @covers          FOF30\Form\Field\GroupedButton::getRepeatable
+     * @covers          FOF40\Form\Field\GroupedButton::getRepeatable
      */
     public function testGetRepeatable()
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\GroupedButton')->setMethods(array('getInput'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\GroupedButton')->setMethods(array('getInput'))->getMock();
         $field->expects($this->once())->method('getInput');
 
         $field->getRepeatable();
@@ -71,7 +71,7 @@ class GroupedButtonTest extends FOFTestCase
     /**
      * @group           GroupedButton
      * @group           GroupedButtonGetInput
-     * @covers          FOF30\Form\Field\GroupedButton::getInput
+     * @covers          FOF40\Form\Field\GroupedButton::getInput
      */
     public function testGetInput()
     {

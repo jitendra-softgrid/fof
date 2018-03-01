@@ -5,9 +5,9 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Less\Parser;
+namespace FOF40\Less\Parser;
 
-use FOF30\Less\Less;
+use FOF40\Less\Less;
 use Exception;
 
 defined('_JEXEC') or die;
@@ -99,7 +99,7 @@ class Parser
 
 		if (!self::$operatorString)
 		{
-			self::$operatorString = '(' . implode('|', array_map(array('\\FOF30\\Less\\Less', 'preg_quote'), array_keys(self::$precedence))) . ')';
+			self::$operatorString = '(' . implode('|', array_map(array('\\FOF40\\Less\\Less', 'preg_quote'), array_keys(self::$precedence))) . ')';
 
 			$commentSingle = Less::preg_quote(self::$commentSingle);
 			$commentMultiLeft = Less::preg_quote(self::$commentMultiLeft);
@@ -414,7 +414,7 @@ class Parser
 	protected function isDirective($dirname, $directives)
 	{
 		// TODO: cache pattern in parser
-		$pattern = implode("|", array_map(array("\\FOF30\\Less\\Less", "preg_quote"), $directives));
+		$pattern = implode("|", array_map(array("\\FOF40\\Less\\Less", "preg_quote"), $directives));
 		$pattern = '/^(-[a-z-]+-)?(' . $pattern . ')$/i';
 
 		return preg_match($pattern, $dirname);
@@ -909,7 +909,7 @@ class Parser
 		$this->eatWhiteDefault = false;
 
 		$stop = array("'", '"', "@{", $end);
-		$stop = array_map(array("\\FOF30\\Less\\Less", "preg_quote"), $stop);
+		$stop = array_map(array("\\FOF40\\Less\\Less", "preg_quote"), $stop);
 
 		// $stop[] = self::$commentMulti;
 

@@ -5,13 +5,13 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory\Scaffolding\Model;
+namespace FOF40\Factory\Scaffolding\Model;
 
-use FOF30\Model\DataModel;
+use FOF40\Model\DataModel;
 
 /**
  * Interface ErectorInterface
- * @package FOF30\Factory\Scaffolding\Model
+ * @package FOF40\Factory\Scaffolding\Model
  * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 interface ErectorInterface

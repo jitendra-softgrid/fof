@@ -5,29 +5,29 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Form\Field;
+namespace FOF40\Tests\Form\Field;
 
-use FOF30\Form\Field\Language;
-use FOF30\Tests\Helpers\FOFTestCase;
-use FOF30\Tests\Helpers\ReflectionHelper;
+use FOF40\Form\Field\Language;
+use FOF40\Tests\Helpers\FOFTestCase;
+use FOF40\Tests\Helpers\ReflectionHelper;
 
 require_once __DIR__ . '/LanguageDataprovider.php';
 
 /**
- * @covers  FOF30\Form\Field\Language::<private>
- * @covers  FOF30\Form\Field\Language::<protected>
+ * @covers  FOF40\Form\Field\Language::<private>
+ * @covers  FOF40\Form\Field\Language::<protected>
  */
 class LanguageTest extends FOFTestCase
 {
     /**
      * @group           Language
      * @group           Language__get
-     * @covers          FOF30\Form\Field\Language::__get
+     * @covers          FOF40\Form\Field\Language::__get
      * @dataProvider    LanguageFieldDataprovider::getTest__get
      */
     public function test__get($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Language')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Language')->setMethods(array('getStatic', 'getRepeatable'))->getMock();
 
         $field->expects($this->exactly($check['static']))->method('getStatic');
         $field->expects($this->exactly($check['repeat']))->method('getRepeatable');
@@ -43,12 +43,12 @@ class LanguageTest extends FOFTestCase
     /**
      * @group           Language
      * @group           LanguageGetStatic
-     * @covers          FOF30\Form\Field\Language::getStatic
+     * @covers          FOF40\Form\Field\Language::getStatic
      * @dataProvider    LanguageFieldDataprovider::getTestGetStatic
      */
     public function testGetStatic($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Language')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Language')->setMethods(array('getInput', 'getFieldContents'))->getMock();
 
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('id' => 'foo'));
@@ -72,12 +72,12 @@ class LanguageTest extends FOFTestCase
     /**
      * @group           Language
      * @group           LanguageGetRepeatable
-     * @covers          FOF30\Form\Field\Language::getRepeatable
+     * @covers          FOF40\Form\Field\Language::getRepeatable
      * @dataProvider    LanguageFieldDataprovider::getTestGetRepeatable
      */
     public function testGetRepeatable($test, $check)
     {
-        $field = $this->getMockBuilder('FOF30\Form\Field\Language')->setMethods(array('getInput', 'getFieldContents'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Language')->setMethods(array('getInput', 'getFieldContents'))->getMock();
         $field->expects($this->exactly($check['input']))->method('getInput');
         $field->expects($this->exactly($check['contents']))->method('getFieldContents')->with(array('class' => 'foo'));
 
@@ -100,14 +100,14 @@ class LanguageTest extends FOFTestCase
     /**
      * @group           Language
      * @group           LanguageGetFieldContents
-     * @covers          FOF30\Form\Field\Language::getFieldContents
+     * @covers          FOF40\Form\Field\Language::getFieldContents
      * @dataProvider    LanguageFieldDataprovider::getTestGetFieldContents
      */
     public function testGetFieldContents($test, $check)
     {
         $msg = 'Language::getFieldContents %s - Case: '.$check['case'];
 
-        $field = $this->getMockBuilder('FOF30\Form\Field\Language')->setMethods(array('getOptions'))->getMock();
+        $field = $this->getMockBuilder('FOF40\Form\Field\Language')->setMethods(array('getOptions'))->getMock();
 
         $field->method('getOptions')->willReturn(array(
             array('value' => 'it-IT', 'text' => 'Italian'),
@@ -125,7 +125,7 @@ class LanguageTest extends FOFTestCase
     /**
      * @group           Language
      * @group           LanguageGetOptions
-     * @covers          FOF30\Form\Field\Language::getOptions
+     * @covers          FOF40\Form\Field\Language::getOptions
      * @dataProvider    LanguageFieldDataprovider::getTestGetOptions
      */
     public function testGetOptions($test, $check)

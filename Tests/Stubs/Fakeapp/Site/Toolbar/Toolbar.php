@@ -7,7 +7,7 @@
 
 namespace Fakeapp\Site\Toolbar;
 
-class Toolbar extends \FOF30\Toolbar\Toolbar
+class Toolbar extends \FOF40\Toolbar\Toolbar
 {
 
 }

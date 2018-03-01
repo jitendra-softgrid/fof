@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Form\Field;
+namespace FOF40\Form\Field;
 
 defined('_JEXEC') or die;
 

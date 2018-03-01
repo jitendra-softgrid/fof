@@ -32,7 +32,7 @@
 		depends="new-release,setup-properties">
 
 		<!-- Generate XML file for FOF -->
-		<copy file="./templates/lib_fof30.xml" tofile="${dirs.root}/lib_fof30.xml" overwrite="true">
+		<copy file="./templates/lib_fof40.xml" tofile="${dirs.root}/lib_fof40.xml" overwrite="true">
 			<filterchain>
 				<replacetokens begintoken="##" endtoken="##">
 					<token key="DATE" value="${build.date}" />
@@ -40,7 +40,7 @@
 				</replacetokens>
 			</filterchain>
 		</copy>
-		<copy file="${dirs.root}/lib_fof30.xml" tofile="${dirs.library}/lib_fof30.xml" overwrite="true" />
+		<copy file="${dirs.root}/lib_fof40.xml" tofile="${dirs.library}/lib_fof40.xml" overwrite="true" />
 
 		<!-- Generate version.txt file for FOF -->
 		<copy file="./templates/version.txt" tofile="${dirs.library}/version.txt" overwrite="true">
@@ -63,27 +63,27 @@
 		</copy>
 
 		<!-- Create the package -->
-		<zipme basedir="${dirs.library}" prefix="fof/" destfile="${dirs.release}/lib_fof30-${version}.zip" includeemptydirs="true">
+		<zipme basedir="${dirs.library}" prefix="fof/" destfile="${dirs.release}/lib_fof40-${version}.zip" includeemptydirs="true">
 			<fileset dir="${dirs.library}" id="library">
 				<include name="**" />
                 <exclude name="script.fof.php" />
 			</fileset>
 		</zipme>
-		<zipme basedir="${dirs.library}" destfile="${dirs.release}/lib_fof30-${version}.zip" includeemptydirs="true">
+		<zipme basedir="${dirs.library}" destfile="${dirs.release}/lib_fof40-${version}.zip" includeemptydirs="true">
 			<fileset dir="${dirs.library}">
 				<include name="script.fof.php" />
 			</fileset>
 		</zipme>
-		<zipme basedir="${dirs.root}" destfile="${dirs.release}/lib_fof30-${version}.zip" includeemptydirs="true">
+		<zipme basedir="${dirs.root}" destfile="${dirs.release}/lib_fof40-${version}.zip" includeemptydirs="true">
 			<fileset dir="${dirs.root}">
-				<include name="lib_fof30.xml" />
+				<include name="lib_fof40.xml" />
 			</fileset>
 		</zipme>
 
 		<!-- Clean up -->
 		<delete>
 			<fileset dir="${dirs.root}">
-				<include name="lib_fof30.xml" />
+				<include name="lib_fof40.xml" />
 			</fileset>
 		</delete>
 	</target>
@@ -101,15 +101,15 @@
 	-->
 	<target name="relink" description="Project relinker">
 		<link target="${dirs.root}/fof"
-			  link="${site}/libraries/fof30"
+			  link="${site}/libraries/fof40"
 			  type="symlink" />
 		<link  />
-		<link target="${dirs.root}/fof/language/en-GB/en-GB.lib_fof30.ini"
-			  link="${site}/language/en-GB/en-GB.lib_fof30.ini"
+		<link target="${dirs.root}/fof/language/en-GB/en-GB.lib_fof40.ini"
+			  link="${site}/language/en-GB/en-GB.lib_fof40.ini"
 			  type="symlink" />
 		<link  />
-		<link target="${dirs.root}/fof/language/en-GB/en-GB.lib_fof30.ini"
-			  link="${site}/administrator/language/en-GB/en-GB.lib_fof30.ini"
+		<link target="${dirs.root}/fof/language/en-GB/en-GB.lib_fof40.ini"
+			  link="${site}/administrator/language/en-GB/en-GB.lib_fof40.ini"
 			  type="symlink" />
 		<link  />
 	</target>

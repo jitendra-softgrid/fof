@@ -17,7 +17,7 @@ composer.lock
 /documentation/*.xml~
 
 /fof/include.php
-/fof/lib_fof30.xml
+/fof/lib_fof40.xml
 /fof/lib_f0f.xml
 /fof/version.txt
 /fof.phar

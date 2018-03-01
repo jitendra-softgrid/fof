@@ -5,7 +5,7 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Dispatcher\Mixin;
+namespace FOF40\Dispatcher\Mixin;
 
 // Protect from unauthorized access
 use JFactory;

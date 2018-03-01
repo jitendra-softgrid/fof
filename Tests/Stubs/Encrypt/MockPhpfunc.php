@@ -5,10 +5,10 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\Encrypt;
+namespace FOF40\Tests\Stubs\Encrypt;
 
 
-use FOF30\Utils\Phpfunc;
+use FOF40\Utils\Phpfunc;
 
 class MockPhpfunc extends Phpfunc
 {

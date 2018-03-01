@@ -5,12 +5,12 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Model;
+namespace FOF40\Model;
 
-use FOF30\Container\Container;
-use FOF30\Input\Input;
-use FOF30\Model\Exception\CannotGetName;
-use FOF30\Utils\StringHelper;
+use FOF40\Container\Container;
+use FOF40\Input\Input;
+use FOF40\Model\Exception\CannotGetName;
+use FOF40\Utils\StringHelper;
 
 defined('_JEXEC') or die;
 
@@ -19,7 +19,7 @@ defined('_JEXEC') or die;
  *
  * A generic MVC model implementation
  *
- * @property-read  \FOF30\Input\Input  $input  The input object (magic __get returns the Input from the Container)
+ * @property-read  \FOF40\Input\Input  $input  The input object (magic __get returns the Input from the Container)
  */
 class Model
 {
@@ -383,7 +383,7 @@ class Model
 	/**
 	 * Returns a reference to the model's container
 	 *
-	 * @return \FOF30\Container\Container
+	 * @return \FOF40\Container\Container
 	 */
 	public function getContainer()
 	{

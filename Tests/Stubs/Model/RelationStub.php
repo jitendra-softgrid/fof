@@ -5,11 +5,11 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Tests\Stubs\Model;
+namespace FOF40\Tests\Stubs\Model;
 
-use FOF30\Model\DataModel;
-use FOF30\Model\DataModel\Collection;
-use FOF30\Model\DataModel\Relation;
+use FOF40\Model\DataModel;
+use FOF40\Model\DataModel\Collection;
+use FOF40\Model\DataModel\Relation;
 
 class RelationStub extends Relation
 {

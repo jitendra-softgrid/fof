@@ -5,21 +5,21 @@
  * @license     GNU GPL version 3 or later
  */
 
-namespace FOF30\Factory;
+namespace FOF40\Factory;
 
-use FOF30\Container\Container;
-use FOF30\Controller\Controller;
-use FOF30\Dispatcher\Dispatcher;
-use FOF30\Factory\Exception\ControllerNotFound;
-use FOF30\Factory\Exception\DispatcherNotFound;
-use FOF30\Factory\Exception\ModelNotFound;
-use FOF30\Factory\Exception\ToolbarNotFound;
-use FOF30\Factory\Exception\TransparentAuthenticationNotFound;
-use FOF30\Factory\Exception\ViewNotFound;
-use FOF30\Model\Model;
-use FOF30\Toolbar\Toolbar;
-use FOF30\TransparentAuthentication\TransparentAuthentication;
-use FOF30\View\View;
+use FOF40\Container\Container;
+use FOF40\Controller\Controller;
+use FOF40\Dispatcher\Dispatcher;
+use FOF40\Factory\Exception\ControllerNotFound;
+use FOF40\Factory\Exception\DispatcherNotFound;
+use FOF40\Factory\Exception\ModelNotFound;
+use FOF40\Factory\Exception\ToolbarNotFound;
+use FOF40\Factory\Exception\TransparentAuthenticationNotFound;
+use FOF40\Factory\Exception\ViewNotFound;
+use FOF40\Model\Model;
+use FOF40\Toolbar\Toolbar;
+use FOF40\TransparentAuthentication\TransparentAuthentication;
+use FOF40\View\View;
 
 defined('_JEXEC') or die;
 
