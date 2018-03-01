@@ -1103,27 +1103,6 @@ class View
 	}
 
 	/**
-	 * Load a helper file
-	 *
-	 * @param   string $helperClass    The last part of the name of the helper
-	 *                                 class.
-	 *
-	 * @return  void
-	 *
-	 * @deprecated  3.0  Just use the class in your code. That's what the autoloader is for.
-	 */
-	public function loadHelper($helperClass = null)
-	{
-		// Get the helper class name
-		$className = '\\' . $this->container->getNamespacePrefix() . 'Helper\\' . ucfirst($helperClass);
-
-		// This trick autoloads the helper class. We can't instantiate it as
-		// helpers are (supposed to be) abstract classes with static method
-		// interfaces.
-		class_exists($className);
-	}
-
-	/**
 	 * Returns a reference to the container attached to this View
 	 *
 	 * @return Container
