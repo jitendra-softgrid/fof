@@ -1,5 +1,5 @@
-Import
-    FormField
-
 Merge FormInterface into FormField
 Create FormHeader to replace HeaderInterface
+
+FormField's getLayoutPaths should return by default a list defined in fof.xml (defined relative to the site's root, I need to make it absolute)
+The default value, if nothing else is specified, would be the layout folder inside the component itself
