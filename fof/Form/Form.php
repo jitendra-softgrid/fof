@@ -124,22 +124,6 @@ class Form extends JForm
 				$this->getView()->addCssFile(trim($cssfile));
 			}
 		}
-
-		// Support for LESS files
-		$lessfiles = $this->getAttribute('lessfiles');
-
-		if (!empty($lessfiles))
-		{
-			$lessfiles = explode(',', $lessfiles);
-
-			foreach ($lessfiles as $def)
-			{
-				$parts = explode('||', $def, 2);
-				$lessfile = $parts[0];
-				$alt = (count($parts) > 1) ? trim($parts[1]) : null;
-				$this->getView()->addLess(trim($lessfile), $alt);
-			}
-		}
 	}
 
 	/**

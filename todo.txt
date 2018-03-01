@@ -1,1 +1,1 @@
-Remove LESS support
+Remove HAL support

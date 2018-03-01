@@ -20,6 +20,7 @@ Backwards compatibility notes
     * Support for legacy tokens (passed _token=SESSION_OR_FORM_TOKEN instead of SESSION_OR_FORM_TOKEN=1)
     * Numeric field (now it's called Number for PHP 7 compatibility).
 * The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer instead
+* Removed LESS support
 
 *** LEGEND ***
 ================================================================================
