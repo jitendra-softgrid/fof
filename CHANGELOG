@@ -4,13 +4,13 @@ FOF 4.0.0.a1
 Backwards compatibility notes
 ----------------------------------------
 * Large part of FOF have been rewritten in version 4 and breaks b/c. Good news: you can have FOF 3 and FOF 4 run side by
-  side thanks to the new version using namespaces. Please consult the documentation wiki in the GitHub repository for
-  information on how FOF 4 works.
+  side thanks to the new use of namespaces.
 * FOF 4 is licensed under GPL v3 or later. FOF 3 was licensed under GPL v2 or later. Your extensions need to use the new
   license version.
 * FOF 4's forms are written against the markup provided by FEF. If you want to use XML forms you will need to provide
   your own layout overrides. Kindly note that FEF is NOT GPL and you can NOT distribute it with your extensions.
   Alternatively, do not use XML forms (recommended).
+* The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer isntead
 
 *** LEGEND ***
 ================================================================================

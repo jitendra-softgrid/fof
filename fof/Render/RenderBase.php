@@ -130,8 +130,6 @@ abstract class RenderBase implements RenderInterface
 	 *                                   returned.
 	 *
 	 * @return  string    The HTML rendering of the form
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderForm(Form &$form, DataModel $model, $formType = null, $raw = false)
 	{
@@ -145,8 +143,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   DataModel $model The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFormBrowse(Form &$form, DataModel $model)
 	{
@@ -160,8 +156,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   DataModel $model The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFormRead(Form &$form, DataModel $model)
 	{
@@ -191,8 +185,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   string    $formType The form type: edit, browse or read
 	 *
 	 * @return  string    The HTML rendering of the form
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFormRaw(Form &$form, DataModel $model, $formType = null)
 	{
@@ -225,8 +217,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   boolean   $showHeader Should I render the fieldset's header?
 	 *
 	 * @return  string    The HTML rendering of the fieldset
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFieldset(\stdClass &$fieldset, Form &$form, DataModel $model, $formType, $showHeader = true)
 	{
@@ -241,8 +231,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param    string $title The title of the label
 	 *
 	 * @return    string        The rendered label
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFieldsetLabel($field, Form &$form, $title)
 	{
@@ -255,8 +243,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   \SimpleXMLElement $fieldset
 	 *
 	 * @return  boolean
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function isTabFieldset($fieldset)
 	{
