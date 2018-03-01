@@ -19,23 +19,9 @@ class Mcrypt extends AbstractAdapter implements AdapterInterface
 
 	protected $cipherMode = MCRYPT_MODE_CBC;
 
-	public function setEncryptionMode($mode = 'cbc', $strength = 128)
+	public function setEncryptionMode($mode = 'cbc')
 	{
-		switch ((int) $strength)
-		{
-			default:
-			case '128':
-				$this->cipherType = MCRYPT_RIJNDAEL_128;
-				break;
-
-			case '192':
-				$this->cipherType = MCRYPT_RIJNDAEL_192;
-				break;
-
-			case '256':
-				$this->cipherType = MCRYPT_RIJNDAEL_256;
-				break;
-		}
+		$this->cipherType = MCRYPT_RIJNDAEL_128;
 
 		switch (strtolower($mode))
 		{

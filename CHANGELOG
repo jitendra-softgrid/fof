@@ -10,6 +10,8 @@ Backwards compatibility notes
 * FOF 4's forms are written against the markup provided by FEF. If you want to use XML forms you will need to provide
   your own layout overrides. Kindly note that FEF is NOT GPL and you can NOT distribute it with your extensions.
   Alternatively, do not use XML forms (recommended).
+* The deprecated features have been removed
+    * FOF40\Encrypt\AesAdapter\AdapterInterface::setEncryptionMode() no longer has the second parameter (strength).
 * The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer isntead
 
 *** LEGEND ***

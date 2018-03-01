@@ -50,7 +50,7 @@ class OpenSSL extends AbstractAdapter implements AdapterInterface
 		}
 	}
 
-	public function setEncryptionMode($mode = 'cbc', $strength = 128)
+	public function setEncryptionMode($mode = 'cbc')
 	{
 		static $availableAlgorithms = null;
 		static $defaultAlgo = 'aes-128-cbc';
@@ -70,20 +70,14 @@ class OpenSSL extends AbstractAdapter implements AdapterInterface
 			}
 		}
 
-		$strength = (int) $strength;
 		$mode     = strtolower($mode);
-
-		if (!in_array($strength, array(128, 192, 256)))
-		{
-			$strength = 256;
-		}
 
 		if (!in_array($mode, array('cbc', 'ebc')))
 		{
 			$mode = 'cbc';
 		}
 
-		$algo = 'aes-' . $strength . '-' . $mode;
+		$algo = 'aes-128-' . $mode;
 
 		if (!in_array($algo, $availableAlgorithms))
 		{
