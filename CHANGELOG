@@ -12,6 +12,7 @@ Backwards compatibility notes
   Alternatively, do not use XML forms (recommended).
 * The deprecated features have been removed
     * FOF40\Encrypt\AesAdapter\AdapterInterface::setEncryptionMode() no longer has the second parameter (strength).
+    * Passing null to FOF40\Model\DataModel::blacklistFilters instead of using getBlacklistFilters
 * The AkeebaStrapper renderer has been removed. Use the Joomla3 renderer isntead
 
 *** LEGEND ***

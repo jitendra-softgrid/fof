@@ -4209,19 +4209,21 @@ class DataModel extends Model implements \JTableInterface
 	/**
 	 * Set or get the backlisted filters.
 	 *
-	 * Note: passing a null $list to get the filter blacklist is deprecated as of FOF 3.1. Pleas use getBlacklistFilters
-	 *       instead.
+	 * Note: passing a null $list to get the filter blacklist is no longer allowed and will throw an
+	 * InvalidArgumentException. Pleasw use getBlacklistFilters instead.
 	 *
 	 * @param   mixed    $list    A filter or list of filters to backlist. If null return the list of backlisted filter
 	 * @param   boolean  $reset   Reset the blacklist if true
 	 *
-	 * @return  null|array  Return an array of value if $list is null
+	 * @return  void
+	 *
+	 * @throws  \InvalidArgumentException when $list is null
 	 */
 	public function blacklistFilters($list = null, $reset = false)
 	{
 		if (!isset($list))
 		{
-			return $this->getBehaviorParam('blacklistFilters', array());
+			throw new \InvalidArgumentException(__METHOD__ . " \$list parameter cannot be null. Maybe you were trying to use getBlacklistFilters instead?");
 		}
 
 		if (is_string($list))
@@ -4235,8 +4237,6 @@ class DataModel extends Model implements \JTableInterface
 		}
 
 		$this->setBehaviorParam('blacklistFilters', $list);
-
-		return null;
 	}
 
 	/**
