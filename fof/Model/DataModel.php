@@ -137,8 +137,6 @@ class DataModel extends Model implements \JTableInterface
 	 * The name of the XML form to load
 	 *
 	 * @var  string|null
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected $formName = null;
 
@@ -146,8 +144,6 @@ class DataModel extends Model implements \JTableInterface
 	 * Array of form objects
 	 *
 	 * @var  Form[]
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected $_forms = array();
 
@@ -155,8 +151,6 @@ class DataModel extends Model implements \JTableInterface
 	 * The data to load into a form
 	 *
 	 * @var  array
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected $_formData = array();
 
@@ -3967,8 +3961,6 @@ class DataModel extends Model implements \JTableInterface
 	 * @param   string  $formName  The abstract form file name to set, e.g. "form.default"
 	 *
 	 * @return  void
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function setFormName($formName)
 	{
@@ -3979,8 +3971,6 @@ class DataModel extends Model implements \JTableInterface
 	 * Gets the abstract XML form file name
 	 *
 	 * @return  string  The abstract form file name, e.g. "form.default"
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function getFormName()
 	{
@@ -3997,8 +3987,6 @@ class DataModel extends Model implements \JTableInterface
 	 * @return  Form|bool  A Form object on success, false on failure
 	 *
 	 * @since   2.0
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function getForm($data = array(), $loadData = true, $source = null)
 	{
@@ -4050,8 +4038,6 @@ class DataModel extends Model implements \JTableInterface
 	 *
 	 * @see     Form
 	 * @since   2.0
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected function loadForm($name, $source, $options = array(), $clear = false, $xpath = false)
 	{
@@ -4107,8 +4093,6 @@ class DataModel extends Model implements \JTableInterface
 	 * @return  array    The default data is an empty array.
 	 *
 	 * @since   2.0
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected function loadFormData()
 	{
@@ -4134,8 +4118,6 @@ class DataModel extends Model implements \JTableInterface
 	 * @since   2.0
 	 *
 	 * @throws  \Exception if there is an error in the form event.
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	protected function preprocessForm(Form &$form, &$data, $group = 'content')
 	{
@@ -4161,8 +4143,6 @@ class DataModel extends Model implements \JTableInterface
 	 * @see     \JFilterInput
 	 *
 	 * @since   2.0
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	public function validateForm($form, $data, $group = null)
 	{

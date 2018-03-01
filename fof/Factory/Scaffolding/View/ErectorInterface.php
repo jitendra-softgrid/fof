@@ -11,8 +11,6 @@ use FOF40\View\DataView\Html;
 
 /**
  * Interface ErectorInterface
- * @package FOF40\Factory\Scaffolding\View
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 interface ErectorInterface
 {

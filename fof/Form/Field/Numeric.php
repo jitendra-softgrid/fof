@@ -18,8 +18,6 @@ defined('_JEXEC') or die;
 
 /**
  * Backwards compatibility field. DO NOT USE IN PHP 7.2 AND LATER.
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Numeric extends Number
 {

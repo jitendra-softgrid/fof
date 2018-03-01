@@ -13,8 +13,6 @@ defined('_JEXEC') or die;
 
 /**
  * Class GetInputNotAllowed
- * @package    FOF40\Form\Exception
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class GetInputNotAllowed extends \LogicException
 {

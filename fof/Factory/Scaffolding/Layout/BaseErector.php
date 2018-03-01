@@ -12,7 +12,6 @@ use FOF40\Model\DataModel;
 /**
  * Class BaseErector
  * @package FOF40\Factory\Scaffolding\Layout
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class BaseErector implements ErectorInterface
 {

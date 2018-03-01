@@ -169,8 +169,6 @@ abstract class RenderBase implements RenderInterface
 	 * @param   DataModel $model The model providing our data
 	 *
 	 * @return  string    The HTML rendering of the form
-	 *
-	 * @deprecated 3.1  Support for XML forms will be removed in FOF 4
 	 */
 	function renderFormEdit(Form &$form, DataModel $model)
 	{

@@ -11,8 +11,8 @@ use FOF40\Model\DataModel;
 
 /**
  * Interface ErectorInterface
+ *
  * @package FOF40\Factory\Scaffolding\Layout
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 interface ErectorInterface
 {

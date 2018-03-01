@@ -13,8 +13,6 @@ defined('_JEXEC') or die;
 
 /**
  * Row selection checkbox
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class RowSelect extends Field
 {

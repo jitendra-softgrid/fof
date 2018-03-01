@@ -15,9 +15,6 @@ defined('_JEXEC') or die;
 
 /**
  * Class Form
- * @package FOF40\View\DataView
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Form extends Html implements DataViewInterface
 {

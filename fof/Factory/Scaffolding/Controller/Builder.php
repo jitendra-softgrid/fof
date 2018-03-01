@@ -14,8 +14,6 @@ use FOF40\Factory\Magic\ControllerFactory;
  * Scaffolding Builder
  *
  * @package FOF40\Factory\Scaffolding
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Builder
 {

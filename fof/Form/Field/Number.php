@@ -19,8 +19,6 @@ defined('_JEXEC') or die;
 /**
  * Form Field class for the FOF framework
  * Supports a numeric field and currency symbols.
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Number extends \JFormFieldNumber implements FieldInterface
 {

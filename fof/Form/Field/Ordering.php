@@ -20,8 +20,6 @@ defined('_JEXEC') or die;
 /**
  * Form Field class for FOF
  * Renders the row ordering interface checkbox in browse views
- *
- * @deprecated 3.1  Support for XML forms will be removed in FOF 4
  */
 class Ordering extends \JFormField implements FieldInterface
 {
