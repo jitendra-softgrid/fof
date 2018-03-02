@@ -11,6 +11,7 @@ use FOF40\Form\Exception\DataModelRequired;
 use FOF40\Form\Exception\GetStaticNotAllowed;
 use FOF40\Form\FieldInterface;
 use FOF40\Form\Form;
+use FOF40\Form\FormField;
 use FOF40\Model\DataModel;
 use \JHtml;
 use \JText;
@@ -21,75 +22,8 @@ defined('_JEXEC') or die;
  * Form Field class for FOF
  * Renders the row ordering interface checkbox in browse views
  */
-class Ordering extends \JFormField implements FieldInterface
+class Ordering extends FormField implements FieldInterface
 {
-	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
-	 *
-	 * @var    Form
-	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.0
-	 */
-	public function __get($name)
-	{
-		switch ($name)
-		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
-
-				return $this->static;
-				break;
-
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
-
-				return $this->repeatable;
-				break;
-
-			default:
-				return parent::__get($name);
-		}
-	}
-
 	/**
 	 * Method to get the field input markup for this field type.
 	 *
@@ -97,7 +31,7 @@ class Ordering extends \JFormField implements FieldInterface
 	 *
 	 * @return  string  The field input markup.
 	 */
-	protected function getInput()
+	public function getInput()
 	{
 		$html = array();
 		$attr = '';
