@@ -24,95 +24,11 @@ defined('_JEXEC') or die;
 class Model extends GenericList implements FieldInterface
 {
 	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
-	 *
-	 * @var    Form
-	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
-	/**
 	 * Options loaded from the model, cached for efficiency
 	 *
 	 * @var null|array
 	 */
 	protected static $loadedOptions = null;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.0
-	 */
-	public function __get($name)
-	{
-		switch ($name)
-		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
-
-				return $this->static;
-				break;
-
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
-
-				return $this->repeatable;
-				break;
-
-			default:
-				return parent::__get($name);
-		}
-	}
-
-	/**
-	 * Get the rendering of this field type for static display, e.g. in a single
-	 * item view (typically a "read" task).
-	 *
-	 * @since 2.0
-	 *
-	 * @return  string  The field HTML
-	 */
-	public function getStatic()
-	{
-		$class = $this->class ? 'class="' . $this->class . '"' : '';
-
-		return '<span id="' . $this->id . '" ' . $class . '>' .
-			htmlspecialchars(GenericList::getOptionName($this->getOptions(), $this->value), ENT_COMPAT, 'UTF-8') .
-			'</span>';
-	}
 
 	/**
 	 * Get the rendering of this field type for a repeatable (grid) display,
@@ -188,6 +104,8 @@ class Model extends GenericList implements FieldInterface
      * @param   bool $forceReset
      *
      * @return  array The field option objects.
+     *
+     * @since   3.0
      */
 	protected function getOptions($forceReset = false)
 	{
@@ -307,53 +225,5 @@ class Model extends GenericList implements FieldInterface
 		}
 
 		return static::$loadedOptions[$myFormKey];
-	}
-
-	/**
-	 * Replace string with tags that reference fields
-	 *
-	 * @param   string  $text  Text to process
-	 *
-	 * @return  string         Text with tags replace
-	 */
-	protected function parseFieldTags($text, $item = null)
-	{
-		$ret = $text;
-
-		if ($item)
-		{
-			$this->item = $item;
-		}
-
-        if (is_null($this->item))
-        {
-            $this->item = $this->form->getModel();
-        }
-
-        $replace  = $this->item->getId();
-        $ret = str_replace('[ITEM:ID]', $replace, $ret);
-
-        // Replace the [ITEMID] in the URL with the current Itemid parameter
-        $ret = str_replace('[ITEMID]', $this->form->getContainer()->input->getInt('Itemid', 0), $ret);
-
-        // Replace the [TOKEN] in the URL with the Joomla! form token
-        $ret = str_replace('[TOKEN]', \JFactory::getSession()->getFormToken(), $ret);
-
-        // Replace other field variables in the URL
-        $data = $this->item->getData();
-
-        foreach ($data as $field => $value)
-        {
-            // Skip non-processable values
-            if(is_array($value) || is_object($value))
-            {
-                continue;
-            }
-
-            $search = '[ITEM:' . strtoupper($field) . ']';
-            $ret    = str_replace($search, $value, $ret);
-        }
-
-		return $ret;
 	}
 }

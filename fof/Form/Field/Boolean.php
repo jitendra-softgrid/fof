@@ -34,7 +34,7 @@ class Boolean extends GenericList implements FieldInterface
 	 *
 	 * @return  array  The field option objects.
 	 *
-	 * @since	Ordering is available since FOF 2.1.b2.
+	 * @since	2.1.0b2
 	 */
 	protected function getOptions()
 	{
