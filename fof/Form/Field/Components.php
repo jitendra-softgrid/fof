@@ -18,81 +18,14 @@ defined('_JEXEC') or die;
  * Form Field class for FOF
  * Components installed on the site
  */
-class Components extends \JFormFieldList implements FieldInterface
+class Components extends BaseList implements FieldInterface
 {
-	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
-	 *
-	 * @var    Form
-	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
 	/**
 	 * Override for the list of client IDs. Comma separated list, e.g. "0,1"
 	 *
 	 * @var string
 	 */
 	public $client_ids = null;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.1
-	 */
-	public function __get($name)
-	{
-		switch ($name)
-		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
-
-				return $this->static;
-				break;
-
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
-
-				return $this->repeatable;
-				break;
-
-			default:
-				return parent::__get($name);
-		}
-	}
 
 	/**
 	 * Get the rendering of this field type for static display, e.g. in a single
