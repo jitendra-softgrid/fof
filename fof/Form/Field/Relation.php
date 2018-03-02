@@ -8,6 +8,7 @@
 namespace FOF40\Form\Field;
 
 use FOF40\Model\DataModel;
+use FOF40\Model\DataModel\Relation\Exception\RelationNotFound;
 use \JHtml;
 use \JText;
 
@@ -26,8 +27,11 @@ class Relation extends GenericList
 	 * @since 2.0
 	 *
 	 * @return  string  The field HTML
+	 *
+	 * @throws RelationNotFound
 	 */
-	public function getStatic() {
+	public function getStatic()
+	{
 		return $this->getRepeatable();
 	}
 
@@ -38,6 +42,8 @@ class Relation extends GenericList
 	 * @since 2.0
 	 *
 	 * @return  string  The field HTML
+	 *
+	 * @throws RelationNotFound
 	 */
 	public function getRepeatable()
 	{
@@ -60,18 +66,19 @@ class Relation extends GenericList
 		$relationName = $this->form->getModel()->getContainer()->inflector->pluralize($this->name);
 		$relations    = $this->item->getRelations()->getData($relationName);
 
-		$rels = array();
+		$rels = [];
 
-		foreach ($relations as $relation) {
+		foreach ($relations as $relation)
+		{
 
 			$html = '<span class="' . $relationclass . '">';
 
 			if ($link_url)
 			{
-				$keyfield = $relation->getKeyName();
-				$this->_relationId =  $relation->$keyfield;
+				$keyfield          = $relation->getKeyName();
+				$this->_relationId = $relation->$keyfield;
 
-				$url = $this->parseFieldTags($link_url);
+				$url  = $this->parseFieldTags($link_url);
 				$html .= '<a href="' . $url . '">';
 			}
 
@@ -117,18 +124,20 @@ class Relation extends GenericList
 	 * Method to get the field options.
 	 *
 	 * @return  array  The field option objects.
+	 *
+	 * @throws \Exception
 	 */
 	protected function getOptions()
 	{
-		$options     = array();
-		$this->value = array();
+		$options     = [];
+		$this->value = [];
 
 		$value_field = $this->element['value_field'] ? (string) $this->element['value_field'] : 'title';
-		$name = (string) $this->element['name'];
-        	$class = $this->element['model'] ? (string) $this->element['model'] : $name;
+		$name        = (string) $this->element['name'];
+		$class       = $this->element['model'] ? (string) $this->element['model'] : $name;
 
-		$view      = $this->form->getView()->getName();
-		$relation  = $this->form->getModel()->getContainer()->inflector->pluralize($class);
+		$view     = $this->form->getView()->getName();
+		$relation = $this->form->getModel()->getContainer()->inflector->pluralize($class);
 
 		/** @var DataModel $model */
 		$model = $this->form->getContainer()->factory->model($relation)->setIgnoreRequest(true)->savestate(false);
@@ -154,52 +163,4 @@ class Relation extends GenericList
 
 		return $options;
 	}
-
-	/**
-	 * Replace string with tags that reference fields
-	 *
-	 * @param   string  $text  Text to process
-	 *
-	 * @return  string         Text with tags replace
-	 */
-    protected function parseFieldTags($text)
-    {
-        $ret = $text;
-
-        // Replace [ITEM:ID] in the URL with the item's key value (usually:
-        // the auto-incrementing numeric ID)
-        if (is_null($this->item))
-        {
-            $this->item = $this->form->getModel();
-        }
-
-        $replace  = $this->item->getId();
-        $ret = str_replace('[ITEM:ID]', $replace, $ret);
-
-        // Replace the [ITEMID] in the URL with the current Itemid parameter
-        $ret = str_replace('[ITEMID]', $this->form->getContainer()->input->getInt('Itemid', 0), $ret);
-
-        // Replace the [TOKEN] in the URL with the Joomla! form token
-        $ret = str_replace('[TOKEN]', \JFactory::getSession()->getFormToken(), $ret);
-
-        // Replace the [RELATION:ID] in the URL with the relation's key value
-        $ret = str_replace('[RELATION:ID]', $this->_relationId, $ret);
-
-        // Replace other field variables in the URL
-        $data = $this->item->getData();
-
-        foreach ($data as $field => $value)
-        {
-            // Skip non-processable values
-            if(is_array($value) || is_object($value))
-            {
-                continue;
-            }
-
-            $search = '[ITEM:' . strtoupper($field) . ']';
-            $ret    = str_replace($search, $value, $ret);
-        }
-
-        return $ret;
-    }
 }
