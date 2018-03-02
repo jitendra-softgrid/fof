@@ -17,73 +17,28 @@ defined('_JEXEC') or die;
  * Form Field class for FOF
  * Joomla! cache handlers
  */
-class CacheHandler extends \JFormFieldCacheHandler implements FieldInterface
+class CacheHandler extends BaseList implements FieldInterface
 {
 	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
+	 * Method to get the field options.
 	 *
-	 * @var    Form
+	 * @return  array  The field option objects.
+	 *
+	 * @since   4.0
 	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.0
-	 */
-	public function __get($name)
+	protected function getOptions()
 	{
-		switch ($name)
+		$options = array();
+
+		// Convert to name => name array.
+		foreach (\JCache::getStores() as $store)
 		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
-
-				return $this->static;
-				break;
-
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
-
-				return $this->repeatable;
-				break;
-
-			default:
-				return parent::__get($name);
+			$options[] = \JHtml::_('select.option', $store, \JText::_('JLIB_FORM_VALUE_CACHE_' . $store), 'value', 'text');
 		}
+
+		$options = array_merge(parent::getOptions(), $options);
+
+		return $options;
 	}
 
 	/**
