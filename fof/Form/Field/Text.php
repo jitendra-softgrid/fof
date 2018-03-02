@@ -9,49 +9,54 @@ namespace FOF40\Form\Field;
 
 use FOF40\Form\FieldInterface;
 use FOF40\Form\Form;
+use FOF40\Form\FormField;
 use FOF40\Model\DataModel;
+use JComponentHelper;
+use JHtml;
+use Joomla\CMS\Factory;
 use \JText;
+use JUri;
+use SimpleXMLElement;
 
 defined('_JEXEC') or die;
-
-\JFormHelper::loadFieldClass('text');
 
 /**
  * Form Field class for the FOF framework
  * Supports a one line text field.
  */
-class Text extends \JFormFieldText implements FieldInterface
+class Text extends FormField implements FieldInterface
 {
 	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
+	 * The allowable maxlength of the field.
 	 *
-	 * @var    Form
+	 * @var    integer
+	 * @since  4.0
 	 */
-	protected $form;
+	protected $maxLength;
 
 	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
+	 * The mode of input associated with the field.
 	 *
-	 * @var  int
+	 * @var    mixed
+	 * @since  4.0
 	 */
-	public $rowid;
+	protected $inputmode;
 
 	/**
-	 * The item being rendered in a repeatable form field
+	 * The name of the form field direction (ltr or rtl).
 	 *
-	 * @var  DataModel
+	 * @var    string
+	 * @since  4.0
 	 */
-	public $item;
+	protected $dirname;
+
+	/**
+	 * Name of the layout being used to render the field
+	 *
+	 * @var    string
+	 * @since  4.0
+	 */
+	protected $layout = 'joomla.form.field.text';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.
@@ -60,33 +65,147 @@ class Text extends \JFormFieldText implements FieldInterface
 	 *
 	 * @return  mixed  The property value or null.
 	 *
-	 * @since   2.0
+	 * @since   4.0
 	 */
 	public function __get($name)
 	{
 		switch ($name)
 		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
+			case 'maxLength':
+			case 'dirname':
+			case 'inputmode':
+				return $this->$name;
+		}
 
-				return $this->static;
+		return parent::__get($name);
+	}
+
+	/**
+	 * Method to set certain otherwise inaccessible properties of the form field object.
+	 *
+	 * @param   string  $name   The property name for which to the the value.
+	 * @param   mixed   $value  The value of the property.
+	 *
+	 * @return  void
+	 *
+	 * @since   4.0
+	 */
+	public function __set($name, $value)
+	{
+		switch ($name)
+		{
+			case 'maxLength':
+				$this->maxLength = (int) $value;
 				break;
 
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
+			case 'dirname':
+				$value = (string) $value;
+				$this->dirname = ($value == $name || $value == 'true' || $value == '1');
+				break;
 
-				return $this->repeatable;
+			case 'inputmode':
+				$this->inputmode = (string) $value;
 				break;
 
 			default:
-				return parent::__get($name);
+				parent::__set($name, $value);
 		}
+	}
+
+	/**
+	 * Method to attach a Form object to the field.
+	 *
+	 * @param   SimpleXMLElement  $element  The SimpleXMLElement object representing the `<field>` tag for the form field object.
+	 * @param   mixed             $value    The form field value to validate.
+	 * @param   string            $group    The field name group control value. This acts as an array container for the field.
+	 *                                      For example if the field has name="foo" and the group value is set to "bar" then the
+	 *                                      full field name would end up being "bar[foo]".
+	 *
+	 * @return  boolean  True on success.
+	 *
+	 * @see     FormField::setup()
+	 * @since   4.0
+	 */
+	public function setup(SimpleXMLElement $element, $value, $group = null)
+	{
+		$result = parent::setup($element, $value, $group);
+
+		if ($result == true)
+		{
+			$inputmode = (string) $this->element['inputmode'];
+			$dirname = (string) $this->element['dirname'];
+
+			$this->inputmode = '';
+			$inputmode = preg_replace('/\s+/', ' ', trim($inputmode));
+			$inputmode = explode(' ', $inputmode);
+
+			if (!empty($inputmode))
+			{
+				$defaultInputmode = in_array('default', $inputmode) ? JText::_('JLIB_FORM_INPUTMODE') . ' ' : '';
+
+				foreach (array_keys($inputmode, 'default') as $key)
+				{
+					unset($inputmode[$key]);
+				}
+
+				$this->inputmode = $defaultInputmode . implode(' ', $inputmode);
+			}
+
+			// Set the dirname.
+			$dirname = ((string) $dirname == 'dirname' || $dirname == 'true' || $dirname == '1');
+			$this->dirname = $dirname ? $this->getName($this->fieldname . '_dir') : false;
+
+			$this->maxLength = (int) $this->element['maxlength'];
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Method to get the field input markup.
+	 *
+	 * @return  string  The field input markup.
+	 *
+	 * @since   4.0
+	 */
+	public function getInput()
+	{
+		if ($this->element['useglobal'])
+		{
+			$component = Factory::getApplication()->input->getCmd('option');
+
+			// Get correct component for menu items
+			if ($component == 'com_menus')
+			{
+				$link      = $this->form->getData()->get('link');
+				$uri       = new JUri($link);
+				$component = $uri->getVar('option', 'com_menus');
+			}
+
+			$params = JComponentHelper::getParams($component);
+			$value  = $params->get($this->fieldname);
+
+			// Try with global configuration
+			if (is_null($value))
+			{
+				$value = Factory::getConfig()->get($this->fieldname);
+			}
+
+			// Try with menu configuration
+			if (is_null($value) && Factory::getApplication()->input->getCmd('option') == 'com_menus')
+			{
+				$value = JComponentHelper::getParams('com_menus')->get($this->fieldname);
+			}
+
+			if (!is_null($value))
+			{
+				$value = (string) $value;
+
+				$this->hint = JText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
+			}
+		}
+
+		return $this->getRenderer($this->layout)->render($this->getLayoutData());
 	}
 
 	/**
@@ -307,4 +426,62 @@ class Text extends \JFormFieldText implements FieldInterface
 
         return $ret;
     }
+
+	/**
+	 * Method to get the field options.
+	 *
+	 * @return  array  The field option objects.
+	 *
+	 * @since   4.0
+	 */
+	protected function getOptions()
+	{
+		$options = array();
+
+		foreach ($this->element->children() as $option)
+		{
+			// Only add <option /> elements.
+			if ($option->getName() != 'option')
+			{
+				continue;
+			}
+
+			// Create a new option object based on the <option /> element.
+			$options[] = JHtml::_(
+				'select.option', (string) $option['value'],
+				JText::alt(trim((string) $option), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text'
+			);
+		}
+
+		return $options;
+	}
+
+	/**
+	 * Method to get the data to be passed to the layout for rendering.
+	 *
+	 * @return  array
+	 *
+	 * @since 4.0
+	 */
+	protected function getLayoutData()
+	{
+		$data = parent::getLayoutData();
+
+		// Initialize some field attributes.
+		$maxLength    = !empty($this->maxLength) ? ' maxlength="' . $this->maxLength . '"' : '';
+		$inputmode    = !empty($this->inputmode) ? ' inputmode="' . $this->inputmode . '"' : '';
+		$dirname      = !empty($this->dirname) ? ' dirname="' . $this->dirname . '"' : '';
+
+		$options  = (array) $this->getOptions();
+
+		$extraData = array(
+			'maxLength' => $maxLength,
+			'pattern'   => $this->pattern,
+			'inputmode' => $inputmode,
+			'dirname'   => $dirname,
+			'options'   => $options,
+		);
+
+		return array_merge($data, $extraData);
+	}
 }
