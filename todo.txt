@@ -1,4 +1,21 @@
-Create FormHeader to replace HeaderInterface
+After merging FOF and Joomla field classes
+    - Copy over the layouts from core Joomla into FOF and update the respective field classes
+    - Change the HTML markup of all fields to use FEF
+    - Note down which fields go through JHtml, track down their layouts and clone them too
+    - Either convince JHtml to use a different layout file or, if not possible, fork the JHtml class
+    - Convert the JHtml-specific layout fiels to FEF
+
+Convert the header elements as well
 
 FormField's getLayoutPaths should return by default a list defined in fof.xml (defined relative to the site's root, I need to make it absolute)
-The default value, if nothing else is specified, would be the layout folder inside the component itself
+The default value, if nothing else is specified, would be the layout folder inside the component itself.
+Maybe we can refactor FormField to
+    a. get a common prefix from the Renderer
+    b. get a layout path from the Renderer
+
+
+---
+
+NO DO NOT DO THAT: "Create FormHeader to replace HeaderInterface"
+    Header elements are FormFields which implement a different interface.
+    The common code should go into a trait instead.

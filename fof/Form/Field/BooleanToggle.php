@@ -21,13 +21,12 @@ defined('_JEXEC') or die;
  */
 class BooleanToggle extends Radio implements FieldInterface
 {
-	protected function getInput()
+	public function getInput()
 	{
 		$this->class = 'btn-group btn-group-yesno ';
 
 		return parent::getInput();
 	}
-
 
 	/**
 	 * Method to get the field options.

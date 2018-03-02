@@ -10,6 +10,7 @@ namespace FOF40\Form\Field;
 use FOF40\Form\FieldInterface;
 use FOF40\Form\Form;
 use FOF40\Model\DataModel;
+use UnexpectedValueException;
 
 defined('_JEXEC') or die;
 
@@ -17,73 +18,50 @@ defined('_JEXEC') or die;
  * Form Field class for FOF
  * Radio selection list
  */
-class Radio extends \JFormFieldRadio implements FieldInterface
+class Radio extends BaseList implements FieldInterface
 {
 	/**
-	 * @var  string  Static field output
+	 * Name of the layout being used to render the field
+	 *
+	 * @var    string
+	 * @since  4.0
 	 */
-	protected $static;
+	protected $layout = 'joomla.form.field.radio';
 
 	/**
-	 * @var  string  Repeatable field output
+	 * Method to get the radio button field input markup.
+	 *
+	 * @return  string  The field input markup.
+	 *
+	 * @since   4.0
 	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
-	 *
-	 * @var    Form
-	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.0
-	 */
-	public function __get($name)
+	public function getInput()
 	{
-		switch ($name)
+		if (empty($this->layout))
 		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
-
-				return $this->static;
-				break;
-
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
-
-				return $this->repeatable;
-				break;
-
-			default:
-				return parent::__get($name);
+			throw new UnexpectedValueException(sprintf('%s has no layout assigned.', $this->name));
 		}
+
+		return $this->getRenderer($this->layout)->render($this->getLayoutData());
+	}
+
+	/**
+	 * Method to get the data to be passed to the layout for rendering.
+	 *
+	 * @return  array
+	 *
+	 * @since   4.0
+	 */
+	protected function getLayoutData()
+	{
+		$data = parent::getLayoutData();
+
+		$extraData = array(
+			'options' => $this->getOptions(),
+			'value'   => (string) $this->value,
+		);
+
+		return array_merge($data, $extraData);
 	}
 
 	/**
@@ -142,7 +120,7 @@ class Radio extends \JFormFieldRadio implements FieldInterface
 		$id    = isset($fieldOptions['id']) ? 'id="' . $fieldOptions['id'] . '" ' : '';
 		$class = $this->class . (isset($fieldOptions['class']) ? ' ' . $fieldOptions['class'] : '');
 
-		return '<span ' . ($id ? $id : '') . 'class="' . $class . '">' .
+		return '<span ' . ($id ? $id : '') . ' class="' . $class . '">' .
 			htmlspecialchars(GenericList::getOptionName($this->getOptions(), $this->value), ENT_COMPAT, 'UTF-8') .
 			'</span>';
 	}
