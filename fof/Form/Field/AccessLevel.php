@@ -19,73 +19,34 @@ defined('_JEXEC') or die;
  * Form Field class for FOF
  * Joomla! access levels
  */
-class AccessLevel extends \JFormFieldAccessLevel implements FieldInterface
+class AccessLevel extends BaseList implements FieldInterface
 {
 	/**
-	 * @var  string  Static field output
-	 */
-	protected $static;
-
-	/**
-	 * @var  string  Repeatable field output
-	 */
-	protected $repeatable;
-
-	/**
-	 * The Form object of the form attached to the form field.
+	 * Method to get the field input markup.
 	 *
-	 * @var    Form
+	 * @return  string  The field input markup.
+	 *
+	 * @since   4.0
 	 */
-	protected $form;
-
-	/**
-	 * A monotonically increasing number, denoting the row number in a repeatable view
-	 *
-	 * @var  int
-	 */
-	public $rowid;
-
-	/**
-	 * The item being rendered in a repeatable form field
-	 *
-	 * @var  DataModel
-	 */
-	public $item;
-
-	/**
-	 * Method to get certain otherwise inaccessible properties from the form field object.
-	 *
-	 * @param   string  $name  The property name for which to the the value.
-	 *
-	 * @return  mixed  The property value or null.
-	 *
-	 * @since   2.0
-	 */
-	public function __get($name)
+	public function getInput()
 	{
-		switch ($name)
-		{
-			case 'static':
-				if (empty($this->static))
-				{
-					$this->static = $this->getStatic();
-				}
+		$attr = '';
 
-				return $this->static;
-				break;
+		// Initialize some field attributes.
+		$attr .= !empty($this->class) ? ' class="' . $this->class . '"' : '';
+		$attr .= $this->disabled ? ' disabled' : '';
+		$attr .= !empty($this->size) ? ' size="' . $this->size . '"' : '';
+		$attr .= $this->multiple ? ' multiple' : '';
+		$attr .= $this->required ? ' required aria-required="true"' : '';
+		$attr .= $this->autofocus ? ' autofocus' : '';
 
-			case 'repeatable':
-				if (empty($this->repeatable))
-				{
-					$this->repeatable = $this->getRepeatable();
-				}
+		// Initialize JavaScript field attributes.
+		$attr .= $this->onchange ? ' onchange="' . $this->onchange . '"' : '';
 
-				return $this->repeatable;
-				break;
+		// Get the field options.
+		$options = $this->getOptions();
 
-			default:
-				return parent::__get($name);
-		}
+		return JHtml::_('access.level', $this->name, $this->value, $attr, $options, $this->id);
 	}
 
 	/**
